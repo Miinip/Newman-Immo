@@ -17,8 +17,6 @@ public class Adresse {
 		super();
 	}
 
-	
-
 	public Adresse(String rue, String numero, int codePostal, String localite, String pays) {
 		super();
 		this.rue = rue;
