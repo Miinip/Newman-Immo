@@ -23,6 +23,8 @@ public abstract class Personne implements Serializable {
 	private int telPerso;
 	
 	
+	
+	
 	@Embedded
 	private Adresse adresse;
 
