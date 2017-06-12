@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+	<!-- Activation : Annotation -->
+	<context:annotation-config />
+	<!-- Activation : Detection auto des annotation composants -->
+	<context:component-scan base-package="fr.adaming" />
+	<!-- Activation : Des property resource bundles -->
+	<context:property-placeholder location="classpath*:data-source.properties" />
+	<!-- Activation : Detection auto des annotation transaction -->
+	<tx:annotation-driven transaction-manager="transactionManagerBean" />
+
+	<!-- Declaration des beans -->
+	<bean id="dataSourceBean"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.mdp}" />
+	</bean>
+
+	<bean id="sessionFactoryBean"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBean" />
+		<property name="packagesToScan" value="fr.adaming.model" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${jdbc.hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${jdbc.hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${jdbc.hibernate.hbmtoddl}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManagerBean"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactoryBean" />
+	</bean>
+
+</beans>
