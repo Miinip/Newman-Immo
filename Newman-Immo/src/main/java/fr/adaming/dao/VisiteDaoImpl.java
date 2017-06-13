@@ -7,10 +7,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mysql.fabric.xmlrpc.Client;
-
-import fr.adaming.model.BienImmobilier;
-import fr.adaming.model.Conseiller;
 import fr.adaming.model.Visite;
 
 @Repository
@@ -57,13 +53,11 @@ public class VisiteDaoImpl implements IVisiteDao{
 	}
 
 //  **************************************************************  //
-	public int deleteVisite(int idClient, int idBienImmo) {
+	public int deleteVisite(int id) {
 		
 		s = sf.getCurrentSession();
-		
 		try {
-			s.delete(s.get(Client.class, idClient));
-			int idBI = (Integer) s.get(BienImmobilier.class, idBienImmo);
+			s.delete(s.get(Visite.class, id));
 			return 1;
 		} catch (Exception ex) {
 			return 0;

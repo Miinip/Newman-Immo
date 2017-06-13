@@ -13,6 +13,6 @@ public interface IVisiteDao {
 
 	public int updateVisite(Visite v);
 
-	public int deleteVisite(int idClient, int idBienImmo);
+	public int deleteVisite(int id);
 
 }
