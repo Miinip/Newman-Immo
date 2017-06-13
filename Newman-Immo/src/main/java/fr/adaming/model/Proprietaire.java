@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name="proprietaires")
 public class Proprietaire extends Personne {
 
-	@OneToMany
+	@OneToMany(mappedBy="proprietaire")
 	private List<BienImmobilier> listeBien;
 
 	public Proprietaire() {
