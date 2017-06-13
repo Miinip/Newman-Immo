@@ -21,6 +21,10 @@ public class BienImmoRestController {
 	@Autowired
 	private IBienImmoService bService;
 	
+	public void setbService(IBienImmoService bService) {
+		this.bService = bService;
+	}
+
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(name="/add", method=RequestMethod.POST,consumes="application/json")
 	public ResponseEntity addBienImmo(@RequestBody BienImmobilier bi){
