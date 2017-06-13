@@ -1,0 +1,84 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+	<form name="updateForm">
+	
+<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="number" ng-model="conseillerForm.id" placeholder="ID*"class="form-control" required>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<input type="text" ng-model="conseillerForm.nom" placeholder="Nom*"class="form-control" required>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<input type="text"ng-model="conseillerForm.prenom" placeholder="Prenom*" class="form-control" required>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="number" ng-model="conseillerForm.telPro" placeholder="telPro" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="number" ng-model="conseillerForm.telPerso" placeholder="telPerso" class="form-control">
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="email" ng-model="conseillerForm.login" placeholder="Mail" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="password" ng-model="conseillerForm.password" placeholder="Password" class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<input type="text" ng-model="conseillerForm.adresse.numero" placeholder="N°"class="form-control">
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<input type="text" ng-model="conseillerForm.adresse.rue" placeholder="Rue" class="form-control">
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-8">
+				<div class="form-group">
+					<input type="text" ng-model="conseillerForm.adresse.localite" placeholder="Ville"class="form-control">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="number" ng-model="conseillerForm.adresse.codePostal" placeholder="CP" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="text" ng-model="conseillerForm.adresse.pays" placeholder="Pays" class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<button type="submit" ng-click="modifier()" class="btn btn-primary pull-right">Edit</button>
+	</form>
+</div>
