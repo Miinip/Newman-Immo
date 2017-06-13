@@ -15,7 +15,7 @@ public abstract class Personne implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_p")
+	@Column(name = "id")
 	private int id;
 	private String nom;
 	private String prenom;
