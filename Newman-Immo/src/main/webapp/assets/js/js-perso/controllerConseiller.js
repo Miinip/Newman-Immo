@@ -3,7 +3,7 @@ monApp.controller("ctrlOneConseiller",function($scope,$rootScope,$location,conse
 	$scope.idToFind =undefined;
 	$scope.find = function(){
 		conseillerProvider.getOneConseiller($scope.idToFind,function(callback){
-			$scope.Conseiller = callback;
+			$scope.conseiller = callback;
 		})
 	}
 	

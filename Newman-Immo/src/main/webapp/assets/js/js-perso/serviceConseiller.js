@@ -1,4 +1,4 @@
-onApp.factory('conseillerProvider', function($http) {
+monApp.factory('conseillerProvider', function($http) {
 	var restUrl = 'http://localhost:8080/angularJS_projet1/rest';
 
 	function findAllConseiller(callback) {
