@@ -3,12 +3,14 @@ package fr.adaming.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="proprietaires")
 public class Proprietaire extends Personne {
 
+	@OneToMany
 	private List<BienImmobilier> listeBien;
 
 	public Proprietaire() {
