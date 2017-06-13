@@ -3,6 +3,11 @@ package fr.adaming.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -10,11 +15,16 @@ import javax.persistence.OneToMany;
 
 public class Visite {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_v")
+	private int id;
 	private Date date;
 	private Date heure;
 	
-	@ManyToMany(mappedBy="listeVisites")
-	private List<BienImmobilier> listeBienVisite;
+	@ManyToOne
+	@JoinColumn(name="bien_id", referencedColumnName="id_bi")
+	private BienImmobilier bienImmo;
 	
 	@ManyToOne
 	private List<Client> listeClientsVisiteurs;
@@ -25,17 +35,36 @@ public class Visite {
 		super();
 	}
 
-	// constructeur avec param
-	public Visite(Date date, Date heure, List<BienImmobilier> listeBienVisite, List<Client> listeClientsVisiteurs) {
+
+	// constructeur sans id avec param
+	public Visite(Date date, Date heure, BienImmobilier bienImmo, List<Client> listeClientsVisiteurs) {
 		super();
 		this.date = date;
 		this.heure = heure;
-		this.listeBienVisite = listeBienVisite;
+		this.bienImmo = bienImmo;
+		this.listeClientsVisiteurs = listeClientsVisiteurs;
+	}
+	
+	// constructeur avec id avec param
+	public Visite(int id, Date date, Date heure, BienImmobilier bienImmo, List<Client> listeClientsVisiteurs) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.heure = heure;
+		this.bienImmo = bienImmo;
 		this.listeClientsVisiteurs = listeClientsVisiteurs;
 	}
 
 	
 	// Getters & Setters
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public Date getDate() {
 		return date;
 	}
@@ -54,15 +83,15 @@ public class Visite {
 	public void setHeure(Date heure) {
 		this.heure = heure;
 	}
+	
 
-
-	public List<BienImmobilier> getListeBienVisite() {
-		return listeBienVisite;
+	public BienImmobilier getBienImmo() {
+		return bienImmo;
 	}
 
 
-	public void setListeBienVisite(List<BienImmobilier> listeBienVisite) {
-		this.listeBienVisite = listeBienVisite;
+	public void setBienImmo(BienImmobilier bienImmo) {
+		this.bienImmo = bienImmo;
 	}
 
 
@@ -79,11 +108,10 @@ public class Visite {
 	// toString
 	@Override
 	public String toString() {
-		return "Visite [date=" + date + ", heure=" + heure + ", listeBienVisite=" + listeBienVisite
+		return "Visite [id=" + id + ", date=" + date + ", heure=" + heure + ", bienImmo=" + bienImmo
 				+ ", listeClientsVisiteurs=" + listeClientsVisiteurs + "]";
 	}
-	
-	
-	
-	
+
+
+
 }
