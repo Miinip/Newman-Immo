@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.model.Conseiller;
 import fr.adaming.model.Visite;
 
 @Repository
@@ -63,6 +64,13 @@ public class VisiteDaoImpl implements IVisiteDao{
 			return 0;
 		}
 		
+	}
+
+//  **************************************************************  //
+	public Visite getByIdVisite(int id) {
+		
+		s = sf.getCurrentSession();
+		return (Visite) s.get(Visite.class, id);
 	}
 
 

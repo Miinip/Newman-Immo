@@ -1,11 +1,10 @@
-package fr.adaming.dao;
+package fr.adaming.service;
 
 import java.util.List;
 
 import fr.adaming.model.Visite;
 
-
-public interface IVisiteDao {
+public interface IVisiteService {
 	
 	public int addVisite(Visite v);
 	public List<Visite> getAllVisite();
