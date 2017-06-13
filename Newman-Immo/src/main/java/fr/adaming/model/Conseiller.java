@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "conseillers")
 @SuppressWarnings("serial")
@@ -21,6 +23,7 @@ public class Conseiller extends Personne {
 	private String password;
 	
 	@OneToMany(mappedBy="conseiller",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JsonBackReference
 	private List<BienImmobilier> ListeGestionDesBien;
 	
 	public Conseiller() {

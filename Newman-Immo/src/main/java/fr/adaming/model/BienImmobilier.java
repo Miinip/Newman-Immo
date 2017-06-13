@@ -21,6 +21,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="bienImmos")
 public class BienImmobilier {
@@ -50,6 +52,7 @@ public class BienImmobilier {
 	
 	@ManyToOne
 	@JoinColumn(name="conseiller_id",referencedColumnName="id")
+	@JsonManagedReference
 	private Conseiller conseiller;
 
 	@OneToMany(mappedBy="bienImmo")
