@@ -17,9 +17,10 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 
 	@Autowired
 	private SessionFactory sf;
-	
+
 	/**
-	 * @param sf the sf to set
+	 * @param sf
+	 *            the sf to set
 	 */
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
@@ -27,28 +28,40 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 
 	public int createProprietaire(Proprietaire prop) {
 		Session s = sf.getCurrentSession();
-		s.save(prop);
-		return 1;
+		try {
+			s.save(prop);
+			return 1;
+		} catch (Exception ex) {
+			return 0;
+		}
 	}
 
 	public int updateProprietaire(Proprietaire prop) {
 		Session s = sf.getCurrentSession();
-		Proprietaire prop_rec = (Proprietaire) s.get(Proprietaire.class, prop.getId());
-		prop_rec.setNom(prop.getNom());
-		prop_rec.setPrenom(prop.getPrenom());
-		prop_rec.setTelPerso(prop.getTelPerso());
-		prop_rec.setTelPro(prop.getTelPro());
-		prop_rec.setAdresse(prop.getAdresse());
-		prop_rec.setListeBien(prop.getListeBien());
-		s.merge(prop_rec);
-		return 1;
+		try {
+			Proprietaire prop_rec = (Proprietaire) s.get(Proprietaire.class, prop.getId());
+			prop_rec.setNom(prop.getNom());
+			prop_rec.setPrenom(prop.getPrenom());
+			prop_rec.setTelPerso(prop.getTelPerso());
+			prop_rec.setTelPro(prop.getTelPro());
+			prop_rec.setAdresse(prop.getAdresse());
+			prop_rec.setListeBien(prop.getListeBien());
+			s.merge(prop_rec);
+			return 1;
+		} catch (Exception ex) {
+			return 0;
+		}
 	}
 
 	public int deleteProprietaire(int id) {
 		Session s = sf.getCurrentSession();
-		Proprietaire prop =(Proprietaire) s.get(Proprietaire.class, id);
-		s.delete(prop);
-		return 1;
+		try {
+			Proprietaire prop = (Proprietaire) s.get(Proprietaire.class, id);
+			s.delete(prop);
+			return 1;
+		} catch (Exception ex) {
+			return 0;
+		}
 	}
 
 	public Proprietaire getOnePropbyId(Proprietaire prop) {
@@ -65,7 +78,8 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 
 	public int attributePropToConseiller(Proprietaire prop, BienImmobilier bienImmo) {
 		Session s = sf.getCurrentSession();
-		Query query = s.createQuery("UPDATE Proprietaire prop SET prop.id=:pIdProp WHERE bienImmo.id=:pIdBienImmobilier");
+		Query query = s
+				.createQuery("UPDATE Proprietaire prop SET prop.id=:pIdProp WHERE bienImmo.id=:pIdBienImmobilier");
 		query.setParameter("pIdProp", prop.getId());
 		query.setParameter("pIdBienImmobilier", bienImmo.getId());
 		query.executeUpdate();
