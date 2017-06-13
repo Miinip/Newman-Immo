@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adaming.model.BienImmobilier;
 import fr.adaming.model.Conseiller;
 import fr.adaming.model.Proprietaire;
 import fr.adaming.service.IProprietaireService;
@@ -79,4 +80,15 @@ public class ProprietaireRestController {
 		return propService.getOnePropbyId(id);
 	}
 	
+	@RequestMapping(value="/attribute",method=RequestMethod.PUT, consumes="application/json")
+	public ResponseEntity attributePropToBienImmoRest(@RequestBody Proprietaire prop, @RequestBody BienImmobilier bienImmo){
+		int status = propService.attributePropToBienImmo(prop, bienImmo);
+		if(status == 1){
+			System.out.println("-------- attributePropToBienImmoRestRest [OK] --------");
+			return new ResponseEntity(HttpStatus.OK);
+		}else{
+			System.out.println("-------- dattributePropToBienImmoRestRest [BAD_REQUEST] --------");
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
+	}
 }

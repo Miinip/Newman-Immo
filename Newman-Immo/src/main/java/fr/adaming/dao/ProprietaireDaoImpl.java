@@ -18,6 +18,7 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 	@Autowired
 	private SessionFactory sf;
 
+	
 	/**
 	 * @param sf
 	 *            the sf to set

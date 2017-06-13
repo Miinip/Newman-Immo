@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.IBienImmoDao;
 import fr.adaming.dao.IProprietaireDao;
 import fr.adaming.model.BienImmobilier;
 import fr.adaming.model.Proprietaire;
@@ -16,7 +17,8 @@ public class ProprietaireServiceImpl implements IProprietaireService{
 
 	@Autowired
 	private IProprietaireDao propDao;
-	
+	@Autowired
+	private IBienImmoDao bienImmoDao;
 	/**
 	 * @param propDao the propDao to set
 	 */
