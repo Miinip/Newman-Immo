@@ -31,6 +31,14 @@ public class BienImmoService implements IBienImmoService{
 	public BienImmobilier getById(int id) {
 		return bDao.getById(id);
 	}
+
+	public int updateBienImmo(BienImmobilier bi) {
+		return bDao.updateBienImmo(bi);
+	}
+
+	public int deleteBienImmo(int id) {
+		return bDao.deleteBienImmo(id);
+	}
 	
 	
 

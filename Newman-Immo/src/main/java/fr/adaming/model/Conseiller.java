@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +16,7 @@ public class Conseiller extends Personne {
 	private String login;
 	private String password;
 	
+	@OneToMany(mappedBy="conseiller")
 	private List<BienImmobilier> ListeGestionDesBien;
 	
 	public Conseiller() {

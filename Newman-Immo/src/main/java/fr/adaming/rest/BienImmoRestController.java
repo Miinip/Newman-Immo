@@ -39,10 +39,34 @@ public class BienImmoRestController {
 		return bService.afficherBienImmo();
 	}
 	
-	@RequestMapping(name="one/{id}",method=RequestMethod.GET,produces="application/json")
+	@RequestMapping(name="/one/{id}",method=RequestMethod.GET,produces="application/json")
 	public BienImmobilier getByIdBienImmo(@PathVariable("id")int id){
 		return bService.getById(id);
 		}
+	
+	@RequestMapping(name="/update",method=RequestMethod.PUT, produces="application/json",consumes="application/json")
+	public ResponseEntity updateBienImmo(@RequestBody BienImmobilier bi){
+		int status = bService.updateBienImmo(bi);
+		if(status == 1){
+			System.out.println("-------- addConseillerRest [OK] --------");
+			return new ResponseEntity(HttpStatus.OK);
+		}else{
+			System.out.println("-------- addConseillerRest [BAD_REQUEST] --------");
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@RequestMapping(name="/delete/{id}",method=RequestMethod.DELETE, produces="application/json",consumes="application/json")
+	public ResponseEntity deleteBienImmo(@PathVariable("id") int id){
+		int status = bService.deleteBienImmo(id);
+		if(status == 1){
+			System.out.println("-------- addConseillerRest [OK] --------");
+			return new ResponseEntity(HttpStatus.OK);
+		}else{
+			System.out.println("-------- addConseillerRest [BAD_REQUEST] --------");
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
+	}
 	
 	
 }

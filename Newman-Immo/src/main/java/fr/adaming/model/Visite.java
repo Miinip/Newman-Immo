@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +13,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="visites")
 public class Visite {
 
 	@Id
@@ -27,7 +31,8 @@ public class Visite {
 	private BienImmobilier bienImmo;
 	
 	@ManyToOne
-	private List<Client> listeClientsVisiteurs;
+	@JoinColumn(name="clientV_id",referencedColumnName="id")
+	private Client clientVisiteur;
 	
 	
 	// constructeur vide
@@ -42,7 +47,7 @@ public class Visite {
 		this.date = date;
 		this.heure = heure;
 		this.bienImmo = bienImmo;
-		this.listeClientsVisiteurs = listeClientsVisiteurs;
+		this.clientVisiteur = clientVisiteur;
 	}
 	
 	// constructeur avec id avec param
@@ -52,7 +57,7 @@ public class Visite {
 		this.date = date;
 		this.heure = heure;
 		this.bienImmo = bienImmo;
-		this.listeClientsVisiteurs = listeClientsVisiteurs;
+		this.clientVisiteur = clientVisiteur;
 	}
 
 	
@@ -95,13 +100,13 @@ public class Visite {
 	}
 
 
-	public List<Client> getListeClientsVisiteurs() {
-		return listeClientsVisiteurs;
+	public Client getClientVisiteur() {
+		return clientVisiteur;
 	}
 
 
-	public void setListeClientsVisiteurs(List<Client> listeClientsVisiteurs) {
-		this.listeClientsVisiteurs = listeClientsVisiteurs;
+	public void setClientVisiteur(Client clientVisiteur) {
+		this.clientVisiteur = clientVisiteur;
 	}
 
 
@@ -109,7 +114,9 @@ public class Visite {
 	@Override
 	public String toString() {
 		return "Visite [id=" + id + ", date=" + date + ", heure=" + heure + ", bienImmo=" + bienImmo
-				+ ", listeClientsVisiteurs=" + listeClientsVisiteurs + "]";
+				+  "]";
 	}
+
+
 
 }

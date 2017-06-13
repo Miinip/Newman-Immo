@@ -52,17 +52,14 @@ public class BienImmobilier {
 	@JoinColumn(name="conseiller_id",referencedColumnName="id")
 	private Conseiller conseiller;
 
-	@ManyToMany
-	@JoinTable(name="table_assoc_visite_bien",
-	joinColumns=@JoinColumn(name="visite_id"),
-	inverseJoinColumns=@JoinColumn(name="id_v"))
+	@OneToMany(mappedBy="bienImmo")
 	private List<Visite> listeVisites;
 	
 	@OneToMany(mappedBy="bien")
 	private List<Contrat> listeContrats;
 	
 	@OneToOne
-	@JoinColumn(name="cS_id",referencedColumnName="id_cs")
+	@JoinColumn(name="cs_id",referencedColumnName="id_cs")
 	private ClasseStandard classeStandard;
 	
 	@ManyToOne
