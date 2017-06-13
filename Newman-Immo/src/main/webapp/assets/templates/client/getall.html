@@ -1,0 +1,47 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+	<div class="form-group">
+		<form id="expandable">
+			<input type="search" ng-model="recherche" placeholder="Search" class="form-control pull-right">
+		</form>
+	</div>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>N&#176; Pro</th>
+				<th>N&#176; Perso</th>
+				<th>Rue</th>
+				<th>Numero</th>
+				<th>Code postal</th>
+				<th>Ville</th>
+				<th>Pays</th>
+				<th class="text-right">-</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="client in listeClients | filter:recherche" ng-mouseover="doShow(client.id)" ng-mouseleave="doHide(client.id)">
+				<td>{{client.id}}</td>
+				<td>{{client.nom}}</td>
+				<td>{{client.prenom}}</td>
+				<td>{{client.telPro}}</td>
+				<td>{{client.telPerso}}</td>
+				<td>{{client.adresse.rue}}</td>
+				<td>{{client.adresse.numero}}</td>
+				<td>{{client.adresse.codePostal}}</td>
+				<td>{{client.adresse.localite}}</td>
+				<td>{{client.adresse.pays}}</td>
+				<td class="text-right col-md-1">
+					<div class="btn-group" role="group" ng-show="MouseOverRow[client.id]">
+						<i ng-click="modifier(client)" class="material-icons btn-info btn-xs">mode_edit</i>
+						<i ng-click="supprimer(client.id)" class="material-icons btn-danger btn-xs">clear</i>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
