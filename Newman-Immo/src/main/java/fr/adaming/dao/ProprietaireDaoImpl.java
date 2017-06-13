@@ -64,9 +64,9 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 		}
 	}
 
-	public Proprietaire getOnePropbyId(Proprietaire prop) {
+	public Proprietaire getOnePropbyId(int id) {
 		Session s = sf.getCurrentSession();
-		Proprietaire prop_rec = (Proprietaire) s.get(Proprietaire.class, prop.getId());
+		Proprietaire prop_rec = (Proprietaire) s.get(Proprietaire.class, id);
 		return prop_rec;
 	}
 

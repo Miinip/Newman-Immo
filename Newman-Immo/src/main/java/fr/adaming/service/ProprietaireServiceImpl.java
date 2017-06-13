@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IProprietaireDao;
+import fr.adaming.model.BienImmobilier;
 import fr.adaming.model.Proprietaire;
 
 @Service
@@ -29,23 +30,28 @@ public class ProprietaireServiceImpl implements IProprietaireService{
 	}
 
 	public int updateProprietaire(Proprietaire prop) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return propDao.updateProprietaire(prop);
 	}
 
 	public int deleteProprietaire(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return propDao.deleteProprietaire(id);
 	}
 
-	public Proprietaire getOnePropbyId(Proprietaire prop) {
-		// TODO Auto-generated method stub
-		return null;
+	public Proprietaire getOnePropbyId(int id) {
+		
+		return propDao.getOnePropbyId(id);
 	}
 
 	public List<Proprietaire> getAllProprietaires() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return propDao.getAllProprietaires();
+	}
+
+	public int attributePropToConseiller(Proprietaire prop, BienImmobilier bienImmo) {
+		
+		return propDao.attributePropToConseiller(prop, bienImmo);
 	}
 
 }

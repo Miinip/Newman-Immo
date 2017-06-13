@@ -14,7 +14,7 @@ public interface IProprietaireDao {
 	
 	public int deleteProprietaire (int id);
 	
-	public Proprietaire getOnePropbyId (Proprietaire prop);
+	public Proprietaire getOnePropbyId (int id);
 	
 	public int attributePropToConseiller (Proprietaire prop, BienImmobilier bienImmo);
 	
