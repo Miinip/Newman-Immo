@@ -1,0 +1,41 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+	<form name="updateForm">
+
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="number" ng-model="visiteForm.id" placeholder="ID" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<input type="date" ng-model="visiteForm.date" placeholder="Date" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<input type="datetime" ng-model="visiteForm.heure"	placeholder="Heure" class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="text" ng-model="visiteForm.bienImmo" placeholder="Bien immobilier"class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="text"ng-model="visiteForm.clientVisiteur" placeholder="Client" class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<button type="submit" ng-click="modifier()"
+			class="btn btn-primary pull-right">Edit</button>
+	</form>
+</div>

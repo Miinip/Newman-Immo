@@ -1,5 +1,5 @@
 monApp.factory('conseillerProvider', function($http) {
-	var restUrl = 'http://localhost:8080/angularJS_projet1/rest';
+	var restUrl = 'http://localhost:8080/Newman-Immo/rest';
 
 	function findAllConseiller(callback) {
 		$http({method : 'GET',url : restUrl + '/conseiller/all'}).then(

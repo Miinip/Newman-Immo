@@ -1,0 +1,55 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+
+	<div class="row">
+		<form name="getOneForm">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<input type="number" 
+						ng-model="idToFind" class="form-control" placeholder="Find" required>
+				</div>
+			</div>
+
+			<button ng-click="find()" class="btn btn-primary">chercher</button>
+			<div class="pull-right">
+				<button type="submit" ng-click="modifier()" ng-show="visite.id != undefined" class="btn btn-primary "><i class="material-icons">mode_edit</i></button>
+				<button type="submit" ng-click="supprimer()" ng-show="visite.id != undefined" class="btn btn-primary "><i class="material-icons">clear</i></button>
+			</div>
+		</form>
+	</div>
+
+	<div ng-show="Visite.id != null">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">ID: {{visite.id}}</span>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<span class="form-control">Date : {{visite.date}}</span>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<span class="form-control">Heure : {{visite.heure}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">Bien immobilier : {{visite.bienImmo}}</span>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">Client : {{visite.clientVisiteur}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
