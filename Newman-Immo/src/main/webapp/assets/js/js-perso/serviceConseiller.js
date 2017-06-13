@@ -1,5 +1,5 @@
-monApp.factory('conseillerProvider', function($http) {
-	var restUrl = 'http://localhost:8080/Newman-Immo/rest';
+monApp.factory('conseillerProvider', function($http,$location) {
+	var restUrl = $location.protocol() +'://'+ $location.host()+':'+ $location.port() + '/Newman-Immo/rest';
 
 	function findAllConseiller(callback) {
 		$http({method : 'GET',url : restUrl + '/conseiller/all'}).then(
