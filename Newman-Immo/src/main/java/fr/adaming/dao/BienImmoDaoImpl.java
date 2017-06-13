@@ -32,11 +32,10 @@ public class BienImmoDaoImpl implements IBienImmoDao {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<BienImmobilier> afficherBienImmo() {
 		s = sf.getCurrentSession();
-		String req = "From BienImmobilier";
-		Query query = s.createQuery(req);
-		return query.list();
+		return s.createQuery("SELECT FROM BienImmobilier").list();
 	}
 
 	public BienImmobilier getById(int id) {

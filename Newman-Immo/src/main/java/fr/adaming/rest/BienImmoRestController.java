@@ -15,7 +15,7 @@ import fr.adaming.model.BienImmobilier;
 import fr.adaming.service.IBienImmoService;
 
 @RestController
-@RequestMapping(name="/BienImmo")
+@RequestMapping(name="/bienImmo")
 public class BienImmoRestController {
 
 	@Autowired
@@ -38,16 +38,16 @@ public class BienImmoRestController {
 		}
 	}
 	
-	@RequestMapping(name="/all", method=RequestMethod.GET,produces="application/json")
-	public List<BienImmobilier> getAllBienImmo(){
-		return bService.afficherBienImmo();
-	}
-	
-	@RequestMapping(name="/one/{id}",method=RequestMethod.GET,produces="application/json")
-	public BienImmobilier getByIdBienImmo(@PathVariable("id")int id){
-		return bService.getById(id);
-		}
-	
+//	@RequestMapping(name="/all", method=RequestMethod.GET,produces="application/json")
+//	public List<BienImmobilier> getAllBienImmo(){
+//		return bService.afficherBienImmo();
+//	}
+//	
+//	@RequestMapping(name="/one/{id}",method=RequestMethod.GET,produces="application/json")
+//	public BienImmobilier getByIdBienImmo(@PathVariable("id")int id){
+//		return bService.getById(id);
+//		}
+//	
 	@RequestMapping(name="/update",method=RequestMethod.PUT, produces="application/json",consumes="application/json")
 	public ResponseEntity updateBienImmo(@RequestBody BienImmobilier bi){
 		int status = bService.updateBienImmo(bi);
