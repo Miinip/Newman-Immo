@@ -6,8 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
+
 @Entity
 @Table(name="proprietaires")
+@Proxy(lazy = false)
+@SuppressWarnings("serial")
 public class Proprietaire extends Personne {
 
 	@OneToMany(mappedBy="proprietaire")

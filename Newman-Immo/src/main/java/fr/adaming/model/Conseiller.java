@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
 @Entity
 @Table(name = "conseillers")
+@Proxy(lazy = false)
 @SuppressWarnings("serial")
 public class Conseiller extends Personne {
 

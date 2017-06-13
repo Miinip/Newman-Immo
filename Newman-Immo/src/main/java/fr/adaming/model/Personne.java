@@ -9,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.annotations.Proxy;
+
 @MappedSuperclass
 @SuppressWarnings("serial")
+@Proxy(lazy = false)
 public abstract class Personne implements Serializable {
 
 	@Id
