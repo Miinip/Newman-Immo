@@ -18,28 +18,55 @@ public class ContratDaoImpl implements IContratDao{
 	
 	
 	public int addContrat(Contrat c) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		s = sf.getCurrentSession();
+		try {
+			s.save(c);
+			return 1;
+		} catch (Exception ex) {
+			return 0;
+		}
 	}
 
+//  **************************************************************  //
 	public List<Contrat> getAllContrat() {
-		// TODO Auto-generated method stub
-		return null;
+
+		s = sf.getCurrentSession();
+		
+		return s.createQuery("SELECT c FROM Contrat AS c").list();
 	}
 
+//  **************************************************************  //
 	public int updateContrat(Contrat c) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		s = sf.getCurrentSession();
+		try {
+			Contrat cUpdate = (Contrat) s.get(Contrat.class, c.getId());
+			cUpdate = c;
+			s.saveOrUpdate(cUpdate);
+			return 1;
+		} catch (Exception ex) {
+			return 0;
+		}
 	}
 
+//  **************************************************************  //
 	public int deleteContrat(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		s = sf.getCurrentSession();
+		try {
+			s.delete(s.get(Contrat.class, id));
+			return 1;
+		} catch (Exception ex) {
+			return 0;
+		}
 	}
 
+//  **************************************************************  //
 	public Contrat getByIdContrat(int id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		s = sf.getCurrentSession();
+		return (Contrat) s.get(Contrat.class, id);
 	}
 
 }
