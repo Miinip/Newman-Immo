@@ -34,7 +34,7 @@ public class BienImmoDaoImpl implements IBienImmoDao {
 	@SuppressWarnings("unchecked")
 	public List<BienImmobilier> afficherBienImmo() {
 		s = sf.getCurrentSession();
-		return s.createQuery("SELECT FROM BienImmobilier").list();
+		return s.createQuery("SELECT b FROM BienImmobilier As b").list();
 	}
 
 	public BienImmobilier getById(int id) {

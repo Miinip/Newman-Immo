@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Proprietaire extends Personne {
 
 	@OneToMany(mappedBy="proprietaire")
-	@JsonBackReference
 	private List<BienImmobilier> listeBien;
 
 	public Proprietaire() {
@@ -39,6 +38,7 @@ public class Proprietaire extends Personne {
 	/**
 	 * @return the listeBien
 	 */
+	@JsonBackReference
 	public List<BienImmobilier> getListeBien() {
 		return listeBien;
 	}

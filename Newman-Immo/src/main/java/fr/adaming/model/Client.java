@@ -13,23 +13,19 @@ import org.hibernate.annotations.Proxy;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-
 @Entity
-@Table(name="clients")
+@Table(name = "clients")
 @SuppressWarnings("serial")
-public class Client extends Personne{
-	
-	@OneToMany(orphanRemoval=true)
-	@JoinColumn(name="id_cs")
-	@JsonBackReference
+public class Client extends Personne {
+
+	@OneToMany(orphanRemoval = true)
+	@JoinColumn(name = "id_cs")
 	private List<ClasseStandard> listeVoeux;
-	
-	@OneToMany(mappedBy="clientVisiteur")
-	@JsonBackReference
+
+	@OneToMany(mappedBy = "clientVisiteur")
 	private List<Visite> listeVisitePrevue;
-	
-	@OneToOne(mappedBy="clientAcquereur")
-	@JsonManagedReference
+
+	@OneToOne(mappedBy = "clientAcquereur")
 	private BienImmobilier bienImmo;
 
 	public Client() {
@@ -44,30 +40,31 @@ public class Client extends Personne{
 		super(id, nom, prenom, telPro, telPerso, adresse);
 	}
 
+	@JsonBackReference
 	public List<ClasseStandard> getListeVoeux() {
 		return listeVoeux;
+	}
+
+	@JsonBackReference
+	public List<Visite> getListeVisitePrevue() {
+		return listeVisitePrevue;
+	}
+
+	@JsonManagedReference
+	public BienImmobilier getBienImmo() {
+		return bienImmo;
 	}
 
 	public void setListeVoeux(List<ClasseStandard> listeVoeux) {
 		this.listeVoeux = listeVoeux;
 	}
 
-	public List<Visite> getListeVisitePrevue() {
-		return listeVisitePrevue;
-	}
-
 	public void setListeVisitePrevue(List<Visite> listeVisitePrevue) {
 		this.listeVisitePrevue = listeVisitePrevue;
-	}
-
-	public BienImmobilier getBienImmo() {
-		return bienImmo;
 	}
 
 	public void setBienImmo(BienImmobilier bienImmo) {
 		this.bienImmo = bienImmo;
 	}
-	
-	
-	
+
 }

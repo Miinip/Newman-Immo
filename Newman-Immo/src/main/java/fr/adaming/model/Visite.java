@@ -30,12 +30,10 @@ public class Visite {
 
 	@ManyToOne
 	@JoinColumn(name = "bien_id", referencedColumnName = "id_bi")
-	@JsonManagedReference
 	private BienImmobilier bienImmo;
 
 	@ManyToOne
 	@JoinColumn(name = "clientV_id", referencedColumnName = "id")
-	@JsonManagedReference
 	private Client clientVisiteur;
 
 	// constructeur vide
@@ -86,7 +84,8 @@ public class Visite {
 	public void setHeure(Date heure) {
 		this.heure = heure;
 	}
-
+	
+	@JsonManagedReference
 	public BienImmobilier getBienImmo() {
 		return bienImmo;
 	}
@@ -95,6 +94,7 @@ public class Visite {
 		this.bienImmo = bienImmo;
 	}
 
+	@JsonManagedReference
 	public Client getClientVisiteur() {
 		return clientVisiteur;
 	}

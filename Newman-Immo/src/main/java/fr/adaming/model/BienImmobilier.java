@@ -19,68 +19,60 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Proxy;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name="bienImmos")
+@Table(name = "bienImmos")
 public class BienImmobilier {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_bi")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_bi")
 	private int id;
 	@Lob
 	private byte[] photo;
 	private String statut;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dateSoumission;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dateMiseDispo;
-	
+
 	private double revenuCadastral;
 
 	@Embedded
 	private Adresse localisation;
-	
+
 	@OneToOne
-	@JoinColumn(name="client_id", referencedColumnName="id")
-	@JsonManagedReference
+	@JoinColumn(name = "client_id", referencedColumnName = "id")
 	private Client clientAcquereur;
-	
+
 	@ManyToOne
-	@JoinColumn(name="conseiller_id",referencedColumnName="id")
-	@JsonManagedReference
+	@JoinColumn(name = "conseiller_id", referencedColumnName = "id")
 	private Conseiller conseiller;
 
-	@OneToMany(mappedBy="bienImmo")
-	@JsonBackReference
+	@OneToMany(mappedBy = "bienImmo")
 	private List<Visite> listeVisites;
-	
-	@OneToMany(mappedBy="bien")
-	@JsonBackReference
+
+	@OneToMany(mappedBy = "bien")
 	private List<Contrat> listeContrats;
-	
+
 	@OneToOne
-	@JoinColumn(name="cs_id",referencedColumnName="id_cs")
-	@JsonManagedReference
+	@JoinColumn(name = "cs_id", referencedColumnName = "id_cs")
 	private ClasseStandard classeStandard;
-	
+
 	@ManyToOne
-	@JoinColumn(name="proprio_id", referencedColumnName="id")
-	@JsonManagedReference
+	@JoinColumn(name = "proprio_id", referencedColumnName = "id")
 	private Proprietaire proprietaire;
 
-	// Constructeur vide
+	/** Constructeur vide */
 	public BienImmobilier() {
 		super();
 	}
 
-	// Constructeur param - id
+	/** Constructeur param sans id */
 	public BienImmobilier(byte[] photo, String statut, Date dateSoumission, Date dateMiseDispo, double revenuCadastral,
 			Adresse localisation) {
 		super();
@@ -92,7 +84,7 @@ public class BienImmobilier {
 		this.localisation = localisation;
 	}
 
-	// Constructeur param + id
+	/** Constructeur param avec id */
 	public BienImmobilier(int id, byte[] photo, String statut, Date dateSoumission, Date dateMiseDispo,
 			double revenuCadastral, Adresse localisation) {
 		super();
@@ -105,105 +97,110 @@ public class BienImmobilier {
 		this.localisation = localisation;
 	}
 
-	// Getters et Setters
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
-	}
-
 	public String getStatut() {
 		return statut;
-	}
-
-	public void setStatut(String statut) {
-		this.statut = statut;
 	}
 
 	public Date getDateSoumission() {
 		return dateSoumission;
 	}
 
-	public void setDateSoumission(Date dateSoumission) {
-		this.dateSoumission = dateSoumission;
-	}
-
 	public Date getDateMiseDispo() {
 		return dateMiseDispo;
-	}
-
-	public void setDateMiseDispo(Date dateMiseDispo) {
-		this.dateMiseDispo = dateMiseDispo;
 	}
 
 	public double getRevenuCadastral() {
 		return revenuCadastral;
 	}
 
-	public void setRevenuCadastral(double revenuCadastral) {
-		this.revenuCadastral = revenuCadastral;
-	}
-
 	public Adresse getLocalisation() {
 		return localisation;
+	}
+
+	@JsonManagedReference
+	public Client getClientAcquereur() {
+		return clientAcquereur;
+	}
+
+	@JsonManagedReference
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+	@JsonBackReference
+	public List<Visite> getListeVisites() {
+		return listeVisites;
+	}
+
+	@JsonBackReference
+	public List<Contrat> getListeContrats() {
+		return listeContrats;
+	}
+
+	@JsonManagedReference
+	public ClasseStandard getClasseStandard() {
+		return classeStandard;
+	}
+
+	@JsonManagedReference
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+
+	public void setStatut(String statut) {
+		this.statut = statut;
+	}
+
+	public void setDateSoumission(Date dateSoumission) {
+		this.dateSoumission = dateSoumission;
+	}
+
+	public void setDateMiseDispo(Date dateMiseDispo) {
+		this.dateMiseDispo = dateMiseDispo;
+	}
+
+	public void setRevenuCadastral(double revenuCadastral) {
+		this.revenuCadastral = revenuCadastral;
 	}
 
 	public void setLocalisation(Adresse localisation) {
 		this.localisation = localisation;
 	}
 
-	public Client getClientAcquereur() {
-		return clientAcquereur;
-	}
-
 	public void setClientAcquereur(Client clientAcquereur) {
 		this.clientAcquereur = clientAcquereur;
-	}
-
-	public Conseiller getConseiller() {
-		return conseiller;
 	}
 
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
 
-	public List<Visite> getListeVisites() {
-		return listeVisites;
-	}
-
 	public void setListeVisites(List<Visite> listeVisites) {
 		this.listeVisites = listeVisites;
-	}
-
-	public List<Contrat> getListeContrats() {
-		return listeContrats;
 	}
 
 	public void setListeContrats(List<Contrat> listeContrats) {
 		this.listeContrats = listeContrats;
 	}
 
-	public ClasseStandard getClasseStandard() {
-		return classeStandard;
-	}
-
 	public void setClasseStandard(ClasseStandard classeStandard) {
 		this.classeStandard = classeStandard;
-	}
-
-	public Proprietaire getProprietaire() {
-		return proprietaire;
 	}
 
 	public void setProprietaire(Proprietaire proprietaire) {
@@ -214,11 +211,9 @@ public class BienImmobilier {
 	public String toString() {
 		return "BienImmobilier [id=" + id + ", photo=" + Arrays.toString(photo) + ", statut=" + statut
 				+ ", dateSoumission=" + dateSoumission + ", dateMiseDispo=" + dateMiseDispo + ", revenuCadastral="
-				+ revenuCadastral + ", localisation=" + localisation + "]";
+				+ revenuCadastral + ", localisation=" + localisation + ", clientAcquereur=" + clientAcquereur
+				+ ", conseiller=" + conseiller + ", listeVisites=" + listeVisites + ", listeContrats=" + listeContrats
+				+ ", classeStandard=" + classeStandard + ", proprietaire=" + proprietaire + "]";
 	}
-	
-	
-	
-	
-	
+
 }

@@ -30,7 +30,6 @@ public class Contrat {
 
 	@ManyToOne
 	@JoinColumn(name = "bien_id", referencedColumnName = "id_bi")
-	@JsonManagedReference
 	private BienImmobilier bien;
 
 	public Contrat() {
@@ -117,6 +116,7 @@ public class Contrat {
 	/**
 	 * @return the bien
 	 */
+	@JsonManagedReference
 	public BienImmobilier getBien() {
 		return bien;
 	}
