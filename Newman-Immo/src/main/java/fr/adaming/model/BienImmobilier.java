@@ -23,7 +23,6 @@ import org.hibernate.annotations.Proxy;
 
 @Entity
 @Table(name="bienImmos")
-@Proxy(lazy = false)
 public class BienImmobilier {
 
 	@Id
