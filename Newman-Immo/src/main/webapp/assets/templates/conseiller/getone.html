@@ -1,0 +1,103 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+
+	<div class="row">
+		<form name="getOneForm">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<input type="number" 
+						ng-model="idToFind" class="form-control"
+						placeholder="Find" required>
+				</div>
+			</div>
+
+			<button ng-click="find()" class="btn btn-primary">chercher</button>
+			<div class="btn btn-primary pull-right">
+				<button type="submit" ng-click="modifier()" ng-show="conseiller.id != undefined" class="btn btn-primary "><i class="material-icons">mode_edit</i></button>
+				<button type="submit" ng-click="suprimer()" ng-show="conseiller.id != undefined" class="btn btn-primary "><i class="material-icons">clear</i></button>
+			</div>
+		</form>
+	</div>
+
+	<div ng-show="Personne.id != undefined">
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">ID: {{conseiller.id}}</span>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<span class="form-control">Nom : {{conseiller.nom}}</span>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<span class="form-control">Prenom : {{conseiller.prenom}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">telPro : {{conseiller.telPro}}</span>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">telPerso : {{conseiller.telPerso}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">Email : {{conseiller.login}}</span>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">Password : {{conseiller.password}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="form-control">num : {{conseiller.adresse.numero}}</span>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<span class="form-control">Rue : {{conseiller.adresse.rue}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-8">
+				<div class="form-group">
+					<span class="form-control">Ville : {{conseiller.adresse.localite}}</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">CP : {{conseiller.adresse.codePostal}}</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">Pays : {{conseiller.adresse.pays}}</span>
+				</div>
+			</div>
+		</div>
+
+			
+			
+		</div>
+	
+	</div>

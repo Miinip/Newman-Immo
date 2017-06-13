@@ -1,0 +1,39 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+	<div class="form-group">
+		<form id="expandable">
+			<input type="search" ng-model="recherche" placeholder="Search" class="form-control pull-right">
+		</form>
+	</div>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<td>nom</td>
+				<td>prenom</td>
+				<td>telPro</td>
+				<td>telPerso</td>
+				<td>mail</td>
+				<th class="text-right">-</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="conseiller in listeConseillers | filter:recherche" ng-mouseover="doShow(conseiller.id)" ng-mouseleave="doHide(conseiller.id)">
+				<td>{{conseiller.id}}</td>
+				<td>{{conseiller.nom}}</td>
+				<td>{{conseiller.prenom}}</td>
+				<td>{{conseiller.telPro}}</td>
+				<td>{{conseiller.telPerso}}</td>
+				<td>{{conseiller.login}}</td>
+				<td class="text-right col-md-1">
+					<div class="btn-group" role="group" ng-show="MouseOverRow[conseiller.id]">
+						<i ng-click="modifier(conseiller)" class="material-icons btn-info btn-xs">mode_edit</i>
+						<i ng-click="suprimer(conseiller.id)" class="material-icons btn-danger btn-xs">clear</i>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
