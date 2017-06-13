@@ -55,8 +55,8 @@ monApp.controller("ctrlAllVisite",function($scope,$rootScope,$location,visitePro
 monApp.controller("ctrlAddVisite",function($scope,$location,visiteProvider){
 	$scope.msg = "Add Visite";
 	$scope.visiteForm = {	id:undefined,
-			date:"",
-			heure:""
+							date:"",
+							heure:""
 			};
 			
 	$scope.ajouter = function(){
@@ -71,8 +71,8 @@ monApp.controller("ctrlAddVisite",function($scope,$location,visiteProvider){
 monApp.controller("ctrlUpdateVisite",function($scope,$rootScope,$location,visiteProvider){
 	$scope.msg = "Update Visite";
 	$scope.visiteForm = {	id:undefined,
-			date:"",
-			heure:""
+							date:"",
+							heure:""
 			};
 		
 		if($rootScope.visiteFormRoot != null){
