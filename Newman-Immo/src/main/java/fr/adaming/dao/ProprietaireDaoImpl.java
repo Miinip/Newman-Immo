@@ -40,6 +40,7 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 		prop_rec.setTelPro(prop.getTelPro());
 		prop_rec.setAdresse(prop.getAdresse());
 		prop_rec.setListeBien(prop.getListeBien());
+		s.merge(prop_rec);
 		return 1;
 	}
 

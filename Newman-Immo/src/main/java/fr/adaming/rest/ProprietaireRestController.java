@@ -8,5 +8,15 @@ import fr.adaming.service.IProprietaireService;
 public class ProprietaireRestController {
 
 	private IProprietaireService propService;
+
+	/**
+	 * @param propService the propService to set
+	 */
+	public void setPropService(IProprietaireService propService) {
+		this.propService = propService;
+	}
+	
+
+	
 	
 }
