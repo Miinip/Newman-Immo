@@ -15,7 +15,7 @@ import fr.adaming.model.BienImmobilier;
 import fr.adaming.service.IBienImmoService;
 
 @RestController
-@RequestMapping(name="/bienImmo")
+@RequestMapping("/bienImmo")
 public class BienImmoRestController {
 
 	@Autowired
@@ -26,7 +26,7 @@ public class BienImmoRestController {
 	}
 
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(name="/add", method=RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value="/add", method=RequestMethod.POST,consumes="application/json")
 	public ResponseEntity addBienImmo(@RequestBody BienImmobilier bi){
 		int status = bService.createBienImmo(bi);
 		if(status == 1){
@@ -38,17 +38,17 @@ public class BienImmoRestController {
 		}
 	}
 	
-//	@RequestMapping(name="/all", method=RequestMethod.GET,produces="application/json")
-//	public List<BienImmobilier> getAllBienImmo(){
-//		return bService.afficherBienImmo();
-//	}
-//	
-//	@RequestMapping(name="/one/{id}",method=RequestMethod.GET,produces="application/json")
-//	public BienImmobilier getByIdBienImmo(@PathVariable("id")int id){
-//		return bService.getById(id);
-//		}
-//	
-	@RequestMapping(name="/update",method=RequestMethod.PUT, produces="application/json",consumes="application/json")
+	@RequestMapping(value="/all", method=RequestMethod.GET,produces="application/json")
+	public List<BienImmobilier> getAllBienImmo(){
+		return bService.afficherBienImmo();
+	}
+	
+	@RequestMapping(value="/one/{id}",method=RequestMethod.GET,produces="application/json")
+	public BienImmobilier getByIdBienImmo(@PathVariable("id")int id){
+		return bService.getById(id);
+		}
+	
+	@RequestMapping(value="/update",method=RequestMethod.PUT, produces="application/json",consumes="application/json")
 	public ResponseEntity updateBienImmo(@RequestBody BienImmobilier bi){
 		int status = bService.updateBienImmo(bi);
 		if(status == 1){
@@ -60,7 +60,7 @@ public class BienImmoRestController {
 		}
 	}
 	
-	@RequestMapping(name="/delete/{id}",method=RequestMethod.DELETE, produces="application/json",consumes="application/json")
+	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE, produces="application/json",consumes="application/json")
 	public ResponseEntity deleteBienImmo(@PathVariable("id") int id){
 		int status = bService.deleteBienImmo(id);
 		if(status == 1){
