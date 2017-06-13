@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name="proprietaires")
@@ -15,6 +17,7 @@ import org.hibernate.annotations.Proxy;
 public class Proprietaire extends Personne {
 
 	@OneToMany(mappedBy="proprietaire")
+	@JsonBackReference
 	private List<BienImmobilier> listeBien;
 
 	public Proprietaire() {

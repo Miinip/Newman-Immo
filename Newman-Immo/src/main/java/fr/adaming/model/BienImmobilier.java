@@ -21,6 +21,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -48,6 +49,7 @@ public class BienImmobilier {
 	
 	@OneToOne
 	@JoinColumn(name="client_id", referencedColumnName="id")
+	@JsonManagedReference
 	private Client clientAcquereur;
 	
 	@ManyToOne
@@ -56,17 +58,21 @@ public class BienImmobilier {
 	private Conseiller conseiller;
 
 	@OneToMany(mappedBy="bienImmo")
+	@JsonBackReference
 	private List<Visite> listeVisites;
 	
 	@OneToMany(mappedBy="bien")
+	@JsonBackReference
 	private List<Contrat> listeContrats;
 	
 	@OneToOne
 	@JoinColumn(name="cs_id",referencedColumnName="id_cs")
+	@JsonManagedReference
 	private ClasseStandard classeStandard;
 	
 	@ManyToOne
 	@JoinColumn(name="proprio_id", referencedColumnName="id")
+	@JsonManagedReference
 	private Proprietaire proprietaire;
 
 	// Constructeur vide

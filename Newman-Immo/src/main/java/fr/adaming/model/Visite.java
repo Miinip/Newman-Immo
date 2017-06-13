@@ -14,31 +14,34 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
-@Table(name="visites")
+@Table(name = "visites")
 public class Visite {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_v")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_v")
 	private int id;
 	private Date date;
 	private Date heure;
-	
+
 	@ManyToOne
-	@JoinColumn(name="bien_id", referencedColumnName="id_bi")
+	@JoinColumn(name = "bien_id", referencedColumnName = "id_bi")
+	@JsonManagedReference
 	private BienImmobilier bienImmo;
-	
+
 	@ManyToOne
-	@JoinColumn(name="clientV_id",referencedColumnName="id")
+	@JoinColumn(name = "clientV_id", referencedColumnName = "id")
+	@JsonManagedReference
 	private Client clientVisiteur;
-	
-	
+
 	// constructeur vide
 	public Visite() {
 		super();
 	}
-
 
 	// constructeur sans id avec param
 	public Visite(Date date, Date heure, BienImmobilier bienImmo, List<Client> listeClientsVisiteurs) {
@@ -48,7 +51,7 @@ public class Visite {
 		this.bienImmo = bienImmo;
 		this.clientVisiteur = clientVisiteur;
 	}
-	
+
 	// constructeur avec id avec param
 	public Visite(int id, Date date, Date heure, BienImmobilier bienImmo, List<Client> listeClientsVisiteurs) {
 		super();
@@ -59,7 +62,6 @@ public class Visite {
 		this.clientVisiteur = clientVisiteur;
 	}
 
-	
 	// Getters & Setters
 	public int getId() {
 		return id;
@@ -68,54 +70,43 @@ public class Visite {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public Date getDate() {
 		return date;
 	}
-
 
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
-
 	public Date getHeure() {
 		return heure;
 	}
 
-
 	public void setHeure(Date heure) {
 		this.heure = heure;
 	}
-	
 
 	public BienImmobilier getBienImmo() {
 		return bienImmo;
 	}
 
-
 	public void setBienImmo(BienImmobilier bienImmo) {
 		this.bienImmo = bienImmo;
 	}
-
 
 	public Client getClientVisiteur() {
 		return clientVisiteur;
 	}
 
-
 	public void setClientVisiteur(Client clientVisiteur) {
 		this.clientVisiteur = clientVisiteur;
 	}
 
-
 	// toString
 	@Override
 	public String toString() {
-		return "Visite [id=" + id + ", date=" + date + ", heure=" + heure + ", bienImmo=" + bienImmo
-				+  "]";
+		return "Visite [id=" + id + ", date=" + date + ", heure=" + heure + ", bienImmo=" + bienImmo + "]";
 	}
-
-
 
 }

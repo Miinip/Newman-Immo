@@ -13,31 +13,29 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
-@Table(name="contrats")
+@Table(name = "contrats")
 public class Contrat {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_con")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_con")
 	private int id;
-	
-	
+
 	private double prix;
 	private Date date;
 	private int numeroRef;
-	
+
 	@ManyToOne
-	@JoinColumn(name="bien_id",referencedColumnName="id_bi")
+	@JoinColumn(name = "bien_id", referencedColumnName = "id_bi")
+	@JsonManagedReference
 	private BienImmobilier bien;
-	
-	
-	
+
 	public Contrat() {
 		super();
 	}
-
-
 
 	public Contrat(double prix, Date date, int numeroRef, BienImmobilier bien) {
 		super();
@@ -46,8 +44,6 @@ public class Contrat {
 		this.numeroRef = numeroRef;
 		this.bien = bien;
 	}
-
-
 
 	public Contrat(int id, double prix, Date date, int numeroRef, BienImmobilier bien) {
 		super();
@@ -58,8 +54,6 @@ public class Contrat {
 		this.bien = bien;
 	}
 
-
-
 	/**
 	 * @return the id
 	 */
@@ -67,16 +61,13 @@ public class Contrat {
 		return id;
 	}
 
-
-
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 	/**
 	 * @return the prix
@@ -85,16 +76,13 @@ public class Contrat {
 		return prix;
 	}
 
-
-
 	/**
-	 * @param prix the prix to set
+	 * @param prix
+	 *            the prix to set
 	 */
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-
-
 
 	/**
 	 * @return the date
@@ -103,16 +91,13 @@ public class Contrat {
 		return date;
 	}
 
-
-
 	/**
-	 * @param date the date to set
+	 * @param date
+	 *            the date to set
 	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-
 
 	/**
 	 * @return the numeroRef
@@ -121,16 +106,13 @@ public class Contrat {
 		return numeroRef;
 	}
 
-
-
 	/**
-	 * @param numeroRef the numeroRef to set
+	 * @param numeroRef
+	 *            the numeroRef to set
 	 */
 	public void setNumeroRef(int numeroRef) {
 		this.numeroRef = numeroRef;
 	}
-
-
 
 	/**
 	 * @return the bien
@@ -139,18 +121,17 @@ public class Contrat {
 		return bien;
 	}
 
-
-
 	/**
-	 * @param bien the bien to set
+	 * @param bien
+	 *            the bien to set
 	 */
 	public void setBien(BienImmobilier bien) {
 		this.bien = bien;
 	}
 
-
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -158,6 +139,5 @@ public class Contrat {
 		return "Contrat [id=" + id + ", prix=" + prix + ", date=" + date + ", numeroRef=" + numeroRef + ", bien=" + bien
 				+ "]";
 	}
-	
-	
+
 }

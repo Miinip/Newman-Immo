@@ -10,6 +10,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name="clients")
@@ -18,12 +21,15 @@ public class Client extends Personne{
 	
 	@OneToMany(orphanRemoval=true)
 	@JoinColumn(name="id_cs")
+	@JsonBackReference
 	private List<ClasseStandard> listeVoeux;
 	
 	@OneToMany(mappedBy="clientVisiteur")
+	@JsonBackReference
 	private List<Visite> listeVisitePrevue;
 	
 	@OneToOne(mappedBy="clientAcquereur")
+	@JsonManagedReference
 	private BienImmobilier bienImmo;
 
 	public Client() {

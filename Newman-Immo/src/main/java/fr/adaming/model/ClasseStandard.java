@@ -10,6 +10,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="classesStandards")
 public class ClasseStandard {
@@ -23,6 +26,7 @@ public class ClasseStandard {
 	private double superficie;
 	
 	@OneToOne(mappedBy="classeStandard")
+	@JsonManagedReference
 	private BienImmobilier typeBien;
 
 	public ClasseStandard() {
