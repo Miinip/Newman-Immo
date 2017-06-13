@@ -18,7 +18,7 @@ public class Conseiller extends Personne {
 	private String login;
 	private String password;
 	
-	@OneToMany(mappedBy="conseiller")
+	@OneToMany(mappedBy="conseiller",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private List<BienImmobilier> ListeGestionDesBien;
 	
 	public Conseiller() {
