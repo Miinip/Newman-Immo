@@ -76,7 +76,7 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 		return query.list();
 	}
 
-	public int attributePropToConseiller(Proprietaire prop, BienImmobilier bienImmo) {
+	public int attributePropToBienImmo (Proprietaire prop, BienImmobilier bienImmo) {
 		Session s = sf.getCurrentSession();
 		Query query = s
 				.createQuery("UPDATE Proprietaire prop SET prop.id=:pIdProp WHERE bienImmo.id=:pIdBienImmobilier");

@@ -17,5 +17,5 @@ public interface IProprietaireService {
 	
 	public List<Proprietaire> getAllProprietaires();
 	
-	public int attributePropToConseiller (Proprietaire prop, BienImmobilier bienImmo);
+	public int attributePropToBienImmo (Proprietaire prop, BienImmobilier bienImmo);
 }
