@@ -4,5 +4,9 @@ monApp.config(function($routeProvider){
                  .when('/conseiller/all',{controller:'ctrlAllConseiller',templateUrl:'assets/templates/conseiller/getall.html'})
                  .when('/conseiller/add',{controller:'ctrlAddConseiller',templateUrl:'assets/templates/conseiller/add.html'})
                  .when('/conseiller/update',{controller:'ctrlUpdateConseiller',templateUrl:'assets/templates/conseiller/update.html'})
+                 .when('/visite/one',{controller:'ctrlOneVisite',templateUrl:'assets/templates/visite/getone.html'})
+                 .when('/visite/all',{controller:'ctrlAllVisite',templateUrl:'assets/templates/visite/getall.html'})
+                 .when('/visite/add',{controller:'ctrlAddVisite',templateUrl:'assets/templates/visite/add.html'})
+                 .when('/visite/update',{controller:'ctrlUpdateVisite',templateUrl:'assets/templates/visite/update.html'})
                  .otherwise({redirectTo:'/home'});
 	});

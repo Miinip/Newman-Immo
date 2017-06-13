@@ -16,7 +16,6 @@ import org.hibernate.annotations.Proxy;
 
 @Entity
 @Table(name="visites")
-@Proxy(lazy = false)
 public class Visite {
 
 	@Id

@@ -13,7 +13,6 @@ import org.hibernate.annotations.Proxy;
 
 @MappedSuperclass
 @SuppressWarnings("serial")
-@Proxy(lazy = false)
 public abstract class Personne implements Serializable {
 
 	@Id

@@ -13,7 +13,6 @@ import org.hibernate.annotations.Proxy;
 
 @Entity
 @Table(name="clients")
-@Proxy(lazy = false)
 @SuppressWarnings("serial")
 public class Client extends Personne{
 	
