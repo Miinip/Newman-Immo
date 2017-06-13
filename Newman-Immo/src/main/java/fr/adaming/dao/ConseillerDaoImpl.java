@@ -20,22 +20,22 @@ public class ConseillerDaoImpl implements IConseillerDao {
 		this.sf = sf;
 	}
 
-	public int addConseillerDao(Conseiller p) {
+	public int addConseillerDao(Conseiller c) {
 		s = sf.getCurrentSession();
 		try {
-			s.save(p);
+			s.save(c);
 			return 1;
 		} catch (Exception ex) {
 			return 0;
 		}
 	}
 
-	public int updateConseillerDao(Conseiller p) {
+	public int updateConseillerDao(Conseiller c) {
 		s = sf.getCurrentSession();
 		try {
-			Conseiller pDB = (Conseiller) s.get(Conseiller.class, p.getId());
-			pDB = p;
-			s.saveOrUpdate(pDB);
+			Conseiller cDB = (Conseiller) s.get(Conseiller.class, c.getId());
+			cDB = c;
+			s.saveOrUpdate(cDB);
 			return 1;
 		} catch (Exception ex) {
 			return 0;
