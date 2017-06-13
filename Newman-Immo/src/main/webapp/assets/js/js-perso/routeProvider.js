@@ -1,5 +1,9 @@
 monApp.config(function($routeProvider){
    $routeProvider.when('/home',{controller:'ctrlHome',templateUrl:'assets/templates/home.html'})
+   				 .when('/bienImmobilier/one',{controller:'ctrlOneBienImmobilier',templateUrl:'assets/templates/bienImmobilier/getone.html'})
+                 .when('/bienImmobilier/all',{controller:'ctrlAllBienImmobilier',templateUrl:'assets/templates/bienImmobilier/getall.html'})
+                 .when('/bienImmobilier/add',{controller:'ctrlAddBienImmobilier',templateUrl:'assets/templates/bienImmobilier/add.html'})
+                 .when('/bienImmobilier/update',{controller:'ctrlUpdateBienImmobilier',templateUrl:'assets/templates/bienImmobilier/update.html'})
                  .when('/conseiller/one',{controller:'ctrlOneConseiller',templateUrl:'assets/templates/conseiller/getone.html'})
                  .when('/conseiller/all',{controller:'ctrlAllConseiller',templateUrl:'assets/templates/conseiller/getall.html'})
                  .when('/conseiller/add',{controller:'ctrlAddConseiller',templateUrl:'assets/templates/conseiller/add.html'})

@@ -1,5 +1,5 @@
 monApp.factory('visiteProvider', function($http) {
-	var restUrl = 'http://localhost:8080/Newman-Immo/rest';
+	var restUrl = $location.protocol() +'://'+ $location.host()+':'+ $location.port() + '/Newman-Immo/rest';
 
 	function findAllVisite(callback) {
 		$http({ method : 'GET',

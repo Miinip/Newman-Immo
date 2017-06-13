@@ -1,0 +1,57 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+	<div class="form-group">
+		<form id="expandable">
+			<input type="search" ng-model="recherche" placeholder="Search" class="form-control pull-right">
+		</form>
+	</div>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Photo</th>
+				<th>Statut</th>
+				<th>Classe standard</th>
+				<th>Date de soumission</th>
+				<th>Date de mise à dispo</th>
+				<th>Revenu cadastral</th>
+				<th>N&#176;</th>
+				<th>Rue</th>
+				<th>Code postal</th>
+				<th>Ville</th>
+				<th>Pays</th>
+				<th>Proprietaire</th>
+				<th>Conseiller</th>
+				<th>Client acquereur</th>
+				<th class="text-right">-</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="bienImmobilier in listeBienImmobiliers | filter:recherche" ng-mouseover="doShow(bienImmobilier.id)" ng-mouseleave="doHide(bienImmobilier.id)">
+				<td>{{bienImmobilier.id}}</td>
+				<td>{{bienImmobilier.photo}}</td>
+				<td>{{bienImmobilier.statut}}</td>
+				<td>{{bienImmobilier.classeStandard}}</td>
+				<td>{{bienImmobilier.dateSoumission}}</td>
+				<td>{{bienImmobilier.dateMiseDispo}}</td>
+				<td>{{bienImmobilier.revenuCadastral}}</td>
+				<td>{{bienImmobilier.localisation.numero}}</td>
+				<td>{{bienImmobilier.localisation.rue}}</td>
+				<td>{{bienImmobilier.localisation.codePostal}}</td>
+				<td>{{bienImmobilier.localisation.localite}}</td>
+				<td>{{bienImmobilier.localisation.pays}}</td>
+				<td>{{bienImmobilier.proprietaire}}</td>
+				<td>{{bienImmobilier.conseiller}}</td>
+				<td>{{bienImmobilier.clientAcquereur}}</td>
+				<td class="text-right col-md-1">
+					<div class="btn-group" role="group" ng-show="MouseOverRow[bienImmobilier.id]">
+						<i ng-click="modifier(bienImmobilier)" class="material-icons btn-info btn-xs">mode_edit</i>
+						<i ng-click="supprimer(bienImmobilier.id)" class="material-icons btn-danger btn-xs">clear</i>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

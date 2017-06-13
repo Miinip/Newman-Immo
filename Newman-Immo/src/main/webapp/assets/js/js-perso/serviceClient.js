@@ -1,5 +1,5 @@
 monApp.factory('clientProvider', function($http) {
-	var restUrl = 'http://localhost:8080/Newman-Immo/rest';
+	var restUrl = $location.protocol() +'://'+ $location.host()+':'+ $location.port() + '/Newman-Immo/rest';
 
 	function findAllClient(callback) {
 		$http({method : 'GET',url : restUrl + '/client/all'}).then(

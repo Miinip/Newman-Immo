@@ -1,0 +1,117 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+
+	<div class="row">
+		<form name="getOneForm">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<input type="number" 
+						ng-model="idToFind" class="form-control"
+						placeholder="Find" required>
+				</div>
+			</div>
+
+			<button ng-click="find()" class="btn btn-primary">chercher</button>
+			<div class="pull-right">
+				<button type="submit" ng-click="modifier()" ng-show="bienImmobilier.id != undefined" class="btn btn-primary "><i class="material-icons">mode_edit</i></button>
+				<button type="submit" ng-click="supprimer()" ng-show="bienImmobilier.id != undefined" class="btn btn-primary "><i class="material-icons">clear</i></button>
+			</div>
+		</form>
+	</div>
+
+	<div ng-show="BienImmobilier.id != undefined">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">ID: {{bienImmobilier.id}}</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">Statut : {{bienImmobilier.statut}}</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">Classe standard : {{bienImmobilier.classeStandard}}</span>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">Photo : {{bienImmobilier.photo}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-3">
+				<div class="form-group">
+					<span class="form-control">Date de soumission : {{bienImmobilier.dateSoumission}}</span>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<span class="form-control">Date de mise à dispo : {{bienImmobilier.dateMiseDispo}}</span>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<span class="form-control">Revenu cadastral : {{bienImmobilier.revenuCadastral}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="form-control">N&#176; : {{bienImmobilier.localisation.numero}}</span>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<span class="form-control">Rue : {{bienImmobilier.localisation.rue}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">CP : {{bienImmobilier.localisation.codePostal}}</span>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<span class="form-control">Ville : {{bienImmobilier.localisation.localite}}</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">Pays : {{bienImmobilier.localisation.pays}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="form-control">Proprietaire : {{bienImmobilier.proprietaire}}</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="form-control">Conseiller : {{bienImmobilier.conseiller}}</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="form-control">Client acquereur : {{bienImmobilier.clientAcquereur}}</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+</div>
