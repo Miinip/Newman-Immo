@@ -11,4 +11,8 @@ public interface IBienImmoDao {
 	public List<BienImmobilier> afficherBienImmo();
 	
 	public BienImmobilier getById(int id);
+	
+	public int updateBienImmo(BienImmobilier bi);
+	
+	public int deleteBienImmo(int id);
 }

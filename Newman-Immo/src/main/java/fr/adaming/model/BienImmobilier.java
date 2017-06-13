@@ -58,8 +58,7 @@ public class BienImmobilier {
 	inverseJoinColumns=@JoinColumn(name="id_v"))
 	private List<Visite> listeVisites;
 	
-	@OneToMany
-	@JoinColumn(name="contrat_id",referencedColumnName="id_con")
+	@OneToMany(mappedBy="bien")
 	private List<Contrat> listeContrats;
 	
 	@OneToOne
