@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -50,16 +51,22 @@ public class BienImmobilier {
 	@JoinColumn(name="conseiller_id",referencedColumnName="id")
 	private Conseiller conseiller;
 
-	@OneToMany
+	@ManyToMany
+	@JoinTable(name="table_assoc_visite_bien",
+	joinColumns=@JoinColumn(name="visite_id"),
+	inverseJoinColumns=@JoinColumn(name="id_v"))
 	private List<Visite> listeVisites;
 	
 	@OneToMany
+	@JoinColumn(name="contrat_id",referencedColumnName="id_con")
 	private List<Contrat> listeContrats;
 	
 	@OneToOne
+	@JoinColumn(name="cS_id",referencedColumnName="id_cs")
 	private ClasseStandard classeStandard;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="proprio_id", referencedColumnName="id")
 	private Proprietaire proprietaire;
 	
 }
