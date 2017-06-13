@@ -48,6 +48,7 @@ public class ClientRestController {
 		return clientService.getByIdClient(id);
 		}
 	
+	@SuppressWarnings("rawtypes")
 	@RequestMapping(value="/update",method=RequestMethod.PUT, produces="application/json",consumes="application/json")
 	public ResponseEntity updateClient(@RequestBody Client cl){
 		int status = clientService.updateClient(cl);
@@ -60,6 +61,7 @@ public class ClientRestController {
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE, produces="application/json",consumes="application/json")
 	public ResponseEntity deleteClient(@PathVariable("id") int id){
 		int status = clientService.deleteClient(id);
