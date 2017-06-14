@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,6 +26,8 @@ public class Contrat implements Serializable{
 	private int id;
 
 	private double prix;
+	
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	private int numeroRef;
 
