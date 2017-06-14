@@ -84,7 +84,7 @@ monApp.controller("ctrlUpdateBienImmobilier",function($scope,$rootScope,$locatio
 	$scope.msg = "Update BienImmobilier";
 	$scope.bienImmobilierForm = {	id:undefined,
 									photo:undefined,
-									statut:"",
+									statut:"disponible",
 									classeStandard:"",
 									dateSoumission:"",
 									dateMiseDispo:"",
