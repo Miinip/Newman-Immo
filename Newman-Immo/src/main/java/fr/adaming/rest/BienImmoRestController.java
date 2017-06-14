@@ -15,7 +15,7 @@ import fr.adaming.model.BienImmobilier;
 import fr.adaming.service.IBienImmoService;
 
 @RestController
-@RequestMapping("/bienImmo")
+@RequestMapping("/bienImmobilier")
 public class BienImmoRestController {
 
 	@Autowired
