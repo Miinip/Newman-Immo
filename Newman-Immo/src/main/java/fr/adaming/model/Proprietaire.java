@@ -3,8 +3,12 @@ package fr.adaming.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -13,7 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @SuppressWarnings("serial")
 public class Proprietaire extends Personne {
 
-	@OneToMany(mappedBy = "proprietaire")
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(mappedBy = "proprietaire", fetch=FetchType.EAGER)
 	private List<BienImmobilier> listeBien;
 
 	/** Constructeur vide */
