@@ -22,17 +22,12 @@ monApp.controller("ctrlOneVisite",function($scope,$rootScope,$location,visitePro
 	}
 });
 
-monApp.controller("ctrlAllVisite",function($scope,$rootScope,$location,visiteProvider, bienImmobilierProvider, clientProvider){
+monApp.controller("ctrlAllVisite",function($scope,$rootScope,$location,visiteProvider){
 	$scope.msg = "List of Visite";
 	visiteProvider.getAllVisite(function(callback){
 		$scope.listeVisites = callback;
 	})
-	clientProvider.getAllClient(function(callback){
-		$scope.listeClients = callback;
-	})
-	bienImmobilierProvider.getAllBienImmobilier(function(callback){
-		$scope.listeBienImmobiliers = callback;
-	})
+	
 	
 	$scope.supprimer = function(idToDelete){
 		visiteProvider.doDeleteVisite(idToDelete,function(callback){
@@ -58,7 +53,7 @@ monApp.controller("ctrlAllVisite",function($scope,$rootScope,$location,visitePro
 	}
 });
 
-monApp.controller("ctrlAddVisite",function($scope,$location,visiteProvider){
+monApp.controller("ctrlAddVisite",function($scope,$location,visiteProvider, bienImmobilierProvider, clientProvider){
 	$scope.msg = "Add Visite";
 	$scope.visiteForm = {	id:undefined,
 							date:"",
@@ -66,6 +61,13 @@ monApp.controller("ctrlAddVisite",function($scope,$location,visiteProvider){
 							bienImmo:"",
 							clientVisiteur:""
 			};
+	
+	clientProvider.getAllClient(function(callback){
+		$scope.listeClients = callback;
+	})
+	bienImmobilierProvider.getAllBienImmobilier(function(callback){
+		$scope.listeBienImmobiliers = callback;
+	})
 			
 	$scope.ajouter = function(){
 		visiteProvider.doAddVisite($scope.visiteForm,function(callback){
