@@ -21,8 +21,8 @@ public abstract class Personne implements Serializable {
 	private int id;
 	private String nom;
 	private String prenom;
-	private int telPro;
-	private int telPerso;
+	private String telPro;
+	private String telPerso;
 
 	@Embedded
 	private Adresse adresse;
@@ -31,7 +31,7 @@ public abstract class Personne implements Serializable {
 		super();
 	}
 
-	public Personne(String nom, String prenom, int telPro, int telPerso, Adresse adresse) {
+	public Personne(String nom, String prenom, String telPro, String telPerso, Adresse adresse) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -40,7 +40,7 @@ public abstract class Personne implements Serializable {
 		this.adresse = adresse;
 	}
 
-	public Personne(int id, String nom, String prenom, int telPro, int telPerso, Adresse adresse) {
+	public Personne(int id, String nom, String prenom, String telPro, String telPerso, Adresse adresse) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -50,52 +50,89 @@ public abstract class Personne implements Serializable {
 		this.adresse = adresse;
 	}
 
+	/**
+	 * @return the id
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * @return the nom
+	 */
 	public String getNom() {
 		return nom;
 	}
 
+	/**
+	 * @param nom the nom to set
+	 */
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
+	/**
+	 * @return the prenom
+	 */
 	public String getPrenom() {
 		return prenom;
 	}
 
+	/**
+	 * @param prenom the prenom to set
+	 */
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 
-	public int getTelPro() {
+	/**
+	 * @return the telPro
+	 */
+	public String getTelPro() {
 		return telPro;
 	}
 
-	public void setTelPro(int telPro) {
+	/**
+	 * @param telPro the telPro to set
+	 */
+	public void setTelPro(String telPro) {
 		this.telPro = telPro;
 	}
 
-	public int getTelPerso() {
+	/**
+	 * @return the telPerso
+	 */
+	public String getTelPerso() {
 		return telPerso;
 	}
 
-	public void setTelPerso(int telPerso) {
+	/**
+	 * @param telPerso the telPerso to set
+	 */
+	public void setTelPerso(String telPerso) {
 		this.telPerso = telPerso;
 	}
 
+	/**
+	 * @return the adresse
+	 */
 	public Adresse getAdresse() {
 		return adresse;
 	}
 
+	/**
+	 * @param adresse the adresse to set
+	 */
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
+
 
 }
