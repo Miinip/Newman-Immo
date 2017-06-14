@@ -22,10 +22,16 @@ monApp.controller("ctrlOneVisite",function($scope,$rootScope,$location,visitePro
 	}
 });
 
-monApp.controller("ctrlAllVisite",function($scope,$rootScope,$location,visiteProvider){
+monApp.controller("ctrlAllVisite",function($scope,$rootScope,$location,visiteProvider, bienImmobilierProvider, clientProvider){
 	$scope.msg = "List of Visite";
 	visiteProvider.getAllVisite(function(callback){
 		$scope.listeVisites = callback;
+	})
+	clientProvider.getAllClient(function(callback){
+		$scope.listeClients = callback;
+	})
+	bienImmobilierProvider.getAllBienImmobilier(function(callback){
+		$scope.listeBienImmobiliers = callback;
 	})
 	
 	$scope.supprimer = function(idToDelete){
