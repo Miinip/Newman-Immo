@@ -16,7 +16,7 @@ monApp.controller("ctrlOneConseiller",function($scope,$rootScope,$location,conse
 	}
 	
 	$scope.modifier = function(){
-		$rootScope.conseillerFormRoot = $scope.Conseiller;
+		$rootScope.conseillerFormRoot = $scope.conseiller;
 		$location.path('/conseiller/update');
 	}
 });

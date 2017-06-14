@@ -16,7 +16,7 @@ monApp.controller("ctrlOneBienImmobilier",function($scope,$rootScope,$location,b
 	}
 	
 	$scope.modifier = function(){
-		$rootScope.bienImmobilierFormRoot = $scope.BienImmobilier;
+		$rootScope.bienImmobilierFormRoot = $scope.bienImmobilier;
 		$location.path('/bienImmobilier/update');
 	}
 });

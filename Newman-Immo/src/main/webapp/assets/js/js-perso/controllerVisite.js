@@ -17,7 +17,7 @@ monApp.controller("ctrlOneVisite",function($scope,$rootScope,$location,visitePro
 	}
 	
 	$scope.modifier = function(){
-		$rootScope.visiteFormRoot = $scope.Visite;
+		$rootScope.visiteFormRoot = $scope.visite;
 		$location.path('/visite/update');
 	}
 });

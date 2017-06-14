@@ -16,7 +16,7 @@ monApp.controller("ctrlOneClient",function($scope,$rootScope,$location,clientPro
 	}
 	
 	$scope.modifier = function(){
-		$rootScope.clientFormRoot = $scope.Client;
+		$rootScope.clientFormRoot = $scope.client;
 		$location.path('/client/update');
 	}
 });

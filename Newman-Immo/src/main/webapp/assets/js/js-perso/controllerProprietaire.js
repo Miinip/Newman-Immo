@@ -16,7 +16,7 @@ monApp.controller("ctrlOneProprietaire",function($scope,$rootScope,$location,pro
 	}
 	
 	$scope.modifier = function(){
-		$rootScope.proprietaireFormRoot = $scope.Proprietaire;
+		$rootScope.proprietaireFormRoot = $scope.proprietaire;
 		$location.path('/proprietaire/update');
 	}
 });
