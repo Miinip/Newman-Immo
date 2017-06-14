@@ -56,7 +56,9 @@ monApp.controller("ctrlAddVisite",function($scope,$location,visiteProvider){
 	$scope.msg = "Add Visite";
 	$scope.visiteForm = {	id:undefined,
 							date:"",
-							heure:""
+							heure:"",
+							bienImmo:"",
+							clientVisiteur:""
 			};
 			
 	$scope.ajouter = function(){
@@ -72,7 +74,9 @@ monApp.controller("ctrlUpdateVisite",function($scope,$rootScope,$location,visite
 	$scope.msg = "Update Visite";
 	$scope.visiteForm = {	id:undefined,
 							date:"",
-							heure:""
+							heure:"",
+							bienImmo:"",
+							clientVisiteur:""
 			};
 		
 		if($rootScope.visiteFormRoot != null){
