@@ -33,13 +33,16 @@ public class Client extends Personne {
 		super();
 	}
 
-	public Client(String nom, String prenom, int telPro, int telPerso, Adresse adresse) {
+
+	public Client(String nom, String prenom, String telPro, String telPerso, Adresse adresse) {
 		super(nom, prenom, telPro, telPerso, adresse);
 	}
 
-	public Client(int id, String nom, String prenom, int telPro, int telPerso, Adresse adresse) {
+
+	public Client(int id, String nom, String prenom, String telPro, String telPerso, Adresse adresse) {
 		super(id, nom, prenom, telPro, telPerso, adresse);
 	}
+
 
 	@JsonIgnoreProperties("typeBien")
 	public List<ClasseStandard> getListeVoeux() {

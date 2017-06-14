@@ -22,13 +22,13 @@ public class Proprietaire extends Personne {
 	}
 
 	/** Constructeur param sans id */
-	public Proprietaire(String nom, String prenom, int telPro, int telPerso, Adresse adresse) {
+	public Proprietaire(String nom, String prenom, String telPro, String telPerso, Adresse adresse) {
 		super(nom, prenom, telPro, telPerso, adresse);
 
 	}
 
 	/** Constructeur param avec id */
-	public Proprietaire(int id, String nom, String prenom, int telPro, int telPerso, Adresse adresse) {
+	public Proprietaire(int id, String nom, String prenom, String telPro, String telPerso, Adresse adresse) {
 		super(id, nom, prenom, telPro, telPerso, adresse);
 	}
 

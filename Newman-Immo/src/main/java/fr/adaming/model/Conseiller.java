@@ -29,7 +29,7 @@ public class Conseiller extends Personne {
 	}
 
 	/** Constructeur param sans id */
-	public Conseiller(String nom, String prenom, int telPro, int telPerso, Adresse adresse, String login,
+	public Conseiller(String nom, String prenom, String telPro, String telPerso, Adresse adresse, String login,
 			String password) {
 		super(nom, prenom, telPro, telPerso, adresse);
 		this.login = login;
@@ -38,7 +38,7 @@ public class Conseiller extends Personne {
 	}
 
 	/** Constructeur param avec id */
-	public Conseiller(int id, String nom, String prenom, int telPro, int telPerso, Adresse adresse, String login,
+	public Conseiller(int id, String nom, String prenom, String telPro, String telPerso, Adresse adresse, String login,
 			String password) {
 		super(id, nom, prenom, telPro, telPerso, adresse);
 		this.login = login;
