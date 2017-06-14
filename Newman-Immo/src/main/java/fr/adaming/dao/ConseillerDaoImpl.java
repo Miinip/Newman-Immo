@@ -39,6 +39,8 @@ public class ConseillerDaoImpl implements IConseillerDao {
 			cBD.setTelPerso(c.getTelPerso());
 			cBD.setTelPro(c.getTelPro());
 			cBD.setAdresse(c.getAdresse());
+			cBD.setLogin(c.getLogin());
+			cBD.setPassword(c.getPassword());
 			s.merge(cBD);
 			return 1;
 		} catch (Exception ex) {
