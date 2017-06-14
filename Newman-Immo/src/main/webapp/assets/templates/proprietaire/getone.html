@@ -1,0 +1,99 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+
+	<div class="row">
+		<form name="getOneForm">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<input type="number" 
+						ng-model="idToFind" class="form-control"
+						placeholder="Find" required>
+				</div>
+			</div>
+
+			<button ng-click="find()" class="btn btn-primary">chercher</button>
+			<div class="pull-right">
+				<button type="submit" ng-click="modifier()" ng-show="proprietaire.id != undefined" class="btn btn-primary "><i class="material-icons">mode_edit</i></button>
+				<button type="submit" ng-click="supprimer()" ng-show="proprietaire.id != undefined" class="btn btn-primary "><i class="material-icons">clear</i></button>
+			</div>
+		</form>
+	</div>
+
+	<div ng-show="Personne.id != undefined">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">ID: {{proprietaire.id}}</span>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<span class="form-control">Nom : {{proprietaire.nom}}</span>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<span class="form-control">Prenom : {{proprietaire.prenom}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">N&#176;Pro : {{proprietaire.telPro}}</span>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">N&#176;Perso : {{proprietaire.telPerso}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-control">Liste de biens : {{proprietaire.listeBien}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="form-control">N&#176; : {{proprietaire.adresse.numero}}</span>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<span class="form-control">Rue : {{proprietaire.adresse.rue}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-8">
+				<div class="form-group">
+					<span class="form-control">Ville : {{proprietaire.adresse.localite}}</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">CP : {{proprietaire.adresse.codePostal}}</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">Pays : {{proprietaire.adresse.pays}}</span>
+				</div>
+			</div>
+		</div>
+
+			
+			
+		</div>
+	
+	</div>
