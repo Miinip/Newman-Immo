@@ -74,7 +74,7 @@ monApp.controller("ctrlAddBienImmobilier", function($scope, $location,
 	$scope.bienImmobilierForm = {
 		id : undefined,
 		photo : null,
-		statut : undefined,
+		statut : "disponible",
 		dateSoumission : "",
 		dateMiseDispo : "",
 		revenuCadastral : undefined,
@@ -96,6 +96,21 @@ monApp.controller("ctrlAddBienImmobilier", function($scope, $location,
 					}
 				})
 	}
+	
+	$scope.setFile = function(element) {
+		  $scope.currentFile = element.files[0];
+		   var reader = new FileReader();
+
+		  reader.onload = function(event) {
+		    $scope.image_source = event.target.result
+		    $scope.$apply()
+
+		  }
+		  // when the file is read it triggers the onload event above.
+		  reader.readAsDataURL(element.files[0]);
+		}
+	
+	
 });
 
 monApp.controller("ctrlUpdateBienImmobilier", function($scope, $rootScope,
@@ -104,7 +119,7 @@ monApp.controller("ctrlUpdateBienImmobilier", function($scope, $rootScope,
 	$scope.bienImmobilierForm = {
 			id : undefined,
 			photo : null,
-			statut : undefined,
+			statut : "disponible",
 			dateSoumission : "",
 			dateMiseDispo : "",
 			revenuCadastral : undefined,

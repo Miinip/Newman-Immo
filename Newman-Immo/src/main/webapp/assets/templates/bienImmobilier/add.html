@@ -2,15 +2,17 @@
 	<div class="page-header">
 		<h3 id="tables">{{msg}}</h3>
 	</div>
-	<form name="addForm">
-	
+	<form name="addForm">	
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="file" ng-model="bienImmobilierForm.photo" placeholder="Photo" class="form-control">
+					<input type="file" ng-model="bienImmobilierForm.photo" onchange="angular.element(this).scope().setFile(this)" accept="image/*" class="form-control">
 				</div>
 			</div>
-			<div class="col-md-3">
+			<img id="trigger" ng-src="{{image_source}}" style="float: right;"/>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
 				<div class="form-group">
 					<select name="statuts" ng-model="bienImmobilierForm.statut" class="form-control">
 						<option value="disponible">Disponible</option>
