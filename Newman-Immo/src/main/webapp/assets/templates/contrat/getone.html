@@ -1,0 +1,61 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+
+	<div class="row">
+		<form name="getOneForm">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<input type="number" ng-model="idToFind" class="form-control"
+						placeholder="Find" required>
+				</div>
+			</div>
+
+			<button ng-click="find()" class="btn btn-primary">chercher</button>
+			<div class="pull-right">
+				<button type="submit" ng-click="modifier()"
+					ng-show="contrat.id != undefined" class="btn btn-primary ">
+					<i class="material-icons">mode_edit</i>
+				</button>
+				<button type="submit" ng-click="suprimer()"
+					ng-show="contrat.id != undefined" class="btn btn-primary ">
+					<i class="material-icons">clear</i>
+				</button>
+			</div>
+		</form>
+	</div>
+
+	<div ng-show="contrat.id != undefined">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<span class="form-control">ID: {{contrat.id}}</span>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<span class="form-control">Numero Ref :
+						{{contrat.numeroRef}}</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-5">
+					<div class="form-group">
+						<span class="form-control">Prix : {{contrat.prix}}</span>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="form-group">
+						<span class="form-control">Prix : {{contrat.date}}</span>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<span class="form-control">Bien : {{contrat.bien}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

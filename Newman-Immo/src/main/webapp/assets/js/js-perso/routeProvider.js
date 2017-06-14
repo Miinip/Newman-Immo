@@ -20,5 +20,9 @@ monApp.config(function($routeProvider){
                  .when('/visite/all',{controller:'ctrlAllVisite',templateUrl:'assets/templates/visite/getall.html'})
                  .when('/visite/add',{controller:'ctrlAddVisite',templateUrl:'assets/templates/visite/add.html'})
                  .when('/visite/update',{controller:'ctrlUpdateVisite',templateUrl:'assets/templates/visite/update.html'})
+                 .when('/contrat/one',{controller:'ctrlOneContrat',templateUrl:'assets/templates/contrat/getone.html'})
+                 .when('/contrat/all',{controller:'ctrlAllContrat',templateUrl:'assets/templates/contrat/getall.html'})
+                 .when('/contrat/add',{controller:'ctrlAddContrat',templateUrl:'assets/templates/contrat/add.html'})
+                 .when('/contrat/update',{controller:'ctrlUpdateContrat',templateUrl:'assets/templates/contrat/update.html'})
                  .otherwise({redirectTo:'/home'});
 	});
