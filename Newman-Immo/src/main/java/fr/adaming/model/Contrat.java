@@ -29,6 +29,7 @@ public class Contrat implements Serializable{
 	
 	@Temporal(TemporalType.DATE)
 	private Date date;
+	
 	private int numeroRef;
 
 	@ManyToOne

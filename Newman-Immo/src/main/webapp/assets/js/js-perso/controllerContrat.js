@@ -66,15 +66,19 @@ monApp.controller("ctrlAllContrat", function($scope, $rootScope, $location,
 });
 
 monApp.controller("ctrlAddContrat",
-		function($scope, $location, contratProvider) {
+		function($scope, $location, contratProvider,bienImmobilierProvider) {
 			$scope.msg = "Add Contrat";
 			$scope.contratForm = {
-				id_con : undefined,
+				id: undefined,
 				date : undefined,
 				numeroRef : undefined,
 				prix : undefined,
-				bien_id : undefined,
+				bien: undefined,
 			};
+			
+			bienImmobilierProvider.getAllBienImmobilier(function(callback){
+				$scope.listeBienImmobiliers = callback;
+			})
 
 			$scope.ajouter = function() {
 				contratProvider.doAddContrat($scope.contratForm, function(
@@ -90,12 +94,15 @@ monApp.controller("ctrlUpdateContrat", function($scope, $rootScope, $location,
 		contratProvider) {
 	$scope.msg = "Update Contrat";
 	$scope.contratForm = {
-		id_con : undefined,
+		id: undefined,
 		date : undefined,
 		numeroRef : undefined,
 		prix : undefined,
-		bien_id : undefined,
+		bien: undefined,
 	};
+	bienImmobilierProvider.getAllBienImmobilier(function(callback){
+		$scope.listeBienImmobiliers = callback;
+	})
 
 	if ($rootScope.contratFormRoot != null) {
 		$scope.contratForm = $rootScope.contratFormRoot;
