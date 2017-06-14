@@ -1,4 +1,4 @@
-monApp.factory('visiteProvider', function($http) {
+monApp.factory('visiteProvider', function($http,$location) {
 	var restUrl = $location.protocol() +'://'+ $location.host()+':'+ $location.port() + '/Newman-Immo/rest';
 
 	function findAllVisite(callback) {

@@ -1,4 +1,4 @@
-monApp.factory('proprietaireProvider', function($http) {
+monApp.factory('proprietaireProvider', function($http,$location) {
 	var restUrl = $location.protocol() +'://'+ $location.host()+':'+ $location.port() + '/Newman-Immo/rest';
 
 	function findAllProprietaire(callback) {

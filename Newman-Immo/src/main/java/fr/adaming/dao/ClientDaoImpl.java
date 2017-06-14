@@ -34,7 +34,7 @@ public class ClientDaoImpl implements IClientDao {
 	@SuppressWarnings("unchecked")
 	public List<Client> afficherClient() {
 		s = sf.getCurrentSession();
-		return s.createQuery("SELECT FROM Client").list();
+		return s.createQuery("FROM Client").list();
 	}
 
 	public Client getByIdClient(int id) {

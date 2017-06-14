@@ -1,4 +1,4 @@
-monApp.factory('clientProvider', function($http) {
+monApp.factory('clientProvider', function($http,$location) {
 	var restUrl = $location.protocol() +'://'+ $location.host()+':'+ $location.port() + '/Newman-Immo/rest';
 
 	function findAllClient(callback) {
