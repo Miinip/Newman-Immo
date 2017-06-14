@@ -1,4 +1,4 @@
-monApp.factory('ContratProvider', function($http,$location) {
+monApp.factory('contratProvider', function($http,$location) {
 	var restUrl = $location.protocol() +'://'+ $location.host()+':'+ $location.port() + '/Newman-Immo/rest';
 
 	function findAllContrat(callback) {

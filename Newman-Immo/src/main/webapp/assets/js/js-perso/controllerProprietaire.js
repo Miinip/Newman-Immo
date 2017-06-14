@@ -1,6 +1,13 @@
 monApp.controller("ctrlOneProprietaire",function($scope,$rootScope,$location,proprietaireProvider){
 	$scope.msg = "One Proprietaire";
 	$scope.idToFind =undefined;
+	if($rootScope.proprietaireViewRoot != undefined){
+		$scope.idToFind = $rootScope.proprietaireViewRoot;
+		$rootScope.proprietaireViewRoot = undefined;
+		proprietaireProvider.getOneProprietaire($scope.idToFind,function(callback){
+			$scope.proprietaire = callback;
+		})
+	}
 	$scope.find = function(){
 		proprietaireProvider.getOneProprietaire($scope.idToFind,function(callback){
 			$scope.proprietaire = callback;
@@ -40,6 +47,11 @@ monApp.controller("ctrlAllProprietaire",function($scope,$rootScope,$location,pro
 	$scope.modifier = function(proprietaireToUpdate){
 		$rootScope.proprietaireFormRoot = proprietaireToUpdate;
 		$location.path('/proprietaire/update');
+	}
+	
+	$scope.vue = function(proprietaireToView){
+		$rootScope.proprietaireViewRoot = proprietaireToView;
+		$location.path('/proprietaire/one');
 	}
 	
 	$scope.MouseOverRow = {};

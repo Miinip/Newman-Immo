@@ -1,15 +1,22 @@
 monApp.controller("ctrlOneContrat", function($scope, $rootScope, $location,
-		ContratProvider) {
+		contratProvider) {
 	$scope.msg = "One Contrat";
 	$scope.idToFind = undefined;
+	if($rootScope.contratViewRoot != undefined){
+		$scope.idToFind = $rootScope.contratViewRoot;
+		$rootScope.contratViewRoot = undefined;
+		contratProvider.getOneContrat($scope.idToFind,function(callback){
+			$scope.contrat = callback;
+		})
+	}
 	$scope.find = function() {
-		ContratProvider.getOneContrat($scope.idToFind, function(callback) {
+		contratProvider.getOneContrat($scope.idToFind, function(callback) {
 			$scope.contrat = callback;
 		})
 	}
 
 	$scope.supprimer = function() {
-		ContratProvider.doDeleteContrat($scope.Contrat.id, function(callback) {
+		contratProvider.doDeleteContrat($scope.Contrat.id, function(callback) {
 			if (callback == "OK") {
 				$location.path('/contrat/all');
 			}
@@ -17,22 +24,22 @@ monApp.controller("ctrlOneContrat", function($scope, $rootScope, $location,
 	}
 
 	$scope.modifier = function() {
-		$rootScope.contratFormRoot = $scope.Contrat;
+		$rootScope.contratFormRoot = $scope.contrat;
 		$location.path('/contrat/update');
 	}
 });
 
 monApp.controller("ctrlAllContrat", function($scope, $rootScope, $location,
-		ContratProvider) {
+		contratProvider) {
 	$scope.msg = "List of Contrat";
-	ContratProvider.getAllContrat(function(callback) {
+	contratProvider.getAllContrat(function(callback) {
 		$scope.listeContrats = callback;
 	})
 
 	$scope.supprimer = function(idToDelete) {
-		ContratProvider.doDeleteContrat(idToDelete, function(callback) {
+		contratProvider.doDeleteContrat(idToDelete, function(callback) {
 			if (callback == "OK") {
-				ContratProvider.getAllContrat(function(callback) {
+				contratProvider.getAllContrat(function(callback) {
 					$scope.listeContrats = callback;
 				})
 			}
@@ -42,6 +49,11 @@ monApp.controller("ctrlAllContrat", function($scope, $rootScope, $location,
 	$scope.modifier = function(ContratToUpdate) {
 		$rootScope.contratFormRoot = ContratToUpdate;
 		$location.path('/contrat/update');
+	}
+	
+	$scope.vue = function(contratToView){
+		$rootScope.contratViewRoot = contratToView;
+		$location.path('/contrat/one');
 	}
 
 	$scope.MouseOverRow = {};
@@ -54,7 +66,7 @@ monApp.controller("ctrlAllContrat", function($scope, $rootScope, $location,
 });
 
 monApp.controller("ctrlAddContrat",
-		function($scope, $location, ContratProvider) {
+		function($scope, $location, contratProvider) {
 			$scope.msg = "Add Contrat";
 			$scope.contratForm = {
 				id_con : undefined,
@@ -65,7 +77,7 @@ monApp.controller("ctrlAddContrat",
 			};
 
 			$scope.ajouter = function() {
-				ContratProvider.doAddContrat($scope.contratForm, function(
+				contratProvider.doAddContrat($scope.contratForm, function(
 						callback) {
 					if (callback == "OK") {
 						$location.path('/contrat/all');
@@ -75,7 +87,7 @@ monApp.controller("ctrlAddContrat",
 		});
 
 monApp.controller("ctrlUpdateContrat", function($scope, $rootScope, $location,
-		ContratProvider) {
+		contratProvider) {
 	$scope.msg = "Update Contrat";
 	$scope.contratForm = {
 		id_con : undefined,
@@ -91,7 +103,7 @@ monApp.controller("ctrlUpdateContrat", function($scope, $rootScope, $location,
 	}
 
 	$scope.modifier = function() {
-		ContratProvider.doUpdateContrat($scope.contratForm, function(callback) {
+		contratProvider.doUpdateContrat($scope.contratForm, function(callback) {
 			if (callback == "OK") {
 				$location.path('/contrat/all');
 			}
