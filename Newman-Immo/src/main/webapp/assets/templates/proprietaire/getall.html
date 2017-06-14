@@ -20,6 +20,7 @@
 				<th>Code postal</th>
 				<th>Ville</th>
 				<th>Pays</th>
+				<th>ListeBien</th>
 				<th class="text-right">-</th>
 			</tr>
 		</thead>
@@ -35,6 +36,7 @@
 				<td>{{proprietaire.adresse.codePostal}}</td>
 				<td>{{proprietaire.adresse.localite}}</td>
 				<td>{{proprietaire.adresse.pays}}</td>
+				<td>{{proprietaire.listeBien}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group" ng-show="MouseOverRow[proprietaire.id]">
 						<i ng-click="modifier(proprietaire)" class="material-icons btn-info btn-xs">mode_edit</i>
