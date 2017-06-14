@@ -1,4 +1,4 @@
-monApp.factory('bienImmobilierProvider', function($http) {
+monApp.factory('bienImmobilierProvider', function($http, $location) {
 	var restUrl = $location.protocol() +'://'+ $location.host()+':'+ $location.port() + '/Newman-Immo/rest';
 
 	function findAllBienImmobilier(callback) {
