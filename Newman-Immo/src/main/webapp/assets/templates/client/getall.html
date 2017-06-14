@@ -37,6 +37,7 @@
 				<td>{{client.adresse.pays}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group" ng-show="MouseOverRow[client.id]">
+						<i ng-click="vue(client.id)" class="material-icons btn-success btn-xs">search</i>
 						<i ng-click="modifier(client)" class="material-icons btn-info btn-xs">mode_edit</i>
 						<i ng-click="supprimer(client.id)" class="material-icons btn-danger btn-xs">clear</i>
 					</div>
