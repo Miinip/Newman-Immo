@@ -54,17 +54,17 @@ monApp.controller("ctrlAllProprietaire",function($scope,$rootScope,$location,pro
 monApp.controller("ctrlAddProprietaire",function($scope,$location,proprietaireProvider){
 	$scope.msg = "Add Proprietaire";
 	$scope.proprietaireForm = {	id:undefined,
-							nom:"",
-							prenom:"",
-							telPro:undefined,
-							telPerso:undefined,
-							adresse:{	rue:"",
-										numero:"",
-										codePostal:undefined,
-										localite:"",
-										pays:""
-										},
-							listeBien:""
+								nom:"",
+								prenom:"",
+								telPro:undefined,
+								telPerso:undefined,
+								adresse:{	rue:"",
+											numero:"",
+											codePostal:undefined,
+											localite:"",
+											pays:""
+											},
+								listeBien:""
 			};
 			
 	$scope.ajouter = function(){
@@ -79,17 +79,17 @@ monApp.controller("ctrlAddProprietaire",function($scope,$location,proprietairePr
 monApp.controller("ctrlUpdateProprietaire",function($scope,$rootScope,$location,proprietaireProvider){
 	$scope.msg = "Update Proprietaire";
 	$scope.proprietaireForm = {	id:undefined,
-							nom:"",
-							prenom:"",
-							telPro:undefined,
-							telPerso:undefined,
-							adresse:{	rue:"",
-										numero:"",
-										codePostal:undefined,
-										localite:"",
-										pays:""
-										},
-							listeBien:""
+								nom:"",
+								prenom:"",
+								telPro:undefined,
+								telPerso:undefined,
+								adresse:{	rue:"",
+											numero:"",
+											codePostal:undefined,
+											localite:"",
+											pays:""
+											},
+								listeBien:""
 			};
 		
 		if($rootScope.proprietaireFormRoot != null){
