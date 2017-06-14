@@ -3,11 +3,14 @@ package fr.adaming.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.Proxy;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -19,11 +22,13 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @SuppressWarnings("serial")
 public class Client extends Personne {
 
-	@OneToMany(orphanRemoval = true)
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(orphanRemoval = true, fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_cs")
 	private List<ClasseStandard> listeVoeux;
 
-	@OneToMany(mappedBy = "clientVisiteur")
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(mappedBy = "clientVisiteur", fetch=FetchType.EAGER)
 	private List<Visite> listeVisitePrevue;
 
 	@OneToOne(mappedBy = "clientAcquereur")
