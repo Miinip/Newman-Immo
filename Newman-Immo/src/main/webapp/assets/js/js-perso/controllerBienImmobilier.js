@@ -55,7 +55,7 @@ monApp.controller("ctrlAddBienImmobilier",function($scope,$location,bienImmobili
 	$scope.msg = "Add BienImmobilier";
 	$scope.bienImmobilierForm = {	id:undefined,
 									photo:undefined,
-									statut:"",
+									statut:"disponible",
 									classeStandard:"",
 									dateSoumission:"",
 									dateMiseDispo:"",
