@@ -19,8 +19,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "bienImmos")
@@ -125,32 +124,32 @@ public class BienImmobilier {
 		return localisation;
 	}
 
-	@JsonManagedReference
+	@JsonIgnoreProperties({ "listeVoeux", "listeVisitePrevue", "bienImmo" })
 	public Client getClientAcquereur() {
 		return clientAcquereur;
 	}
 
-	@JsonManagedReference
+	@JsonIgnoreProperties("ListeGestionDesBien")
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
 
-	@JsonBackReference
+	@JsonIgnoreProperties({ "clientVisiteur", "bienImmo" })
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
 
-	@JsonBackReference
+	@JsonIgnoreProperties("bien")
 	public List<Contrat> getListeContrats() {
 		return listeContrats;
 	}
 
-	@JsonManagedReference
+	@JsonIgnoreProperties("typeBien")
 	public ClasseStandard getClasseStandard() {
 		return classeStandard;
 	}
 
-	@JsonManagedReference
+	@JsonIgnoreProperties("listeBien")
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}
@@ -205,15 +204,6 @@ public class BienImmobilier {
 
 	public void setProprietaire(Proprietaire proprietaire) {
 		this.proprietaire = proprietaire;
-	}
-
-	@Override
-	public String toString() {
-		return "BienImmobilier [id=" + id + ", photo=" + Arrays.toString(photo) + ", statut=" + statut
-				+ ", dateSoumission=" + dateSoumission + ", dateMiseDispo=" + dateMiseDispo + ", revenuCadastral="
-				+ revenuCadastral + ", localisation=" + localisation + ", clientAcquereur=" + clientAcquereur
-				+ ", conseiller=" + conseiller + ", listeVisites=" + listeVisites + ", listeContrats=" + listeContrats
-				+ ", classeStandard=" + classeStandard + ", proprietaire=" + proprietaire + "]";
 	}
 
 }

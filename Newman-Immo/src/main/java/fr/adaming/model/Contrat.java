@@ -11,9 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Proxy;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "contrats")
@@ -32,10 +30,12 @@ public class Contrat {
 	@JoinColumn(name = "bien_id", referencedColumnName = "id_bi")
 	private BienImmobilier bien;
 
+	/** Constructeur vide */
 	public Contrat() {
 		super();
 	}
 
+	/** Constructeur param sans id */
 	public Contrat(double prix, Date date, int numeroRef, BienImmobilier bien) {
 		super();
 		this.prix = prix;
@@ -44,6 +44,7 @@ public class Contrat {
 		this.bien = bien;
 	}
 
+	/** Constructeur param avec id */
 	public Contrat(int id, double prix, Date date, int numeroRef, BienImmobilier bien) {
 		super();
 		this.id = id;
@@ -53,91 +54,51 @@ public class Contrat {
 		this.bien = bien;
 	}
 
-	/**
-	 * @return the id
-	 */
 	public int getId() {
 		return id;
 	}
 
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the prix
-	 */
 	public double getPrix() {
 		return prix;
 	}
 
-	/**
-	 * @param prix
-	 *            the prix to set
-	 */
-	public void setPrix(double prix) {
-		this.prix = prix;
-	}
-
-	/**
-	 * @return the date
-	 */
 	public Date getDate() {
 		return date;
 	}
 
-	/**
-	 * @param date
-	 *            the date to set
-	 */
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	/**
-	 * @return the numeroRef
-	 */
 	public int getNumeroRef() {
 		return numeroRef;
 	}
 
-	/**
-	 * @param numeroRef
-	 *            the numeroRef to set
-	 */
-	public void setNumeroRef(int numeroRef) {
-		this.numeroRef = numeroRef;
-	}
-
-	/**
-	 * @return the bien
-	 */
-	@JsonManagedReference
+	@JsonIgnoreProperties({ "clientAcquereur", "conseiller", "listeVisites", "listeContrats", "classeStandard",
+			"proprietaire" })
 	public BienImmobilier getBien() {
 		return bien;
 	}
 
-	/**
-	 * @param bien
-	 *            the bien to set
-	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void setNumeroRef(int numeroRef) {
+		this.numeroRef = numeroRef;
+	}
+
 	public void setBien(BienImmobilier bien) {
 		this.bien = bien;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "Contrat [id=" + id + ", prix=" + prix + ", date=" + date + ", numeroRef=" + numeroRef + ", bien=" + bien
-				+ "]";
+		return "Contrat [id=" + id + ", prix=" + prix + ", date=" + date + ", numeroRef=" + numeroRef + "]";
 	}
 
 }

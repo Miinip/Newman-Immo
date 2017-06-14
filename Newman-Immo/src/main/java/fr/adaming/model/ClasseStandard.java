@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "classesStandards")
@@ -47,7 +47,6 @@ public class ClasseStandard {
 		this.superficie = superficie;
 	}
 
-	
 	public int getCode() {
 		return code;
 	}
@@ -64,7 +63,8 @@ public class ClasseStandard {
 		return superficie;
 	}
 
-	@JsonManagedReference
+	@JsonIgnoreProperties({ "clientAcquereur", "conseiller", "listeVisites", "listeContrats", "classeStandard",
+			"proprietaire" })
 	public BienImmobilier getTypeBien() {
 		return typeBien;
 	}
@@ -87,12 +87,6 @@ public class ClasseStandard {
 
 	public void setTypeBien(BienImmobilier typeBien) {
 		this.typeBien = typeBien;
-	}
-
-	@Override
-	public String toString() {
-		return "ClasseStandard [code=" + code + ", modeOffre=" + modeOffre + ", prix=" + prix + ", superficie="
-				+ superficie + ", typeBien=" + typeBien + "]";
 	}
 
 }

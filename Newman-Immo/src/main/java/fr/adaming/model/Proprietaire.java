@@ -6,60 +6,40 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Proxy;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="proprietaires")
+@Table(name = "proprietaires")
 @SuppressWarnings("serial")
 public class Proprietaire extends Personne {
 
-	@OneToMany(mappedBy="proprietaire")
+	@OneToMany(mappedBy = "proprietaire")
 	private List<BienImmobilier> listeBien;
 
+	/** Constructeur vide */
 	public Proprietaire() {
 		super();
 	}
 
-	public Proprietaire(String nom, String prenom, int telPro, int telPerso, Adresse adresse,
-			List<BienImmobilier> listeBien) {
+	/** Constructeur param sans id */
+	public Proprietaire(String nom, String prenom, int telPro, int telPerso, Adresse adresse) {
 		super(nom, prenom, telPro, telPerso, adresse);
-		this.listeBien = listeBien;
+
 	}
 
-	public Proprietaire(int id, String nom, String prenom, int telPro, int telPerso, Adresse adresse,
-			List<BienImmobilier> listeBien) {
+	/** Constructeur param avec id */
+	public Proprietaire(int id, String nom, String prenom, int telPro, int telPerso, Adresse adresse) {
 		super(id, nom, prenom, telPro, telPerso, adresse);
-		this.listeBien = listeBien;
 	}
 
-	/**
-	 * @return the listeBien
-	 */
-	@JsonBackReference
+	@JsonIgnoreProperties({ "clientAcquereur", "conseiller", "listeVisites", "listeContrats", "classeStandard",
+			"proprietaire" })
 	public List<BienImmobilier> getListeBien() {
 		return listeBien;
 	}
 
-	/**
-	 * @param listeBien the listeBien to set
-	 */
 	public void setListeBien(List<BienImmobilier> listeBien) {
 		this.listeBien = listeBien;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Proprietaire [listeBien=" + listeBien + ", getId()=" + getId() + ", getNom()=" + getNom()
-				+ ", getPrenom()=" + getPrenom() + ", getTelPro()=" + getTelPro() + ", getTelPerso()=" + getTelPerso()
-				+ ", getAdresse()=" + getAdresse() + "]";
-	}
-	
-	
-	
 }

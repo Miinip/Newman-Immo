@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Proxy;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -40,17 +41,18 @@ public class Client extends Personne {
 		super(id, nom, prenom, telPro, telPerso, adresse);
 	}
 
-	@JsonBackReference
+	@JsonIgnoreProperties("typeBien")
 	public List<ClasseStandard> getListeVoeux() {
 		return listeVoeux;
 	}
 
-	@JsonBackReference
+	@JsonIgnoreProperties({"clientVisiteur","bienImmo"})
 	public List<Visite> getListeVisitePrevue() {
 		return listeVisitePrevue;
 	}
 
-	@JsonManagedReference
+	@JsonIgnoreProperties({ "clientAcquereur", "conseiller", "listeVisites", "listeContrats", "classeStandard",
+	"proprietaire" })
 	public BienImmobilier getBienImmo() {
 		return bienImmo;
 	}
@@ -65,6 +67,6 @@ public class Client extends Personne {
 
 	public void setBienImmo(BienImmobilier bienImmo) {
 		this.bienImmo = bienImmo;
-	}
-
+	}	
+	
 }

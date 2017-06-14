@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Proxy;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -36,13 +37,13 @@ public class Visite {
 	@JoinColumn(name = "clientV_id", referencedColumnName = "id")
 	private Client clientVisiteur;
 
-	// constructeur vide
+	/** Constructeur vide */
 	public Visite() {
 		super();
 	}
 
-	// constructeur sans id avec param
-	public Visite(Date date, Date heure, BienImmobilier bienImmo, List<Client> listeClientsVisiteurs) {
+	/** Constructeur param sans id */
+	public Visite(Date date, Date heure, BienImmobilier bienImmo, Client clientVisiteur) {
 		super();
 		this.date = date;
 		this.heure = heure;
@@ -50,8 +51,8 @@ public class Visite {
 		this.clientVisiteur = clientVisiteur;
 	}
 
-	// constructeur avec id avec param
-	public Visite(int id, Date date, Date heure, BienImmobilier bienImmo, List<Client> listeClientsVisiteurs) {
+	/** Constructeur param avec id */
+	public Visite(int id, Date date, Date heure, BienImmobilier bienImmo, Client clientVisiteur) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -65,48 +66,43 @@ public class Visite {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public Date getDate() {
 		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public Date getHeure() {
 		return heure;
 	}
 
-	public void setHeure(Date heure) {
-		this.heure = heure;
-	}
-	
-	@JsonManagedReference
+	@JsonIgnoreProperties({ "clientAcquereur", "conseiller", "listeVisites", "listeContrats", "classeStandard",
+			"proprietaire" })
 	public BienImmobilier getBienImmo() {
 		return bienImmo;
+	}
+
+	@JsonIgnoreProperties({ "listeVoeux", "listeVisitePrevue", "bienImmo" })
+	public Client getClientVisiteur() {
+		return clientVisiteur;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void setHeure(Date heure) {
+		this.heure = heure;
 	}
 
 	public void setBienImmo(BienImmobilier bienImmo) {
 		this.bienImmo = bienImmo;
 	}
 
-	@JsonManagedReference
-	public Client getClientVisiteur() {
-		return clientVisiteur;
-	}
-
 	public void setClientVisiteur(Client clientVisiteur) {
 		this.clientVisiteur = clientVisiteur;
-	}
-
-	// toString
-	@Override
-	public String toString() {
-		return "Visite [id=" + id + ", date=" + date + ", heure=" + heure + ", bienImmo=" + bienImmo + "]";
 	}
 
 }

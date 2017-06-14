@@ -98,10 +98,4 @@ public abstract class Personne implements Serializable {
 		this.adresse = adresse;
 	}
 
-	@Override
-	public String toString() {
-		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", telPro=" + telPro + ", telPerso="
-				+ telPerso + ", adresse=" + adresse + "]";
-	}
-
 }

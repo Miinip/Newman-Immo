@@ -9,10 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "conseillers")
 @SuppressWarnings("serial")
@@ -56,7 +54,8 @@ public class Conseiller extends Personne {
 		return password;
 	}
 
-	@JsonBackReference
+	@JsonIgnoreProperties({ "clientAcquereur", "conseiller", "listeVisites", "listeContrats", "classeStandard",
+			"proprietaire" })
 	public List<BienImmobilier> getListeGestionDesBien() {
 		return ListeGestionDesBien;
 	}
@@ -71,12 +70,6 @@ public class Conseiller extends Personne {
 
 	public void setListeGestionDesBien(List<BienImmobilier> listeGestionDesBien) {
 		ListeGestionDesBien = listeGestionDesBien;
-	}
-
-	@Override
-	public String toString() {
-		return "Conseiller [login=" + login + ", password=" + password + ", ListeGestionDesBien=" + ListeGestionDesBien
-				+ "]";
 	}
 
 }
