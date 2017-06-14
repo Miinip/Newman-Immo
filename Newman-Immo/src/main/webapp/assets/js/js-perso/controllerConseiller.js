@@ -101,7 +101,6 @@ monApp.controller("ctrlUpdateConseiller",function($scope,$rootScope,$location,co
 						pays:""
 						}
 			};
-		
 		if($rootScope.conseillerFormRoot != null){
 			$scope.conseillerForm = $rootScope.conseillerFormRoot;
 			$rootScope.conseillerFormRoot = null;
