@@ -16,8 +16,6 @@ public interface IProprietaireDao {
 	
 	public Proprietaire getOnePropbyId (int id);
 	
-	public int attributePropToBienImmo (Proprietaire prop, BienImmobilier bienImmo);
-	
 	public List<Proprietaire> getAllProprietaires();
 	
 }

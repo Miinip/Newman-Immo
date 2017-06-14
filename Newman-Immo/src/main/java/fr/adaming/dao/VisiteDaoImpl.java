@@ -44,9 +44,7 @@ public class VisiteDaoImpl implements IVisiteDao{
 		
 		s = sf.getCurrentSession();
 		try {
-			Visite vUpdate = (Visite) s.get(Visite.class, v.getId());
-			vUpdate = v;
-			s.saveOrUpdate(vUpdate);
+			s.saveOrUpdate(v);
 			return 1;
 		} catch (Exception ex) {
 			return 0;

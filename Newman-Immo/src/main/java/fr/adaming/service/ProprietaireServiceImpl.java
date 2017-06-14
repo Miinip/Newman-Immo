@@ -51,9 +51,4 @@ public class ProprietaireServiceImpl implements IProprietaireService{
 		return propDao.getAllProprietaires();
 	}
 
-	public int attributePropToBienImmo(Proprietaire prop, BienImmobilier bienImmo) {
-		
-		return propDao.attributePropToBienImmo(prop, bienImmo);
-	}
-
 }

@@ -47,7 +47,7 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 			prop_rec.setTelPro(prop.getTelPro());
 			prop_rec.setAdresse(prop.getAdresse());
 			prop_rec.setListeBien(prop.getListeBien());
-			s.merge(prop_rec);
+			s.saveOrUpdate(prop_rec);
 			return 1;
 		} catch (Exception ex) {
 			return 0;
@@ -75,16 +75,6 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 		Session s = sf.getCurrentSession();
 		Query query = s.createQuery("SELECT pr FROM Proprietaire as pr");
 		return query.list();
-	}
-
-	public int attributePropToBienImmo (Proprietaire prop, BienImmobilier bienImmo) {
-		Session s = sf.getCurrentSession();
-		Query query = s
-				.createQuery("UPDATE Proprietaire prop SET prop.id=:pIdProp WHERE bienImmo.id=:pIdBienImmobilier");
-		query.setParameter("pIdProp", prop.getId());
-		query.setParameter("pIdBienImmobilier", bienImmo.getId());
-		query.executeUpdate();
-		return 1;
 	}
 
 }

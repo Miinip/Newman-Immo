@@ -17,5 +17,4 @@ public interface IProprietaireService {
 	
 	public List<Proprietaire> getAllProprietaires();
 	
-	public int attributePropToBienImmo (Proprietaire prop, BienImmobilier bienImmo);
 }
