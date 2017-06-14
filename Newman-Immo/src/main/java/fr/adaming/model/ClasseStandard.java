@@ -12,8 +12,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 @Entity
 @Table(name = "classesStandards")
+@SuppressWarnings("serial")
 public class ClasseStandard implements Serializable {
 
 	@Id

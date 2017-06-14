@@ -45,7 +45,13 @@ public class ClientDaoImpl implements IClientDao {
 	public int updateClient(Client cl) {
 		s = sf.getCurrentSession();
 		try {
-			s.saveOrUpdate(cl);
+			Client clBD = (Client) s.get(Client.class, cl.getId());
+			clBD.setNom(cl.getNom());
+			clBD.setPrenom(cl.getPrenom());
+			clBD.setTelPerso(cl.getTelPerso());
+			clBD.setTelPro(cl.getTelPro());
+			clBD.setAdresse(cl.getAdresse());
+			s.merge(clBD);
 			return 1;
 		} catch (Exception ex) {
 			return 0;

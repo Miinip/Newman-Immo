@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.BienImmobilier;
-import fr.adaming.model.Conseiller;
 import fr.adaming.model.Proprietaire;
 
 @Repository
@@ -40,14 +39,13 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 	public int updateProprietaire(Proprietaire prop) {
 		Session s = sf.getCurrentSession();
 		try {
-//			Proprietaire prop_rec = (Proprietaire) s.get(Proprietaire.class, prop.getId());
-//			prop_rec.setNom(prop.getNom());
-//			prop_rec.setPrenom(prop.getPrenom());
-//			prop_rec.setTelPerso(prop.getTelPerso());
-//			prop_rec.setTelPro(prop.getTelPro());
-//			prop_rec.setAdresse(prop.getAdresse());
-//			prop_rec.setListeBien(prop.getListeBien());
-			s.saveOrUpdate(prop);
+			Proprietaire propBD = (Proprietaire) s.get(Proprietaire.class, prop.getId());
+			propBD.setNom(prop.getNom());
+			propBD.setPrenom(prop.getPrenom());
+			propBD.setTelPerso(prop.getTelPerso());
+			propBD.setTelPro(prop.getTelPro());
+			propBD.setAdresse(prop.getAdresse());
+			s.merge(propBD);
 			return 1;
 		} catch (Exception ex) {
 			return 0;

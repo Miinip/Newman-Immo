@@ -33,7 +33,13 @@ public class ConseillerDaoImpl implements IConseillerDao {
 	public int updateConseillerDao(Conseiller c) {
 		s = sf.getCurrentSession();
 		try {
-			s.saveOrUpdate(c);
+			Conseiller cBD = (Conseiller) s.get(Conseiller.class, c.getId());
+			cBD.setNom(c.getNom());
+			cBD.setPrenom(c.getPrenom());
+			cBD.setTelPerso(c.getTelPerso());
+			cBD.setTelPro(c.getTelPro());
+			cBD.setAdresse(c.getAdresse());
+			s.merge(cBD);
 			return 1;
 		} catch (Exception ex) {
 			return 0;

@@ -45,7 +45,14 @@ public class BienImmoDaoImpl implements IBienImmoDao {
 	public int updateBienImmo(BienImmobilier bi) {
 		s = sf.getCurrentSession();
 		try {
-			s.saveOrUpdate(bi);
+			BienImmobilier biBD = (BienImmobilier) s.get(BienImmobilier.class, bi.getId());
+			biBD.setPhoto(bi.getPhoto());
+			biBD.setStatut(bi.getStatut());
+			biBD.setDateMiseDispo(bi.getDateMiseDispo());
+			biBD.setDateSoumission(bi.getDateSoumission());
+			biBD.setRevenuCadastral(bi.getRevenuCadastral());
+			biBD.setLocalisation(bi.getLocalisation());
+			s.merge(biBD);
 			return 1;
 		} catch (Exception ex) {
 			return 0;
