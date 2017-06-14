@@ -40,14 +40,14 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 	public int updateProprietaire(Proprietaire prop) {
 		Session s = sf.getCurrentSession();
 		try {
-			Proprietaire prop_rec = (Proprietaire) s.get(Proprietaire.class, prop.getId());
-			prop_rec.setNom(prop.getNom());
-			prop_rec.setPrenom(prop.getPrenom());
-			prop_rec.setTelPerso(prop.getTelPerso());
-			prop_rec.setTelPro(prop.getTelPro());
-			prop_rec.setAdresse(prop.getAdresse());
-			prop_rec.setListeBien(prop.getListeBien());
-			s.saveOrUpdate(prop_rec);
+//			Proprietaire prop_rec = (Proprietaire) s.get(Proprietaire.class, prop.getId());
+//			prop_rec.setNom(prop.getNom());
+//			prop_rec.setPrenom(prop.getPrenom());
+//			prop_rec.setTelPerso(prop.getTelPerso());
+//			prop_rec.setTelPro(prop.getTelPro());
+//			prop_rec.setAdresse(prop.getAdresse());
+//			prop_rec.setListeBien(prop.getListeBien());
+			s.saveOrUpdate(prop);
 			return 1;
 		} catch (Exception ex) {
 			return 0;
