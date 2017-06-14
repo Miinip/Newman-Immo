@@ -1,6 +1,13 @@
 monApp.controller("ctrlOneClient",function($scope,$rootScope,$location,clientProvider){
 	$scope.msg = "One Client";
 	$scope.idToFind =undefined;
+	if($rootScope.clientViewRoot != undefined){
+		$scope.idToFind = $rootScope.clientViewRoot;
+		$rootScope.clientViewRoot = undefined;
+		clientProvider.getOneClient($scope.idToFind,function(callback){
+			$scope.client = callback;
+		})
+	}
 	$scope.find = function(){
 		clientProvider.getOneClient($scope.idToFind,function(callback){
 			$scope.client = callback;
@@ -40,6 +47,11 @@ monApp.controller("ctrlAllClient",function($scope,$rootScope,$location,clientPro
 	$scope.modifier = function(clientToUpdate){
 		$rootScope.clientFormRoot = clientToUpdate;
 		$location.path('/client/update');
+	}
+	
+	$scope.vue = function(clientToView){
+		$rootScope.clientViewRoot = clientToView;
+		$location.path('/client/one');
 	}
 	
 	$scope.MouseOverRow = {};

@@ -2,6 +2,13 @@ monApp.controller("ctrlOneBienImmobilier", function($scope, $rootScope,
 		$location, bienImmobilierProvider) {
 	$scope.msg = "One BienImmobilier";
 	$scope.idToFind = undefined;
+	if($rootScope.bienImmobilierViewRoot != undefined){
+		$scope.idToFind = $rootScope.bienImmobilierViewRoot;
+		$rootScope.bienImmobilierViewRoot = undefined;
+		bienImmobilierProvider.getOneBienImmobilier($scope.idToFind,function(callback){
+			$scope.bienImmobilier = callback;
+		})
+	}
 	$scope.find = function() {
 		bienImmobilierProvider.getOneBienImmobilier($scope.idToFind, function(
 				callback) {
@@ -45,6 +52,11 @@ monApp.controller("ctrlAllBienImmobilier", function($scope, $rootScope,
 	$scope.modifier = function(bienImmobilierToUpdate) {
 		$rootScope.bienImmobilierFormRoot = bienImmobilierToUpdate;
 		$location.path('/bienImmobilier/update');
+	}
+	
+	$scope.vue = function(bienImmobilierToView){
+		$rootScope.bienImmobilierViewRoot = bienImmobilierToView;
+		$location.path('/bienImmobilier/one');
 	}
 
 	$scope.MouseOverRow = {};
