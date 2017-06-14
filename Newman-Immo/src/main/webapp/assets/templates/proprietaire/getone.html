@@ -52,14 +52,6 @@
 				</div>
 			</div>
 		</div>
-		
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group">
-					<span class="form-control">Liste de biens : {{proprietaire.listeBien}}</span>
-				</div>
-			</div>
-		</div>
 
 		<div class="row">
 			<div class="col-md-4">
@@ -92,6 +84,40 @@
 			</div>
 		</div>
 
+
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Photo</th>
+					<th>Statut</th>
+					<th>Date de soumission</th>
+					<th>Date de mise &#224; dispo</th>
+					<th>Revenu cadastral</th>
+					<th>N&#176;</th>
+					<th>Rue</th>
+					<th>Code postal</th>
+					<th>Ville</th>
+					<th>Pays</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="bienImmobilier in proprietaire.listeDien | filter:recherche" ng-mouseover="doShow(bienImmobilier.id)" ng-mouseleave="doHide(bienImmobilier.id)">
+					<td>{{bienImmobilier.id}}</td>
+					<td>{{bienImmobilier.photo}}</td>
+					<td>{{bienImmobilier.statut}}</td>
+					<td>{{bienImmobilier.dateSoumission}}</td>
+					<td>{{bienImmobilier.dateMiseDispo}}</td>
+					<td>{{bienImmobilier.revenuCadastral}}</td>
+					<td>{{bienImmobilier.localisation.numero}}</td>
+					<td>{{bienImmobilier.localisation.rue}}</td>
+					<td>{{bienImmobilier.localisation.codePostal}}</td>
+					<td>{{bienImmobilier.localisation.localite}}</td>
+					<td>{{bienImmobilier.localisation.pays}}</td>
+				</tr>
+			</tbody>
+			
+		</table>
 			
 			
 		</div>
