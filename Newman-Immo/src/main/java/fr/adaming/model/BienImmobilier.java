@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +19,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.Proxy;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -52,10 +57,12 @@ public class BienImmobilier {
 	@JoinColumn(name = "conseiller_id", referencedColumnName = "id")
 	private Conseiller conseiller;
 
-	@OneToMany(mappedBy = "bienImmo")
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(mappedBy = "bienImmo", fetch=FetchType.EAGER)
 	private List<Visite> listeVisites;
 
-	@OneToMany(mappedBy = "bien")
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(mappedBy = "bien",fetch=FetchType.EAGER)
 	private List<Contrat> listeContrats;
 
 	@OneToOne
