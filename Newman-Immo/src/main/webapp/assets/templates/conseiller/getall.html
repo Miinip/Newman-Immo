@@ -29,6 +29,7 @@
 				<td>{{conseiller.login}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group" ng-show="MouseOverRow[conseiller.id]">
+						<i ng-click="vue(conseiller.id)" class="material-icons btn-success btn-xs">search</i>
 						<i ng-click="modifier(conseiller)" class="material-icons btn-info btn-xs">mode_edit</i>
 						<i ng-click="suprimer(conseiller.id)" class="material-icons btn-danger btn-xs">clear</i>
 					</div>

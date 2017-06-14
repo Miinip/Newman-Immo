@@ -1,6 +1,13 @@
 monApp.controller("ctrlOneConseiller",function($scope,$rootScope,$location,conseillerProvider){
 	$scope.msg = "One Conseiller";
 	$scope.idToFind =undefined;
+	if($rootScope.conseillerViewRoot != undefined){
+		$scope.idToFind = $rootScope.conseillerViewRoot;
+		$rootScope.conseillerViewRoot = undefined;
+		conseillerProvider.getOneConseiller($scope.idToFind,function(callback){
+			$scope.conseiller = callback;
+		})
+	}
 	$scope.find = function(){
 		conseillerProvider.getOneConseiller($scope.idToFind,function(callback){
 			$scope.conseiller = callback;
@@ -40,6 +47,11 @@ monApp.controller("ctrlAllConseiller",function($scope,$rootScope,$location,conse
 	$scope.modifier = function(conseillerToUpdate){
 		$rootScope.conseillerFormRoot = conseillerToUpdate;
 		$location.path('/conseiller/update');
+	}
+	
+	$scope.vue = function(conseillerToView){
+		$rootScope.conseillerViewRoot = conseillerToView;
+		$location.path('/conseiller/one');
 	}
 	
 	$scope.MouseOverRow = {};
