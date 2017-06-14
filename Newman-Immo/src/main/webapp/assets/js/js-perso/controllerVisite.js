@@ -80,7 +80,6 @@ monApp.controller("ctrlUpdateVisite",function($scope,$rootScope,$location,visite
 			$rootScope.visiteFormRoot = null;
 		}
 
-
 	
 	$scope.modifier = function(){
 		visiteProvider.doUpdateVisite($scope.visiteForm,function(callback){
