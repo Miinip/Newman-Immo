@@ -42,9 +42,9 @@
 				<td>{{bienImmobilier.localisation.codePostal}}</td>
 				<td>{{bienImmobilier.localisation.localite}}</td>
 				<td>{{bienImmobilier.localisation.pays}}</td>
-				<td>{{bienImmobilier.proprietaire}}</td>
-				<td>{{bienImmobilier.conseiller}}</td>
-				<td>{{bienImmobilier.clientAcquereur}}</td>
+				<td>{{bienImmobilier.proprietaire.nom}}</td>
+				<td>{{bienImmobilier.conseiller.nom}}</td>
+				<td>{{bienImmobilier.clientAcquereur.nom}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group" ng-show="MouseOverRow[bienImmobilier.id]">
 						<i ng-click="modifier(bienImmobilier)" class="material-icons btn-info btn-xs">mode_edit</i>
