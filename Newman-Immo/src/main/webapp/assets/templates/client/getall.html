@@ -26,7 +26,7 @@
 				<td>{{client.prenom}}</td>
 				<td>{{client.telPro}}</td>
 				<td>{{client.telPerso}}</td>
-				<td>{{client.adresse.rue}}, {{client.adresse.numero}}, {{client.adresse.codePostal}}, {{client.adresse.localite}}, {{client.adresse.pays}}</td>
+				<td>{{client.adresse.numero}} {{client.adresse.rue}}, {{client.adresse.codePostal}}, {{client.adresse.localite}}, {{client.adresse.pays}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group" ng-show="MouseOverRow[client.id]">
 						<i ng-click="vue(client.id)" class="material-icons btn-success btn-xs">search</i>
