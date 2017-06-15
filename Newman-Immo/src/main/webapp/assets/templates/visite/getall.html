@@ -23,8 +23,8 @@
 				<td>{{visite.id}}</td>
 				<td>{{visite.date}}</td>
 				<td>{{visite.heure}}</td>
-				<td>{{visite.bienImmo}}</td>
-				<td>{{visite.clientVisiteur}}</td>
+				<td>{{visite.bienImmo.localisation.numero}} {{visite.bienImmo.localisation.rue}} {{visite.bienImmo.localisation.codePostal}} {{visite.bienImmo.localisation.localite}}</td>
+				<td>{{visite.clientVisiteur.nom}} {{visite.clientVisiteur.prenom}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group" ng-show="MouseOverRow[visite.id]">
 						<i ng-click="modifier(visite)" class="material-icons btn-info btn-xs">mode_edit</i>
