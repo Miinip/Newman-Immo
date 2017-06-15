@@ -100,11 +100,7 @@
 					<th>Date de soumission</th>
 					<th>Date de mise &#224; dispo</th>
 					<th>Revenu cadastral</th>
-					<th>N&#176;</th>
-					<th>Rue</th>
-					<th>Code postal</th>
-					<th>Ville</th>
-					<th>Pays</th>
+					<th>Adresse</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -115,11 +111,7 @@
 					<td>{{bienImmobilier.dateSoumission}}</td>
 					<td>{{bienImmobilier.dateMiseDispo}}</td>
 					<td>{{bienImmobilier.revenuCadastral}}</td>
-					<td>{{bienImmobilier.localisation.numero}}</td>
-					<td>{{bienImmobilier.localisation.rue}}</td>
-					<td>{{bienImmobilier.localisation.codePostal}}</td>
-					<td>{{bienImmobilier.localisation.localite}}</td>
-					<td>{{bienImmobilier.localisation.pays}}</td>
+					<td>{{bienImmobilier.localisation.numero}} {{bienImmobilier.localisation.rue}} {{bienImmobilier.localisation.codePostal}} {{bienImmobilier.localisation.localite}} {{bienImmobilier.localisation.pays}}</td>
 				</tr>
 			</tbody>
 		</table>
