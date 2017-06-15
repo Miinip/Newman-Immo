@@ -1,7 +1,6 @@
 monApp.config(function($routeProvider){
 
-	   $routeProvider.when('/login',{controller:'ctrlLogin',templateUrl:'assets/templates/login.html'})
-	   				 .when('/home',{controller:'ctrlHome',templateUrl:'assets/templates/home.html'})
+	   $routeProvider.when('/home',{controller:'ctrlHome',templateUrl:'assets/templates/home.html'})
 	   				 .when('/bienImmobilier/one',{controller:'ctrlOneBienImmobilier',templateUrl:'assets/templates/bienImmobilier/getone.html'})
 	                 .when('/bienImmobilier/all',{controller:'ctrlAllBienImmobilier',templateUrl:'assets/templates/bienImmobilier/getall.html'})
 	                 .when('/bienImmobilier/add',{controller:'ctrlAddBienImmobilier',templateUrl:'assets/templates/bienImmobilier/add.html'})
@@ -30,6 +29,6 @@ monApp.config(function($routeProvider){
 	                 .when('/classeStandard/all',{controller:'ctrlAllClasseStandard',templateUrl:'assets/templates/classeStandard/getall.html'})
 	                 .when('/classeStandard/add',{controller:'ctrlAddClasseStandard',templateUrl:'assets/templates/classeStandard/add.html'})
 	                 .when('/classeStandard/update',{controller:'ctrlUpdateClasseStandard',templateUrl:'assets/templates/classeStandard/update.html'})
-	                 .otherwise({redirectTo:'/login'});
+	                 .otherwise({redirectTo:'/home'});
 
 	});

@@ -47,10 +47,33 @@
 </head>
 
 <body ng-app="monApp" >
+	<div class="well container" ng-hide="authentification" ng-controller="ctrlLogin">
+		<div class="page-header">
+			<h3 id="tables">{{msg}}</h3>
+		</div>
+		<form name="loginForm">
+	
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" ng-model="me.login" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="password" ng-model="me.password" class="form-control">
+					</div>
+				</div>
+			</div>
+	
+			<button type="submit" ng-click="submit()" class="btn btn-primary pull-right">login</button>
+		</form>
+	</div>
+
 	<nav class="nav-side-menu" role="navigation" ng-include="'assets/templates/navbar.html'" ng-hide="!authentification" ></nav>
 	<div id="main">
-		<div class="well container" ng-view></div>
-		<div ng-include="'assets/templates/footer.html'"></div>
+		<div class="well container" ng-hide="!authentification" ng-view></div>
+		<div ng-include="'assets/templates/footer.html'" ng-hide="!authentification"></div>
 	</div>
 </body>
 
