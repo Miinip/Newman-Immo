@@ -84,6 +84,7 @@
 				<div class="form-group">
 					Proprietaire :<select name="repeatProprietaire" ng-model="bienImmobilierForm.proprietaire.id" id="selectClient" class="form-control">
 						<option ng-repeat="proprietaire in listeProprietaires" value="{{proprietaire.id}}">{{proprietaire.nom}} {{proprietaire.prenom}}</option>
+						<option value="0">-----------XXXXXX-------------</option>
 					</select>
 				</div>
 			</div>
@@ -91,7 +92,7 @@
 				<div class="form-group">
 					Conseiller :<select name="repeatConseiller" ng-model="bienImmobilierForm.conseiller.id" id="selectClient" class="form-control">
 						<option ng-repeat="conseiller in listeConseillers" value="{{conseiller.id}}">{{conseiller.nom}} {{conseiller.prenom}}</option>
-						<option value="0">retirer</option>
+						<option value="0">-----------XXXXXX-------------</option>
 					</select>
 				</div>
 			</div>
@@ -102,6 +103,7 @@
 				<div class="form-group">
 					Client :<select name="repeatClient" ng-model="bienImmobilierForm.clientAcquereur.id" id="selectClient" class="form-control">
 						<option ng-repeat="client in listeClients" value="{{client.id}}">{{client.nom}} {{client.prenom}}</option>
+						<option value="0">-----------XXXXXX-------------</option>
 					</select>
 				</div>
 			</div>

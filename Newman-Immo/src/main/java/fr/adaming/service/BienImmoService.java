@@ -67,10 +67,18 @@ public class BienImmoService implements IBienImmoService {
 			}
 		}
 		if(bi.getClientAcquereur()!=null){
+			if(bi.getClientAcquereur().getId()==0){
+				bi.setClientAcquereur(null);
+			}else{
 			bi.setClientAcquereur(clDao.getByIdClient(bi.getClientAcquereur().getId()));
+			}
 		}
 		if(bi.getProprietaire()!=null){
+			if(bi.getProprietaire().getId()==0){
+				bi.setProprietaire(null);
+			}else{
 			bi.setProprietaire(pDao.getOnePropbyId(bi.getProprietaire().getId()));
+			}
 		}
 		return bDao.updateBienImmo(bi);
 	}
