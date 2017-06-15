@@ -58,8 +58,8 @@ monApp.controller("ctrlAddVisite",function($scope,$location,visiteProvider, bien
 	$scope.visiteForm = {	id:undefined,
 							date:"",
 							heure:"",
-							bienImmo:"",
-							clientVisiteur:""
+							bienImmo:undefined,
+							clientVisiteur:undefined
 			};
 	
 	clientProvider.getAllClient(function(callback){
@@ -78,7 +78,7 @@ monApp.controller("ctrlAddVisite",function($scope,$location,visiteProvider, bien
 	}
 });
 
-monApp.controller("ctrlUpdateVisite",function($scope,$rootScope,$location,visiteProvider){
+monApp.controller("ctrlUpdateVisite",function($scope,$rootScope,$location,visiteProvider, bienImmobilierProvider, clientProvider){
 	$scope.msg = "Update Visite";
 	$scope.visiteForm = {	id:undefined,
 							date:"",
@@ -86,6 +86,13 @@ monApp.controller("ctrlUpdateVisite",function($scope,$rootScope,$location,visite
 							bienImmo:"",
 							clientVisiteur:""
 			};
+	
+	clientProvider.getAllClient(function(callback){
+		$scope.listeClients = callback;
+	})
+	bienImmobilierProvider.getAllBienImmobilier(function(callback){
+		$scope.listeBienImmobiliers = callback;
+	})
 		
 		if($rootScope.visiteFormRoot != null){
 			$scope.visiteForm = $rootScope.visiteFormRoot;
