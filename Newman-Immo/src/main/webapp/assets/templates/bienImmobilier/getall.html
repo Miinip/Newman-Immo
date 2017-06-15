@@ -19,9 +19,6 @@
 				<th>Date de mise &#224; dispo</th>
 				<th>Revenu cadastral</th>
 				<th>Adresse</th>
-				<th>Proprietaire</th>
-				<th>Conseiller</th>
-				<th>Client acquereur</th>
 				<th class="text-right">-</th>
 			</tr>
 		</thead>
@@ -42,9 +39,6 @@
 					{{bienImmobilier.localisation.codePostal}}
 					{{bienImmobilier.localisation.localite}},
 					{{bienImmobilier.localisation.pays}}</td>
-				<td>{{bienImmobilier.proprietaire.nom}}</td>
-				<td>{{bienImmobilier.conseiller.nom}}</td>
-				<td>{{bienImmobilier.clientAcquereur.nom}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group"
 						ng-show="MouseOverRow[bienImmobilier.id]">
