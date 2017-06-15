@@ -116,6 +116,7 @@ monApp.controller("ctrlAddBienImmobilier", function($scope, $location,
 monApp.controller("ctrlUpdateBienImmobilier", function($scope, $rootScope,
 		$location, bienImmobilierProvider, conseillerProvider, clientProvider, proprietaireProvider) {
 	$scope.msg = "Update BienImmobilier";
+	$scope.filePhoto=null;
 	$scope.bienImmobilierForm = {
 		id : undefined,
 		photo : null,

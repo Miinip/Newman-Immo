@@ -11,9 +11,8 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="form-group">
-					<input type="file" ng-model="bienImmobilierForm.photo" onchange="angular.element(this).scope().setFile(this)" accept="image/*" class="form-control">
-				</div>
+				<input type="file" id="selectedFile" ng-model="bienImmobilierForm.photo" accept="image/*" class="form-control" style="display: none;" base-sixty-four-input>
+				<input type="button" value="Browse..." onclick="document.getElementById('selectedFile').click();" class="btn btn-primary pull-right" />
 			</div>
 			<div class="col-md-2">
 				<div class="form-group">
@@ -83,14 +82,14 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					Proprietaire :<select name="repeatProprietaire" ng-model="bienImmobilierForm.proprietaire.id" id="selectProprietaire" class="form-control">
+					Proprietaire :<select name="repeatClient" ng-model="bienImmobilierForm.proprietaire.id" id="selectClient" class="form-control">
 						<option ng-repeat="proprietaire in listeProprietaires" value="{{proprietaire.id}}">{{proprietaire.nom}} {{proprietaire.prenom}}</option>
 					</select>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					Conseiller :<select name="repeatConseiller" ng-model="bienImmobilierForm.conseiller.id" id="selectConseiller" class="form-control">
+					Conseiller :<select name="repeatClient" ng-model="bienImmobilierForm.conseiller.id" id="selectClient" class="form-control">
 						<option ng-repeat="conseiller in listeConseillers" value="{{conseiller.id}}">{{conseiller.nom}} {{conseiller.prenom}}</option>
 					</select>
 				</div>
