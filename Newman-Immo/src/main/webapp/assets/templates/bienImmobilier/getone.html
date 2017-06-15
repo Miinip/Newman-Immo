@@ -24,40 +24,40 @@
 	<div ng-show="bienImmobilier.id != undefined">
 	
 		<div class="row">
-			<div class="col-xs-3">
+			<div class="col-md-3">
 				<div class="form-group">
-					<img ng-src="data:image/JPEG;base64,{{bienImmobilier.photo}}" >
+					<img ng-src="data:image/JPEG;base64,{{bienImmobilier.photo}}" style="max-height: 200px;max-width: 270px">
 				</div>
 			</div>
 
-			<div class="col-xs-2">
+			<div class="col-md-2">
 				<div class="form-group">
 					<span class="form-control">ID: {{bienImmobilier.id}}</span>
 				</div>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-md-3">
 				<div class="form-group">
 					<span class="form-control">Statut : {{bienImmobilier.statut}}</span>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-md-4">
 				<div class="form-group">
 					<span class="form-control">Classe standard : {{bienImmobilier.classeStandard}}</span>
 				</div>
 			</div>	
-			<div class="col-xs-3">
+			<div class="col-md-3">
 				<div class="form-group">
 					<span class="form-control">Soumission : {{bienImmobilier.dateSoumission}}</span>
 				</div>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-md-3">
 				<div class="form-group">
 					<span class="form-control">Mise &#224; dispo : {{bienImmobilier.dateMiseDispo}}</span>
 				</div>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-md-3">
 				<div class="form-group">
-					<span class="form-control">Revenu cadastral : {{bienImmobilier.revenuCadastral}}</span>
+					<span class="form-control">Revenu cadastral : {{bienImmobilier.revenuCadastral}} &#8364;</span>
 				</div>
 			</div>
 		</div>

@@ -110,6 +110,22 @@ monApp.controller("ctrlAddBienImmobilier", function($scope, $location,
 		// when the file is read it triggers the onload event above.
 		reader.readAsDataURL(element.files[0]);
 	}
+	
+	
+	
+	////////////////////////////////////////////////////
+	$scope.loyer = undefined;
+    $scope.revenuCadastral = function () {
+    	var rc = ($scope.loyer*12)*0.6*1.7057;
+    	$scope.bienImmobilierForm.revenuCadastral = rc;
+    	
+        return rc
+        
+    }
+    ////////////////////////////////////////////////////
+	
+	
+	
 
 });
 

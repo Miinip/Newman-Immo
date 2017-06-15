@@ -5,19 +5,19 @@
 	<form name="addForm">
 		<div class="row">
 		
-			<div class="col-xs-4">
+			<div class="col-md-4">
 				<div class="form-group">
 					<img id="trigger" ng-src="{{image_source}}" style="float: right; max-height: 200px; margin-right: 15px;" vspace="20" />
 				</div>
 			</div>
 			
-			<div class="col-xs-2">
+			<div class="col-md-2">
 				<input type="file" id="selectedFile" ng-model="bienImmobilierForm.photo" accept="image/*" class="form-control" style="display: none;" onchange="angular.element(this).scope().setFile(this)" base-sixty-four-input>
-				<input type="button" value="Browse..." onclick="document.getElementById('selectedFile').click();" class="btn btn-primary pull-right" />
+				<input type="button" value="Browse..." onclick="document.getElementById('selectedFile').click();" class="btn btn-primary pull-right" style="margin-right: 76px;margin-top: 20px"/>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-md-2">
 				<div class="form-group">
-					<select name="statuts" ng-model="bienImmobilierForm.statut"
+					Statut :<select name="statuts" ng-model="bienImmobilierForm.statut"
 						class="form-control">
 						<option value="disponible">Disponible</option>
 						<option value="loue">Lou&#233;</option>
@@ -25,21 +25,25 @@
 					</select>
 				</div>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-md-2">
 				<div class="form-group">
-					<input type="number" ng-model="bienImmobilierForm.revenuCadastral"
-						placeholder="Revenu cadastral" class="form-control">
+					Loyer :<input type="number" ng-model="loyer" placeholder="Loyer" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group" >
+					Revenu cadastral index&#233;<span class="form-control">{{revenuCadastral() | number:2}} &#8364;</span>
 				</div>
 			</div>
 			
-			<div class="col-xs-offset-4">
-			<div class="col-xs-6 ">
+			<div class="col-md-offset-4">
+			<div class="col-md-6 ">
 				<div class="form-group">
 					Date de soumission :<input type="date"
 						ng-model="bienImmobilierForm.dateSoumission" class="form-control">
 				</div>
 			</div>
-			<div class="col-xs-6">
+			<div class="col-md-6">
 				<div class="form-group">
 					Date de mise &#224; disponibilit&#233; :<input type="date"
 						ng-model="bienImmobilierForm.dateMiseDispo" class="form-control">
