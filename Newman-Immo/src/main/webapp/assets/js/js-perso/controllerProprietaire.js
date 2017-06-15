@@ -75,8 +75,7 @@ monApp.controller("ctrlAddProprietaire",function($scope,$location,proprietairePr
 											codePostal:undefined,
 											localite:"",
 											pays:""
-											},
-								listeBien:""
+											}
 			};
 			
 	$scope.ajouter = function(){

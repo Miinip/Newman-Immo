@@ -75,8 +75,7 @@ monApp.controller("ctrlAddClient",function($scope,$location,clientProvider){
 										codePostal:undefined,
 										localite:"",
 										pays:""
-										},
-							listeVoeux:""
+										}
 			};
 			
 	$scope.ajouter = function(){
