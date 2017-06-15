@@ -60,7 +60,11 @@ public class BienImmoService implements IBienImmoService {
 
 	public int updateBienImmo(BienImmobilier bi) {
 		if(bi.getConseiller()!=null){
-			bi.setConseiller(conDao.getByIdConseillerDao(bi.getConseiller().getId()));
+			if(bi.getConseiller().getId()==0){
+				bi.setConseiller(null);
+			}else{
+				bi.setConseiller(conDao.getByIdConseillerDao(bi.getConseiller().getId()));
+			}
 		}
 		if(bi.getClientAcquereur()!=null){
 			bi.setClientAcquereur(clDao.getByIdClient(bi.getClientAcquereur().getId()));

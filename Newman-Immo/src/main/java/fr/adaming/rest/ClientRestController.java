@@ -62,7 +62,7 @@ public class ClientRestController {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE, produces="application/json",consumes="application/json")
+	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
 	public ResponseEntity deleteClient(@PathVariable("id") int id){
 		int status = clientService.deleteClient(id);
 		if(status == 1){

@@ -60,7 +60,7 @@ public class BienImmoRestController {
 		}
 	}
 	
-	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE, produces="application/json",consumes="application/json")
+	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
 	public ResponseEntity deleteBienImmo(@PathVariable("id") int id){
 		int status = bService.deleteBienImmo(id);
 		if(status == 1){

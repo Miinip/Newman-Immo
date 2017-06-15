@@ -58,7 +58,7 @@ public class ClasseStandardRestController {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value="/delete/{code}",method=RequestMethod.DELETE, produces="application/json",consumes="application/json")
+	@RequestMapping(value="/delete/{code}",method=RequestMethod.DELETE)
 	public ResponseEntity deleteClasseStandard(@PathVariable("code") int code){
 		int status = classeStandardService.deleteClasseStandard(code);
 		if(status == 1){
