@@ -2,28 +2,33 @@
 	<div class="page-header">
 		<h3 id="tables">{{msg}}</h3>
 	</div>
-	<form name="addForm">	
+	<form name="addForm">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="file" ng-model="bienImmobilierForm.photo" onchange="angular.element(this).scope().setFile(this)" accept="image/*" class="form-control">
+					<input type="file" ng-model="bienImmobilierForm.photo"
+						onchange="angular.element(this).scope().setFile(this)"
+						accept="image/*" class="form-control">
 				</div>
 			</div>
-			<img id="trigger" ng-src="{{image_source}}" style="float: right; max-height: 200px; margin-right: 15px;"/>
+			<img id="trigger" ng-src="{{image_source}}"
+				style="float: right; max-height: 200px; margin-right: 15px;" />
 		</div>
 		<div class="row">
 			<div class="col-md-2">
 				<div class="form-group">
-					<select name="statuts" ng-model="bienImmobilierForm.statut" class="form-control">
+					<select name="statuts" ng-model="bienImmobilierForm.statut"
+						class="form-control">
 						<option value="disponible">Disponible</option>
 						<option value="loue">Lou&#233;</option>
 						<option value="achete">Achet&#233;</option>
-					</select>					
+					</select>
 				</div>
 			</div>
 			<div class="col-md-2">
 				<div class="form-group">
-					<input type="number" ng-model="bienImmobilierForm.revenuCadastral" placeholder="Revenu cadastral" class="form-control">
+					<input type="number" ng-model="bienImmobilierForm.revenuCadastral"
+						placeholder="Revenu cadastral" class="form-control">
 				</div>
 			</div>
 		</div>
@@ -31,47 +36,58 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					Date de soumission :<input type="date" ng-model="bienImmobilierForm.dateSoumission" class="form-control">
+					Date de soumission :<input type="date"
+						ng-model="bienImmobilierForm.dateSoumission" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					Date de mise &#224; disponibilit&#233; :<input type="date" ng-model="bienImmobilierForm.dateMiseDispo" class="form-control">
+					Date de mise &#224; disponibilit&#233; :<input type="date"
+						ng-model="bienImmobilierForm.dateMiseDispo" class="form-control">
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.numero" placeholder="N&#176;"class="form-control">
+					<input type="text"
+						ng-model="bienImmobilierForm.localisation.numero"
+						placeholder="N&#176;" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-8">
 				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.rue" placeholder="Rue" class="form-control">
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-2">
-				<div class="form-group">
-					<input type="number" ng-model="bienImmobilierForm.localisation.codePostal" placeholder="Code postal" class="form-control">
-				</div>
-			</div>
-			<div class="col-md-8">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.localite" placeholder="Ville"class="form-control">
-				</div>
-			</div>
-			<div class="col-md-2">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.pays" placeholder="Pays" class="form-control">
+					<input type="text" ng-model="bienImmobilierForm.localisation.rue"
+						placeholder="Rue" class="form-control">
 				</div>
 			</div>
 		</div>
 
-		<button type="submit" ng-click="ajouter()" class="btn btn-primary pull-right">Add</button>
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="number"
+						ng-model="bienImmobilierForm.localisation.codePostal"
+						placeholder="Code postal" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<input type="text"
+						ng-model="bienImmobilierForm.localisation.localite"
+						placeholder="Ville" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="text" ng-model="bienImmobilierForm.localisation.pays"
+						placeholder="Pays" class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<button type="submit" ng-click="ajouter()"
+			class="btn btn-primary pull-right">Add</button>
 	</form>
 </div>
