@@ -3,31 +3,35 @@
 		<h3 id="tables">{{msg}}</h3>
 	</div>
 	<form name="updateForm">
-	
+
 		<div class="row">
 			<div class="col-md-2">
 				<div class="form-group">
-					<input type="number"ng-model="bienImmobilierForm.id" placeholder="ID*" class="form-control" disabled>
+					<input type="number" ng-model="bienImmobilierForm.id"
+						placeholder="ID*" class="form-control" disabled>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<input type="image" ng-model="bienImmobilierForm.photo" placeholder="Photo"class="form-control">
+					<input type="image" ng-model="bienImmobilierForm.photo"
+						placeholder="Photo" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-2">
 				<div class="form-group">
-					<select name="statuts" ng-model="bienImmobilierForm.statut" class="form-control" required>
+					<select name="statuts" ng-model="bienImmobilierForm.statut"
+						class="form-control" required>
 						<option value="disponible">Disponible</option>
 						<option value="loue">Lou&#233;</option>
 						<option value="achete">Achet&#233;</option>
 					</select>
-<!-- 					<input type="text"ng-model="bienImmobilierForm.statut" placeholder="Statut" class="form-control" required> -->
+					<!-- 					<input type="text"ng-model="bienImmobilierForm.statut" placeholder="Statut" class="form-control" required> -->
 				</div>
 			</div>
 			<div class="col-md-2">
 				<div class="form-group">
-					<input type="text"ng-model="bienImmobilierForm.classeStandard" placeholder="Classe Standard" class="form-control" required>
+					<input type="text" ng-model="bienImmobilierForm.classeStandard"
+						placeholder="Classe Standard" class="form-control" required>
 				</div>
 			</div>
 		</div>
@@ -35,73 +39,105 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="date" ng-model="bienImmobilierForm.dateSoumission" placeholder="Date de soumission" class="form-control">
+					<input type="date" ng-model="bienImmobilierForm.dateSoumission"
+						placeholder="Date de soumission" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="date" ng-model="bienImmobilierForm.dateMiseDispo" placeholder="Date de mise à disponibilité" class="form-control">
+					<input type="date" ng-model="bienImmobilierForm.dateMiseDispo"
+						placeholder="Date de mise à disponibilité" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="number" ng-model="bienImmobilierForm.revenuCadastral" placeholder="Revenu cadastral" class="form-control">
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-4">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.numero" placeholder="N&#176;"class="form-control">
-				</div>
-			</div>
-			<div class="col-md-8">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.rue" placeholder="Rue" class="form-control">
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-2">
-				<div class="form-group">
-					<input type="number" ng-model="bienImmobilierForm.localisation.codePostal" placeholder="Code postal" class="form-control">
-				</div>
-			</div>
-			<div class="col-md-8">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.localite" placeholder="Ville"class="form-control">
-				</div>
-			</div>
-			<div class="col-md-2">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.pays" placeholder="Pays" class="form-control">
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.proprietaire" placeholder="Proprietaire"class="form-control">
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.conseiller" placeholder="Conseiller" class="form-control">
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.clientAcquereur" placeholder="Client acquereur"class="form-control">
+					<input type="number" ng-model="bienImmobilierForm.revenuCadastral"
+						placeholder="Revenu cadastral" class="form-control">
 				</div>
 			</div>
 		</div>
 
-		<button type="submit" ng-click="modifier()" class="btn btn-primary pull-right">Edit</button>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<input type="text"
+						ng-model="bienImmobilierForm.localisation.numero"
+						placeholder="N&#176;" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<input type="text" ng-model="bienImmobilierForm.localisation.rue"
+						placeholder="Rue" class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="number"
+						ng-model="bienImmobilierForm.localisation.codePostal"
+						placeholder="Code postal" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<input type="text"
+						ng-model="bienImmobilierForm.localisation.localite"
+						placeholder="Ville" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="text" ng-model="bienImmobilierForm.localisation.pays"
+						placeholder="Pays" class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					Propri&#233taire :<select name="repeatProprietaire"
+						ng-model="bienImmobilierForm.proprietaire" id="selectProprietaire"
+						class="form-control">
+						<option ng-repeat="proprietaire in listeProprietaires"
+							value="{{proprietaire}}">{{proprietaire.nom}}
+							{{proprietaire.prenom}}</option>
+					</select>
+					<!-- 					<input type="text"ng-model="visiteForm.clientVisiteur" placeholder="Client" class="form-control"> -->
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="form-group">
+					Conseiller :<select name="repeatConseiller"
+						ng-model="bienImmobilierForm.conseiller" id="selectConseiller"
+						class="form-control">
+						<option ng-repeat="conseiller in listeConseillers"
+							value="{{conseiller}}">{{conseiller.nom}}
+							{{conseiller.prenom}}</option>
+					</select>
+					<!-- 					<input type="text"ng-model="visiteForm.clientVisiteur" placeholder="Client" class="form-control"> -->
+				</div>
+			</div>
+</div>
+			<div class="row">
+					<div class="col-md-6">
+				<div class="form-group">
+					Client :<select name="repeatClient"
+						ng-model="bienImmobilierForm.clientAcquereur" id="selectClient"
+						class="form-control">
+						<option ng-repeat="client in listeClients"
+							value="{{client}}">{{client.nom}}
+							{{client.prenom}}</option>
+					</select>
+					<!-- 					<input type="text"ng-model="visiteForm.clientVisiteur" placeholder="Client" class="form-control"> -->
+				</div>
+			</div>
+
+			<button type="submit" ng-click="modifier()"
+				class="btn btn-primary pull-right">Edit</button>
 	</form>
 </div>

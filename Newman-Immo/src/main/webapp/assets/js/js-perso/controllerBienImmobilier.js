@@ -2,10 +2,11 @@ monApp.controller("ctrlOneBienImmobilier", function($scope, $rootScope,
 		$location, bienImmobilierProvider) {
 	$scope.msg = "One BienImmobilier";
 	$scope.idToFind = undefined;
-	if($rootScope.bienImmobilierViewRoot != undefined){
+	if ($rootScope.bienImmobilierViewRoot != undefined) {
 		$scope.idToFind = $rootScope.bienImmobilierViewRoot;
 		$rootScope.bienImmobilierViewRoot = undefined;
-		bienImmobilierProvider.getOneBienImmobilier($scope.idToFind,function(callback){
+		bienImmobilierProvider.getOneBienImmobilier($scope.idToFind, function(
+				callback) {
 			$scope.bienImmobilier = callback;
 		})
 	}
@@ -53,8 +54,8 @@ monApp.controller("ctrlAllBienImmobilier", function($scope, $rootScope,
 		$rootScope.bienImmobilierFormRoot = bienImmobilierToUpdate;
 		$location.path('/bienImmobilier/update');
 	}
-	
-	$scope.vue = function(bienImmobilierToView){
+
+	$scope.vue = function(bienImmobilierToView) {
 		$rootScope.bienImmobilierViewRoot = bienImmobilierToView;
 		$location.path('/bienImmobilier/one');
 	}
@@ -96,42 +97,53 @@ monApp.controller("ctrlAddBienImmobilier", function($scope, $location,
 					}
 				})
 	}
-	
+
 	$scope.setFile = function(element) {
-		  $scope.currentFile = element.files[0];
-		   var reader = new FileReader();
+		$scope.currentFile = element.files[0];
+		var reader = new FileReader();
 
-		  reader.onload = function(event) {
-		    $scope.image_source = event.target.result
-		    $scope.$apply()
+		reader.onload = function(event) {
+			$scope.image_source = event.target.result
+			$scope.$apply()
 
-		  }
-		  // when the file is read it triggers the onload event above.
-		  reader.readAsDataURL(element.files[0]);
 		}
-	
-	
+		// when the file is read it triggers the onload event above.
+		reader.readAsDataURL(element.files[0]);
+	}
+
 });
 
 monApp.controller("ctrlUpdateBienImmobilier", function($scope, $rootScope,
-		$location, bienImmobilierProvider) {
+		$location, bienImmobilierProvider, conseillerProvider, clientProvider, proprietaireProvider) {
 	$scope.msg = "Update BienImmobilier";
 	$scope.bienImmobilierForm = {
-			id : undefined,
-			photo : null,
-			statut : "disponible",
-			dateSoumission : "",
-			dateMiseDispo : "",
-			revenuCadastral : undefined,
-			localisation : {
-				rue : "",
-				numero : "",
-				codePostal : undefined,
-				localite : "",
-				pays : ""
-			}
+		id : undefined,
+		photo : null,
+		statut : "disponible",
+		dateSoumission : "",
+		dateMiseDispo : "",
+		revenuCadastral : undefined,
+		localisation : {
+			rue : "",
+			numero : "",
+			codePostal : undefined,
+			localite : "",
+			pays : ""
+		}
 
-		};
+	};
+
+	conseillerProvider.getAllConseiller(function(callback) {
+		$scope.listeConseillers = callback;
+	})
+
+	clientProvider.getAllClient(function(callback) {
+		$scope.listeClients = callback;
+	})
+
+	proprietaireProvider.getAllProprietaire(function(callback) {
+		$scope.listeProprietaires = callback;
+	})
 
 	if ($rootScope.bienImmobilierFormRoot != null) {
 		$scope.bienImmobilierForm = $rootScope.bienImmobilierFormRoot;

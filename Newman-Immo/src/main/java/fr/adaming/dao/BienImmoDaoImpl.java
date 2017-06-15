@@ -52,6 +52,10 @@ public class BienImmoDaoImpl implements IBienImmoDao {
 			biBD.setDateSoumission(bi.getDateSoumission());
 			biBD.setRevenuCadastral(bi.getRevenuCadastral());
 			biBD.setLocalisation(bi.getLocalisation());
+			biBD.setConseiller(bi.getConseiller());
+			biBD.setClasseStandard(bi.getClasseStandard());
+			biBD.setClientAcquereur(bi.getClientAcquereur());
+			biBD.setProprietaire(bi.getProprietaire());
 			s.merge(biBD);
 			return 1;
 		} catch (Exception ex) {
