@@ -38,8 +38,7 @@ monApp.factory('bienImmobilierProvider', function($http, $location) {
 	}
 	
 	function updateBienImmobilier(bienImmobilierToUpdate,callback){
-		bienImmobilierToUpdate.photo = bienImmobilierToUpdate.photo.base64
-
+		bienImmobilierToUpdate.photo = bienImmobilierToUpdate.photo.base64;
 		$http({	method:'PUT',
 				data:angular.toJson(bienImmobilierToUpdate),
 				headers:{'content-Type':'application/json'},
