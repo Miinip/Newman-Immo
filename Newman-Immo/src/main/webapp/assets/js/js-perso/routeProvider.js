@@ -24,5 +24,10 @@ monApp.config(function($routeProvider){
                  .when('/contrat/all',{controller:'ctrlAllContrat',templateUrl:'assets/templates/contrat/getall.html'})
                  .when('/contrat/add',{controller:'ctrlAddContrat',templateUrl:'assets/templates/contrat/add.html'})
                  .when('/contrat/update',{controller:'ctrlUpdateContrat',templateUrl:'assets/templates/contrat/update.html'})
+                 .when('/classeStandard/one',{controller:'ctrlOneClasseStandard',templateUrl:'assets/templates/classeStandard/getone.html'})
+                 .when('/classeStandard/all',{controller:'ctrlAllClasseStandard',templateUrl:'assets/templates/classeStandard/getall.html'})
+                 .when('/classeStandard/add',{controller:'ctrlAddClasseStandard',templateUrl:'assets/templates/classeStandard/add.html'})
+                 .when('/classeStandard/update',{controller:'ctrlUpdateClasseStandard',templateUrl:'assets/templates/classeStandard/update.html'})
+                 
                  .otherwise({redirectTo:'/home'});
 	});

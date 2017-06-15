@@ -1,0 +1,32 @@
+<div>
+	<div class="page-header">
+		<h3 id="tables">{{msg}}</h3>
+	</div>
+	<form name="updateForm">
+	
+<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="number" ng-model="classeStandardForm.code" placeholder="Code"class="form-control" disabled>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<input type="text" ng-model="classeStandardForm.modeOffre" placeholder="ModeOffre;"class="form-control">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="number" ng-model="classeStandardForm.prix" placeholder="Prix"class="form-control">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="text" ng-model="classeStandardForm.superficie" placeholder="Superficie" class="form-control">
+				</div>
+			</div>
+		</div>
+		
+		<button type="submit" ng-click="modifier()" class="btn btn-primary pull-right">Edit</button>
+	</form>
+</div>
