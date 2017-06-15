@@ -17,7 +17,12 @@
 			</div>
 			<div class="col-md-2">
 				<div class="form-group">
-					<input type="text"ng-model="bienImmobilierForm.statut" placeholder="Statut" class="form-control" required>
+					<select name="statuts" ng-model="bienImmobilierForm.statut" class="form-control" required>
+						<option value="disponible">Disponible</option>
+						<option value="loue">Lou&#233;</option>
+						<option value="achete">Achet&#233;</option>
+					</select>
+<!-- 					<input type="text"ng-model="bienImmobilierForm.statut" placeholder="Statut" class="form-control" required> -->
 				</div>
 			</div>
 			<div class="col-md-2">
@@ -48,7 +53,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="text" ng-model="bienImmobilierForm.localisation.numero" placeholder="N°"class="form-control">
+					<input type="text" ng-model="bienImmobilierForm.localisation.numero" placeholder="N&#176;"class="form-control">
 				</div>
 			</div>
 			<div class="col-md-8">
@@ -61,7 +66,7 @@
 		<div class="row">
 			<div class="col-md-2">
 				<div class="form-group">
-					<input type="number" ng-model="bienImmobilierForm.localisation.codePostal" placeholder="CP" class="form-control">
+					<input type="number" ng-model="bienImmobilierForm.localisation.codePostal" placeholder="Code postal" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-8">

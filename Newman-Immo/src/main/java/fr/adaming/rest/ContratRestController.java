@@ -30,7 +30,7 @@ public class ContratRestController {
 	
 	
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value="/add",method=RequestMethod.POST,consumes="applicaiton/json")
+	@RequestMapping(value="/add",method=RequestMethod.POST,consumes="application/json")
 	public ResponseEntity addContratRest (@RequestBody Contrat contrat){
 		int status = contratService.addContrat(contrat);
 		if(status==1){
