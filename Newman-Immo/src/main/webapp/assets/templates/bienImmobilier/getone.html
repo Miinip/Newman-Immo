@@ -22,41 +22,40 @@
 	</div>
 
 	<div ng-show="bienImmobilier.id != undefined">
+	
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-xs-3">
+				<div class="form-group">
+					<img ng-src="data:image/JPEG;base64,{{bienImmobilier.photo}}" >
+				</div>
+			</div>
+
+			<div class="col-xs-2">
 				<div class="form-group">
 					<span class="form-control">ID: {{bienImmobilier.id}}</span>
 				</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-xs-3">
 				<div class="form-group">
 					<span class="form-control">Statut : {{bienImmobilier.statut}}</span>
 				</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-xs-4">
 				<div class="form-group">
 					<span class="form-control">Classe standard : {{bienImmobilier.classeStandard}}</span>
 				</div>
-			</div>
-			<div class="col-md-6">
+			</div>	
+			<div class="col-xs-3">
 				<div class="form-group">
-					<span class="form-control">Photo : {{bienImmobilier.photo}}</span>
+					<span class="form-control">Soumission : {{bienImmobilier.dateSoumission}}</span>
 				</div>
 			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-3">
+			<div class="col-xs-3">
 				<div class="form-group">
-					<span class="form-control">Date de soumission : {{bienImmobilier.dateSoumission}}</span>
+					<span class="form-control">Mise à dispo : {{bienImmobilier.dateMiseDispo}}</span>
 				</div>
 			</div>
-			<div class="col-md-3">
-				<div class="form-group">
-					<span class="form-control">Date de mise à dispo : {{bienImmobilier.dateMiseDispo}}</span>
-				</div>
-			</div>
-			<div class="col-md-3">
+			<div class="col-xs-3">
 				<div class="form-group">
 					<span class="form-control">Revenu cadastral : {{bienImmobilier.revenuCadastral}}</span>
 				</div>
@@ -97,17 +96,17 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<span class="form-control">Proprietaire : {{bienImmobilier.proprietaire}}</span>
+					<span class="form-control">Proprietaire : #{{bienImmobilier.proprietaire.id}} {{bienImmobilier.proprietaire.nom}}</span>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<span class="form-control">Conseiller : {{bienImmobilier.conseiller}}</span>
+					<span class="form-control">Conseiller : #{{bienImmobilier.conseiller.id}} {{bienImmobilier.conseiller.nom}}</span>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<span class="form-control">Client acquereur : {{bienImmobilier.clientAcquereur}}</span>
+					<span class="form-control">Client acquereur : #{{bienImmobilier.clientAcquereur.id}} {{bienImmobilier.clientAcquereur.nom}}</span>
 				</div>
 			</div>
 		</div>

@@ -31,7 +31,7 @@
 				ng-mouseover="doShow(bienImmobilier.id)"
 				ng-mouseleave="doHide(bienImmobilier.id)">
 				<td>{{bienImmobilier.id}}</td>
-				<td>{{bienImmobilier.photo}}</td>
+				<td><img ng-src="data:image/JPEG;base64,{{bienImmobilier.photo}}" width="150"></td>
 				<td>{{bienImmobilier.statut}}</td>
 				<td>{{bienImmobilier.classeStandard}}</td>
 				<td>{{bienImmobilier.dateSoumission}}</td>

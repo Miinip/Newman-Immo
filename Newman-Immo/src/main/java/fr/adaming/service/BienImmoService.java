@@ -59,9 +59,15 @@ public class BienImmoService implements IBienImmoService {
 	}
 
 	public int updateBienImmo(BienImmobilier bi) {
-		bi.setConseiller(conDao.getByIdConseillerDao(bi.getId()));
-		bi.setClientAcquereur(clDao.getByIdClient(bi.getId()));
-		bi.setProprietaire(pDao.getOnePropbyId(bi.getId()));
+		if(bi.getConseiller()!=null){
+			bi.setConseiller(conDao.getByIdConseillerDao(bi.getConseiller().getId()));
+		}
+		if(bi.getClientAcquereur()!=null){
+			bi.setClientAcquereur(clDao.getByIdClient(bi.getClientAcquereur().getId()));
+		}
+		if(bi.getProprietaire()!=null){
+			bi.setProprietaire(pDao.getOnePropbyId(bi.getProprietaire().getId()));
+		}
 		return bDao.updateBienImmo(bi);
 	}
 
