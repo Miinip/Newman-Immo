@@ -46,8 +46,8 @@
 	<script src="assets/js/js-perso/controllerClasseStandard.js" type="text/javascript"></script>
 </head>
 
-<body ng-app="monApp">
-	<nav class="nav-side-menu" role="navigation" ng-include="'assets/templates/navbar.html'"></nav>
+<body ng-app="monApp" >
+	<nav class="nav-side-menu" role="navigation" ng-include="'assets/templates/navbar.html'" ng-hide="!authentification" ></nav>
 	<div id="main">
 		<div class="well container" ng-view></div>
 		<div ng-include="'assets/templates/footer.html'"></div>
