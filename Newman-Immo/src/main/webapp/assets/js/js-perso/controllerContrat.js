@@ -1,5 +1,5 @@
 monApp.controller("ctrlOneContrat", function($scope, $rootScope, $location,
-		contratProvider) {
+		contratProvider,bienImmobilierProvider) {
 	$scope.msg = "One Contrat";
 	$scope.idToFind = undefined;
 	if($rootScope.contratViewRoot != undefined){
@@ -9,6 +9,11 @@ monApp.controller("ctrlOneContrat", function($scope, $rootScope, $location,
 			$scope.contrat = callback;
 		})
 	}
+	
+	bienImmobilierProvider.getAllBienImmobilier(function(callback){
+		$scope.listeBienImmobiliers = callback;
+	})
+	
 	$scope.find = function() {
 		contratProvider.getOneContrat($scope.idToFind, function(callback) {
 			$scope.contrat = callback;

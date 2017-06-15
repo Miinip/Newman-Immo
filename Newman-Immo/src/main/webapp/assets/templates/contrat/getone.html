@@ -39,23 +39,29 @@
 						{{contrat.numeroRef}}</span>
 				</div>
 			</div>
-			<div class="row">
 				<div class="col-md-5">
 					<div class="form-group">
 						<span class="form-control">Prix : {{contrat.prix}}</span>
 					</div>
 				</div>
+				</div>
+				<div class="row">
 				<div class="col-md-5">
 					<div class="form-group">
-						<span class="form-control">Prix : {{contrat.date}}</span>
+						<span class="form-control">Date : {{contrat.date}}</span>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<span class="form-control">Bien : {{contrat.bien}}</span>
+						<span class="form-control">Bien
+							:{{contrat.bien.localisation.numero}}
+							{{contrat.bien.localisation.rue}}
+							{{contrat.bien.localisation.codePostal}}
+							{{contrat.bien.localisation.localite}},
+							{{contrat.bien.localisation.pays}}</span>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+

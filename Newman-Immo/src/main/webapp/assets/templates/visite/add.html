@@ -3,38 +3,51 @@
 		<h3 id="tables">{{msg}}</h3>
 	</div>
 	<form name="addForm">
-	
+
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					Date :<input type="date" ng-model="visiteForm.date" class="form-control">
+					Date :<input type="date" ng-model="visiteForm.date"
+						class="form-control">
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					Heure :<input type="time" ng-model="visiteForm.heure" class="form-control">
+					Heure :<input type="time" ng-model="visiteForm.heure"
+						class="form-control">
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					Bien immobilier :<select name="repeatBienImmo" ng-model="visiteForm.bienImmo.id" id="selectBienImmo" class="form-control">
-						<option ng-repeat="bienImmobilier in listeBienImmobiliers" value="{{bienImmobilier.id}}">Adresse : {{bienImmobilier.localisation.numero}} {{bienImmobilier.localisation.rue}} {{bienImmobilier.localisation.codePostal}} {{bienImmobilier.localisation.localite}}</option>
+					Bien immobilier :<select name="repeatBienImmo"
+						ng-model="visiteForm.bienImmo.id" id="selectBienImmo"
+						class="form-control">
+						<option ng-repeat="bienImmobilier in listeBienImmobiliers"
+							value="{{bienImmobilier.id}}">Adresse :
+							{{bienImmobilier.localisation.numero}}
+							{{bienImmobilier.localisation.rue}}
+							{{bienImmobilier.localisation.codePostal}}
+							{{bienImmobilier.localisation.localite}}</option>
 					</select>
-<!-- 					<input type="text" ng-model="visiteForm.bienImmo" placeholder="Bien immobilier"class="form-control"> -->
+					<!-- 					<input type="text" ng-model="visiteForm.bienImmo" placeholder="Bien immobilier"class="form-control"> -->
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					Client :<select name="repeatClient" ng-model="visiteForm.clientVisiteur.id" id="selectClient" class="form-control">
-						<option ng-repeat="client in listeClients" value="{{client.id}}">{{client.nom}} {{client.prenom}}</option>
+					Client :<select name="repeatClient"
+						ng-model="visiteForm.clientVisiteur.id" id="selectClient"
+						class="form-control">
+						<option ng-repeat="client in listeClients" value="{{client.id}}">{{client.nom}}
+							{{client.prenom}}</option>
 					</select>
-<!-- 					<input type="text"ng-model="visiteForm.clientVisiteur" placeholder="Client" class="form-control"> -->
+					<!-- 					<input type="text"ng-model="visiteForm.clientVisiteur" placeholder="Client" class="form-control"> -->
 				</div>
 			</div>
 		</div>
 
-		<button type="submit" ng-click="ajouter()" class="btn btn-primary pull-right">Add</button>
+		<button type="submit" ng-click="ajouter()"
+			class="btn btn-primary pull-right">Add</button>
 	</form>
 </div>
