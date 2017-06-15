@@ -46,12 +46,9 @@
 </head>
 
 <body ng-app="monApp">
-	<div ng-include="'assets/templates/navbar.html'"></div>
-
-	<div class="well">
-		<div class="container" ng-view></div>
-	</div>
-
+	<nav class="navbar navbar-inverse" role="navigation" ng-include="'assets/templates/navbar.html'"></nav>
+	<div class="well container" ng-view></div>
+	<div ng-include="'assets/templates/footer.html'"></div>
 </body>
 
 </html>
