@@ -1,68 +1,70 @@
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> 
-				<span class="icon-bar"></span> 
-				<span class="icon-bar"></span> 
-				<span class="icon-bar"></span>
-			</button>
-			<ul class="nav navbar-nav"><li><a class="navbar-brand " href="#!home"><i class="material-icons">home</i></a></li></ul>
-		</div>
 
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				
-				<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Conseiller <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#!conseiller/all">All</a></li>
-						<li><a href="#!conseiller/one">One</a></li>
-						<li><a href="#!conseiller/add">Add</a></li>
-					</ul>
-				</li>
-				<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Client <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#!client/all">All</a></li>
-						<li><a href="#!client/one">One</a></li>
-						<li><a href="#!client/add">Add</a></li>
-					</ul>
-				</li>
-				<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Visite <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#!visite/all">All</a></li>
-						<li><a href="#!visite/one">One</a></li>
-						<li><a href="#!visite/add">Add</a></li>
-					</ul>
-				</li>
-				<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Propri&#233;taire <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#!proprietaire/all">All</a></li>
-						<li><a href="#!proprietaire/one">One</a></li>
-						<li><a href="#!proprietaire/add">Add</a></li>
-					</ul>
-				</li>
-				<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Bien immobilier <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#!bienImmobilier/all">All</a></li>
-						<li><a href="#!bienImmobilier/one">One</a></li>
-						<li><a href="#!bienImmobilier/add">Add</a></li>
-					</ul>
-				</li>
-				</li>
-					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Contrat <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#!contrat/all">All</a></li>
-						<li><a href="#!contrat/one">One</a></li>
-						<li><a href="#!contrat/add">Add</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
+    <div class="brand">Newman-Immo</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content collapse out">
+            <li data-toggle="collapse" data-target="#Mconseiller" class="collapsed">
+                <a href=""> Conseiller <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="Mconseiller">
+						<a href="#!conseiller/all"><li>All</li></a>
+						<a href="#!conseiller/one"><li>One</li></a>
+						<a href="#!conseiller/add"><li>Add</li></a>
+            </ul>
+            
+            <li data-toggle="collapse" data-target="#Mclient" class="collapsed">
+                <a href="">Client <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="Mclient">
+						<a href="#!client/all"><li>All</li></a>
+						<a href="#!client/one"><li>One</li></a>
+						<a href="#!client/add"><li>Add</li></a>
+            </ul>
 
-<script>
-	$(".nav a").on("click", function() {
-		$(".nav").find(".active").removeClass("active");
-		$(this).parent().addClass("active");
-	});
-</script>
+            <li data-toggle="collapse" data-target="#Mvisite" class="collapsed">
+                <a href="">Visite <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="Mvisite">
+						<a href="#!visite/all"><li>All</li></a>
+						<a href="#!visite/one"><li>One</li></a>
+						<a href="#!visite/add"><li>Add</li></a>
+            </ul>
+            
+            <li data-toggle="collapse" data-target="#Mproprietaire" class="collapsed">
+                <a href="">Proprietaire <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="Mproprietaire">
+						<a href="#!proprietaire/all"><li>All</li></a>
+						<a href="#!proprietaire/one"><li>One</li></a>
+						<a href="#!proprietaire/add"><li>Add</li></a>
+            </ul>
+            
+           <li data-toggle="collapse" data-target="#MbienImmobilier" class="collapsed">
+                <a href="">Bien Immobilier <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="MbienImmobilier">
+						<a href="#!bienImmobilier/all"><li>All</li></a>
+						<a href="#!bienImmobilier/one"><li>One</li></a>
+						<a href="#!bienImmobilier/add"><li>Add</li></a>
+            </ul>
+            
+            <li data-toggle="collapse" data-target="#Mcontrat" class="collapsed">
+                <a href="">Contrat <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="Mcontrat">
+						<a href="#!contrat/all"><li>All</li></a>
+						<a href="#!contrat/one"><li>One</li></a>
+						<a href="#!contrat/add"><li>Add</li></a>
+            </ul>
+
+
+
+
+            <li>
+                <a href="">Profile</a>
+            </li>
+            <li>
+                <a href="">Users</a>
+            </li>
+        </ul>
+    </div>
