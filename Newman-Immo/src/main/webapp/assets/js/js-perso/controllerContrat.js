@@ -91,7 +91,7 @@ monApp.controller("ctrlAddContrat",
 		});
 
 monApp.controller("ctrlUpdateContrat", function($scope, $rootScope, $location,
-		contratProvider) {
+		contratProvider,bienImmobilierProvider) {
 	$scope.msg = "Update Contrat";
 	$scope.contratForm = {
 		id: undefined,

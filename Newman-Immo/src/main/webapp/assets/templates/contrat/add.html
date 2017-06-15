@@ -36,10 +36,10 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					Bien immobilier :<select name="repeatBienImmo"
-						ng-model="contratForm.bienImmo" id="selectBienImmo"
+						ng-model="contratForm.bien.id" id="selectBienImmo"
 						class="form-control">
 						<option ng-repeat="bienImmobilier in listeBienImmobiliers"
-							value="{{bienImmobilier}}">Adresse :
+							value="{{bienImmobilier.id}}">Adresse :
 							{{bienImmobilier.localisation.numero}}
 							{{bienImmobilier.localisation.rue}}
 							{{bienImmobilier.localisation.codePostal}}
@@ -48,8 +48,7 @@
 					<!-- 					<input type="text" ng-model="visiteForm.bienImmo" placeholder="Bien immobilier"class="form-control"> -->
 				</div>
 			</div>
-
-
+</div>
 			<button type="submit" ng-click="ajouter()"
 				class="btn btn-primary pull-right">Add</button>
 	</form>
