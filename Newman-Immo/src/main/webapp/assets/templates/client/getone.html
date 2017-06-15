@@ -52,14 +52,6 @@
 				</div>
 			</div>
 		</div>
-		
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group">
-					<span class="form-control">Liste de voeux : {{client.listeVoeux}}</span>
-				</div>
-			</div>
-		</div>
 
 		<div class="row">
 			<div class="col-md-4">
@@ -92,6 +84,24 @@
 			</div>
 		</div>
 
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>ModeOffre</th>
+				<th>Prix</th>
+				<th>Superficie</th>
+			</tr>
+	</thead>
+	<tbody>
+				<tr ng-repeat="classeStandard in client.listeVoeux | filter:recherche" ng-mouseover="doShow(bienImmobilier.id)" ng-mouseleave="doHide(bienImmobilier.id)">
+					<td>{{classeStandard.code}}</td>
+					<td>{{classeStandard.modeOffre}}</td>
+					<td>{{classeStandard.prix}}</td>
+					<td>{{classeStandard.superficie}}</td>
+				</tr>
+			</tbody>
+	</table>
 			
 			
 		</div>
