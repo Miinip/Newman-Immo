@@ -15,11 +15,7 @@
 				<th>Prenom</th>
 				<th>N&#176; Pro</th>
 				<th>N&#176; Perso</th>
-				<th>Rue</th>
-				<th>Numero</th>
-				<th>Code postal</th>
-				<th>Ville</th>
-				<th>Pays</th>
+				<th>Adresse</th>
 				<th class="text-right">-</th>
 			</tr>
 		</thead>
@@ -30,11 +26,7 @@
 				<td>{{proprietaire.prenom}}</td>
 				<td>{{proprietaire.telPro}}</td>
 				<td>{{proprietaire.telPerso}}</td>
-				<td>{{proprietaire.adresse.rue}}</td>
-				<td>{{proprietaire.adresse.numero}}</td>
-				<td>{{proprietaire.adresse.codePostal}}</td>
-				<td>{{proprietaire.adresse.localite}}</td>
-				<td>{{proprietaire.adresse.pays}}</td>
+				<td>{{proprietaire.adresse.rue}}, {{proprietaire.adresse.numero}}, {{proprietaire.adresse.codePostal}}, {{proprietaire.adresse.localite}}, {{proprietaire.adresse.pays}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group" ng-show="MouseOverRow[proprietaire.id]">
 						<i ng-click="vue(proprietaire.id)" class="material-icons btn-success btn-xs">search</i>
