@@ -24,6 +24,7 @@ monApp.factory('bienImmobilierProvider', function($http, $location) {
 	}
 	
 	function addBienImmobilier(bienImmobilierToAdd,callback){
+		bienImmobilierToAdd.photo = bienImmobilierToAdd.photo.base64;
 		$http({	method:'POST',
 				data:angular.toJson(bienImmobilierToAdd),
 				headers:{'content-Type':'application/json'},

@@ -4,18 +4,19 @@
 	</div>
 	<form name="addForm">
 		<div class="row">
-			<div class="col-md-4">
+		
+			<div class="col-xs-4">
 				<div class="form-group">
-					<input type="file" ng-model="bienImmobilierForm.photo"
-						onchange="angular.element(this).scope().setFile(this)"
-						accept="image/*" class="form-control">
+					<img id="trigger" ng-src="{{image_source}}" style="float: right; max-height: 200px; margin-right: 15px;" vspace="20" />
+					
 				</div>
 			</div>
-			<img id="trigger" ng-src="{{image_source}}"
-				style="float: right; max-height: 200px; margin-right: 15px;" />
-		</div>
-		<div class="row">
-			<div class="col-md-2">
+			
+			<div class="col-xs-2">
+				<input type="file" id="selectedFile" ng-model="bienImmobilierForm.photo" accept="image/*" class="form-control" style="display: none;" onchange="angular.element(this).scope().setFile(this)" base-sixty-four-input>
+				<input type="button" value="Browse..." onclick="document.getElementById('selectedFile').click();" class="btn btn-primary pull-right" />
+			</div>
+			<div class="col-xs-3">
 				<div class="form-group">
 					<select name="statuts" ng-model="bienImmobilierForm.statut"
 						class="form-control">
@@ -25,26 +26,26 @@
 					</select>
 				</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-xs-3">
 				<div class="form-group">
 					<input type="number" ng-model="bienImmobilierForm.revenuCadastral"
 						placeholder="Revenu cadastral" class="form-control">
 				</div>
 			</div>
-		</div>
- 
-		<div class="row">
-			<div class="col-md-6">
+			
+			<div class="col-xs-offset-4">
+			<div class="col-xs-6 ">
 				<div class="form-group">
 					Date de soumission :<input type="date"
 						ng-model="bienImmobilierForm.dateSoumission" class="form-control">
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<div class="form-group">
 					Date de mise &#224; disponibilit&#233; :<input type="date"
 						ng-model="bienImmobilierForm.dateMiseDispo" class="form-control">
 				</div>
+			</div>
 			</div>
 		</div>
 
