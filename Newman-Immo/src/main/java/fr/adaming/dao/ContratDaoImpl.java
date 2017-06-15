@@ -35,7 +35,12 @@ public class ContratDaoImpl implements IContratDao {
 	public int updateContrat(Contrat c) {
 		s = sf.getCurrentSession();
 		try {
-			s.saveOrUpdate(c);
+			Contrat cBD=(Contrat) s.get(Contrat.class, c.getId());
+			cBD.setDate(c.getDate());
+			cBD.setNumeroRef(c.getNumeroRef());
+			cBD.setPrix(c.getPrix());
+			cBD.setBien(c.getBien());
+			s.merge(cBD);
 			return 1;
 		} catch (Exception ex) {
 			return 0;
