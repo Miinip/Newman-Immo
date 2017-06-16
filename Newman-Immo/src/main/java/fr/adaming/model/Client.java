@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -11,11 +12,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.Proxy;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "clients")
@@ -28,7 +25,7 @@ public class Client extends Personne {
 	private List<ClasseStandard> listeVoeux;
 
 	@Fetch(FetchMode.SELECT)
-	@OneToMany(mappedBy = "clientVisiteur", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "clientVisiteur", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private List<Visite> listeVisitePrevue;
 
 	@OneToOne(mappedBy = "clientAcquereur")

@@ -2,7 +2,6 @@ package fr.adaming.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,7 +19,7 @@ public class Conseiller extends Personne {
 	private String login;
 	private String password;
 
-	@OneToMany(mappedBy = "conseiller", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
 	private List<BienImmobilier> ListeGestionDesBien;
 
 	/** Constructeur vide */
