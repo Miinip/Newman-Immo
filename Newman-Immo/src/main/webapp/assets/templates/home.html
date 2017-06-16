@@ -20,7 +20,7 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="bienImmobilier in conseiller.listeGestionDesBien | filter:recherche" ng-mouseover="doShow(bienImmobilier.id)" ng-mouseleave="doHide(bienImmobilier.id)">
-						<th ng-repeat="visite in listeVisites | filter:visite.bienImmo.id:bienImmobilier.id" colspan="7">{{visite.date}} {{visite.heure}}  {{visite.clientVisiteur.nom}} {{visite.clientVisiteur.prenom}}</th>
+						<th ng-repeat="visite in listeVisites | filter:bienImmobilier.id:visite.bienImmo.id" colspan="7">{{visite.date}} {{visite.heure}}  {{visite.clientVisiteur.nom}} {{visite.clientVisiteur.prenom}}</th>
 				</tr>
 				
 			</tbody>
