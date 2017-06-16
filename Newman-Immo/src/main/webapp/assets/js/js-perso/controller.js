@@ -26,7 +26,8 @@ monApp.controller("ctrlHome",function($scope,$rootScope,$cookies,conseillerProvi
 });
 
 monApp.controller("ctrlLogin",function($scope,$location,$rootScope,conseillerProvider,$cookies){
-	$scope.msg = "Login";
+	$scope.msg1 = "Gestion Agence Newman-Immo";
+	$scope.msg2 = "Connexion";
 	$scope.me = {login:"",
 				 password:""
 	}
