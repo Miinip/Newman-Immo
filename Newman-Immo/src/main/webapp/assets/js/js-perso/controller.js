@@ -1,8 +1,10 @@
-monApp.controller("ctrlNav",function($scope,$rootScope, $location){
+monApp.controller("ctrlNav",function($scope,$rootScope,$location,$cookies){
 	
 	$scope.logout = function() {
 		$rootScope.authentification=false;
-		$location.path('/login');
+		$cookies.put('authentification', false);
+		$cookies.put('myID', 0);
+		$location.path('/home');
 	}
 });
 
@@ -11,7 +13,7 @@ monApp.controller("ctrlHome",function($scope,$rootScope){
 
 });
 
-monApp.controller("ctrlLogin",function($scope,$location,$rootScope,conseillerProvider){
+monApp.controller("ctrlLogin",function($scope,$location,$rootScope,conseillerProvider,$cookies){
 	$scope.msg = "Login";
 	$scope.me = {login:"",
 				 password:""
@@ -25,7 +27,9 @@ monApp.controller("ctrlLogin",function($scope,$location,$rootScope,conseillerPro
 		 $scope.listeConseillers.forEach(function(element) {
 			 if($scope.me.login == element.login && $scope.me.password == element.password){
 			 $rootScope.authentification=true;
-			 $rootScope.me = element;
+			 $rootScope.myID = element.id;
+			 $cookies.put('authentification', true);
+			 $cookies.put('myID', element.id);
 			 $location.path('/home');
 		 }
 		});
