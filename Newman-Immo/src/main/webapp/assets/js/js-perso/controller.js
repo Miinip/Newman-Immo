@@ -28,7 +28,7 @@
 		visiteProvider.getAllVisite(function(callback){
 			$scope.listeVisites = callback;
 			 $scope.listeVisites.forEach(function(element) {
-				 $scope.bienImmobilier.forEach(function(element2) {
+				 $scope.listeBienImmobiliers.forEach(function(element2) {
 					 if(element2.id == element.bienImmo.id && $cookies.get('myID') == element2.conseiller.id){
 						 $scope.myListeVisites.push(element);
 					 }
