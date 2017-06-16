@@ -27,8 +27,10 @@
 				<td>{{visite.clientVisiteur.nom}} {{visite.clientVisiteur.prenom}}</td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group" ng-show="MouseOverRow[visite.id]">
+						<i ng-click="vue(visite.id)" class="material-icons btn-success btn-xs">search</i>
 						<i ng-click="modifier(visite)" class="material-icons btn-info btn-xs">mode_edit</i>
 						<i ng-click="supprimer(visite.id)" class="material-icons btn-danger btn-xs">clear</i>
+						
 					</div>
 				</td>
 			</tr>

@@ -1,14 +1,20 @@
 monApp.controller("ctrlOneVisite",function($scope,$rootScope,$location,visiteProvider){
 	$scope.msg = "One Visite";
 	$scope.idToFind =undefined;
-	
+	if($rootScope.visiteViewRoot != undefined){
+		$scope.idToFind = $rootScope.visiteViewRoot;
+		$rootScope.visiteViewRoot = undefined;
+		visiteProvider.getOneVisite($scope.idToFind,function(callback){
+			$scope.visite = callback;
+		})
+	}
 	$scope.find = function(){
 		visiteProvider.getOneVisite($scope.idToFind,function(callback){
 			$scope.visite = callback;
 		})
 	}
 	
-	$scope.suprimer = function(){
+	$scope.supprimer = function(){
 		visiteProvider.doDeleteVisite($scope.Visite.id,function(callback){
 			if(callback == "OK"){
 				$location.path('/visite/all');
@@ -42,6 +48,11 @@ monApp.controller("ctrlAllVisite",function($scope,$rootScope,$location,visitePro
 	$scope.modifier = function(visiteToUpdate){
 		$rootScope.visiteFormRoot = visiteToUpdate;
 		$location.path('/visite/update');
+	}
+	
+	$scope.vue = function(visiteToView){
+		$rootScope.visiteViewRoot = visiteToView;
+		$location.path('/visite/one');
 	}
 	
 	$scope.MouseOverRow = {};
