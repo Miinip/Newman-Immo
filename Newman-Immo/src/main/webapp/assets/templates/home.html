@@ -12,31 +12,17 @@
 			</div>
 		</div>
 	
-	
-	<h2 id="tables"> Liste de mes bien à gerer </h2>
 	<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th>#</th>
-					<th>Photo</th>
-					<th>Statut</th>
-					<th>Date de soumission</th>
-					<th>Date de mise &#224; dispo</th>
-					<th>Revenu cadastral</th>
-					<th>Adresse</th>
+					<th>Liste de mes visites</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="bienImmobilier in conseiller.listeGestionDesBien | filter:recherche" ng-mouseover="doShow(bienImmobilier.id)" ng-mouseleave="doHide(bienImmobilier.id)">
-					<td>{{bienImmobilier.id}}</td>
-					<td><img ng-src="data:image/JPEG;base64,{{bienImmobilier.photo}}" width="150"></td>
-					<td>{{bienImmobilier.statut}}</td>
-					<td>{{bienImmobilier.dateSoumission}}</td>
-					<td>{{bienImmobilier.dateMiseDispo}}</td>
-					<td>{{bienImmobilier.revenuCadastral | number:2}} &#8364;</td>
-					<td>{{bienImmobilier.localisation.numero}} {{bienImmobilier.localisation.rue}} {{bienImmobilier.localisation.codePostal}} {{bienImmobilier.localisation.localite}} {{bienImmobilier.localisation.pays}}</td>
+						<th ng-repeat="visite in listeVisites | filter:visite.bienImmo.id:bienImmobilier.id" colspan="7">{{visite.date}} {{visite.heure}}  {{visite.clientVisiteur.nom}} {{visite.clientVisiteur.prenom}}</th>
 				</tr>
-				<th ng-repeat="visite in listeVisites | filter:visite.bienImmo.id:bienImmobilier.id" colspan="7">{{visite.date}} {{visite.heure}}  {{visite.clientVisiteur.nom}} {{visite.clientVisiteur.prenom}}</th>
+				
 			</tbody>
 		</table>
 	
