@@ -19,7 +19,6 @@
 				<th>Date de mise &#224; dispo</th>
 				<th>Revenu cadastral</th>
 				<th>Adresse</th>
-				<th>Geolocalisation</th>
 				<th class="text-right">-</th>
 			</tr>
 		</thead>
@@ -40,18 +39,18 @@
 					{{bienImmobilier.localisation.codePostal}}
 					{{bienImmobilier.localisation.localite}},
 					{{bienImmobilier.localisation.pays}}</td>
-				<td style="text-align: center;"><a
-			ng-href="https://www.google.fr/maps/place/{{bienImmobilier.localisation.numero}}+{{bienImmobilier.localisation.rue}},+{{bienImmobilier.localisation.codePostal}}+{{bienImmobilier.localisation.localite}}"
-			target="_blank"><img style="width: 25px" src="assets/img/Google-Latitude-app-icon.jpg" ></a></td>
 				<td class="text-right col-md-1">
 					<div class="btn-group" role="group"
 						ng-show="MouseOverRow[bienImmobilier.id]">
-						<i ng-click="vue(bienImmobilier.id)"
-							class="material-icons btn-success btn-xs">search</i> <i
+						<i ng-click="vue(bienImmobilier.id)" class="material-icons btn-success btn-xs">search</i> 
+						<i
 							ng-click="modifier(bienImmobilier)"
 							class="material-icons btn-info btn-xs">mode_edit</i> <i
 							ng-click="supprimer(bienImmobilier.id)"
 							class="material-icons btn-danger btn-xs">clear</i>
+							<a
+			ng-href="https://www.google.fr/maps/place/{{bienImmobilier.localisation.numero}}+{{bienImmobilier.localisation.rue}},+{{bienImmobilier.localisation.codePostal}}+{{bienImmobilier.localisation.localite}}"
+			target="_blank"><img style="width: 25px" src="assets/img/Google-Latitude-app-icon.jpg" ></a>
 					</div>
 				</td>
 			</tr>
