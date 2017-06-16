@@ -12,6 +12,28 @@
 			</div>
 		</div>
 	
+	<h2 id="tables"> Liste de mes Visite</h2>
+		<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<td>Date</td>
+				<td>Heure</td>
+				<td>Bien immobilier</td>
+				<td>Client</td>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="visite in myListeVisites | filter:recherche" ng-mouseover="doShow(visite.id)" ng-mouseleave="doHide(visite.id)">
+				<td>{{visite.id}}</td>
+				<td>{{visite.date}}</td>
+				<td>{{visite.heure}}</td>
+				<td>{{visite.bienImmo.localisation.numero}} {{visite.bienImmo.localisation.rue}} {{visite.bienImmo.localisation.codePostal}} {{visite.bienImmo.localisation.localite}}</td>
+				<td>{{visite.clientVisiteur.nom}} {{visite.clientVisiteur.prenom}}</td>
+			</tr>
+		</tbody>
+	</table>
 	
 	
 	
