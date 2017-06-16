@@ -24,8 +24,8 @@
 				
 			</tr>
 		</thead>
-		<tbody>
-			<tr ng-repeat="visite in myListeVisites | filter:recherche" ng-mouseover="doShow(visite.id)" ng-mouseleave="doHide(visite.id)">
+		<tbody ng-repeat="BienRecherche in listeBienImmobiliers | filter:BienRecherche.conseiller.id:conseiller.id">
+			<tr ng-repeat="visite in listeVisites | filter:visite.bienImmo:BienRecherche" ng-mouseover="doShow(visite.id)" ng-mouseleave="doHide(visite.id)">
 				<td>{{visite.id}}</td>
 				<td>{{visite.date}}</td>
 				<td>{{visite.heure}}</td>
