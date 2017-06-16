@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -62,11 +63,11 @@ public class BienImmobilier implements Serializable{
 	private Conseiller conseiller;
 
 	@Fetch(FetchMode.SELECT)
-	@OneToMany(mappedBy = "bienImmo", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "bienImmo", fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	private List<Visite> listeVisites;
 
 	@Fetch(FetchMode.SELECT)
-	@OneToMany(mappedBy = "bien",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "bien",fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private List<Contrat> listeContrats;
 
 	@OneToOne
