@@ -27,6 +27,7 @@
 				<div class="form-group">
 					Bien immobilier :<select name="repeatBienImmo" ng-model="visiteFrom.bienImmo.id" id="selectBienImmo" class="form-control">
 						<option ng-repeat="bienImmobilier in listeBienImmobiliers" value="{{bienImmobilier.id}}">{{bienImmobilier.statut}}, soumis le : {{bienImmobilier.dateSoumission}}, dispo le : {{bienImmobilier.dateMiseDispo}}, Adresse : {{bienImmobilier.localisation.numero}} {{bienImmobilier.localisation.rue}}, {{bienImmobilier.localisation.codePostal}}, {{bienImmobilier.localisation.localite}}, {{bienImmobilier.localisation.pays}}</option>
+						<option value="0">-----------XXXXXX-------------</option>
 					</select>
 				</div>
 			</div>
@@ -37,6 +38,7 @@
 				<div class="form-group">
 					Client :<select name="repeatClient" ng-model="visiteFrom.clientVisiteur.id" id="selectClient" class="form-control">
 						<option ng-repeat="client in listeClients" value="{{client.id}}">{{client.nom}} {{client.prenom}}</option>
+						<option value="0">-----------XXXXXX-------------</option>
 					</select>
 				</div>
 			</div>

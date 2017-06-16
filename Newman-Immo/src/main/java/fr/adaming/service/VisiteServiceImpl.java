@@ -51,12 +51,19 @@ public class VisiteServiceImpl implements IVisiteService{
 
 	public int updateVisite(Visite v) {
 		if(v.getBienImmo()!=null){
+			if(v.getBienImmo().getId()==0){
+				v.setBienImmo(null);
+			}else{
 			v.setBienImmo(bDao.getById(v.getBienImmo().getId()));;
 		}
+		}
 		if(v.getClientVisiteur()!=null){
+			if(v.getClientVisiteur().getId()==0){
+				v.setClientVisiteur(null);
+			}else{
 			v.setClientVisiteur(clDao.getByIdClient(v.getClientVisiteur().getId()));
 		}
-		
+		}
 		return visiteDao.updateVisite(v);
 	}
 
