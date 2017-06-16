@@ -59,6 +59,10 @@ public class BienImmoService implements IBienImmoService {
 	}
 
 	public int updateBienImmo(BienImmobilier bi) {
+		if(bi.getPhoto()==null){
+				bi.setPhoto(bDao.getById(bi.getId()).getPhoto());
+		}
+		
 		if(bi.getConseiller()!=null){
 			if(bi.getConseiller().getId()==0){
 				bi.setConseiller(null);
