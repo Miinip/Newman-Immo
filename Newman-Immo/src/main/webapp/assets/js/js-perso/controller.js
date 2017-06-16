@@ -16,10 +16,19 @@
 			$scope.listeBienImmobiliers = callback;
 		})
 		
+		conseillerProvider.getAllConseiller(function(callback){
+			 $scope.listeConseillers = callback;
+			 $scope.listeConseillers.forEach(function(element) {
+				 if($cookies.get('myID') == element.id){
+					 $scope.conseiller = element;
+				 }
+			 });
+		});
+		
 		visiteProvider.getAllVisite(function(callback){
 			$scope.listeVisites = callback;
 			 $scope.listeVisites.forEach(function(element) {
-				 $scope.bienImmobilierProvider.forEach(function(element2) {
+				 $scope.bienImmobilier.forEach(function(element2) {
 					 if(element2.id == element.bienImmo.id && $cookies.get('myID') == element2.conseiller.id){
 						 $scope.myListeVisites.push(element);
 					 }
@@ -29,14 +38,7 @@
 		
 
 		
-		conseillerProvider.getAllConseiller(function(callback){
-			 $scope.listeConseillers = callback;
-			 $scope.listeConseillers.forEach(function(element) {
-				 if($cookies.get('myID') == element.id){
-					 $scope.conseiller = element;
-				 }
-			 });
-		});
+
 		
 
 		 
