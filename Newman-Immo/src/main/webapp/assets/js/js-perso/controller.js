@@ -2,14 +2,26 @@ monApp.controller("ctrlNav",function($scope,$rootScope,$location,$cookies){
 	
 	$scope.logout = function() {
 		$rootScope.authentification=false;
-		$cookies.put('authentification', false);
-		$cookies.put('myID', 0);
+		$cookies.remove('authentification');
+		$cookies.remove('myID');
 		$location.path('/home');
 	}
 });
 
-monApp.controller("ctrlHome",function($scope,$rootScope){
+monApp.controller("ctrlHome",function($scope,$rootScope,$cookies,conseillerProvider){
 	$scope.msg = "Home";
+	
+	conseillerProvider.getAllConseiller(function(callback){
+		 $scope.listeConseillers = callback;
+		 $scope.listeConseillers.forEach(function(element) {
+			 if($cookies.get('myID') == element.id){
+				 $scope.conseiller = element;
+			 }
+		 });
+
+	
+	});
+		 
 
 });
 
